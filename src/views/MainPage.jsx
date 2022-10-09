@@ -1,12 +1,10 @@
 import { useState } from "react";
-import LogoImg from "../asset/Logo-hodu.svg";
+import Header from "../components/Header.jsx";
 
 function MainPage() {
   return (
     <>
-      <header>
-        <img src={LogoImg} alt="로고 이미지" />
-      </header>
+      <Header />
     </>
   );
 }
