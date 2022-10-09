@@ -2,22 +2,44 @@ import LogoImg from "../asset/Logo-hodu.svg";
 import SearchImg from "../asset/search.svg";
 import CartImg from "../asset/shopping-cart.svg";
 import UserImg from "../asset/user.svg";
+import styles from "./styles/Header.module.css";
 
 function Header() {
+  function clickSearch() {
+    console.log("찾기!");
+  }
+
   return (
-    <>
-      <header>
-        <div className="">
-          <img className="" src={LogoImg} alt="로고" />
-          <input className="" type="text" placeholder="상품을 검색해보세요!" />
-          <img className="" src={SearchImg} alt="검색" />
+    <header className={styles.header}>
+      <div className={styles.headerLeftSide}>
+        <img className={styles.logoImg} src={LogoImg} alt="로고" />
+        <div className={styles.searchConatiner}>
+          <input
+            className={styles.searchInput}
+            type="text"
+            placeholder="상품을 검색해보세요!"
+          />
+          <img
+            className={styles.searchImg}
+            onClick={clickSearch}
+            src={SearchImg}
+            alt="검색"
+          />
         </div>
-        <div className="">
-          <img className="" src={CartImg} alt="장바구니" />
-          <img className="" src={UserImg} alt="로그인 및 마이페이지" />
+      </div>
+      <div className={styles.headerRightSide}>
+        <div className={styles.cartContainer}>
+          <img className={styles.cart} src={CartImg} alt="장바구니" />
         </div>
-      </header>
-    </>
+        <div className={styles.userContainer}>
+          <img
+            className={styles.user}
+            src={UserImg}
+            alt="로그인 및 마이페이지"
+          />
+        </div>
+      </div>
+    </header>
   );
 }
 

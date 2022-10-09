@@ -1,0 +1,79 @@
+header {
+  display: flex;
+  height: 90px;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1);
+}
+
+.headerLeftSide {
+  display: inline-block;
+  width: 50%;
+}
+
+.logoImg {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+.searchConatiner {
+  display: inline-block;
+  position: relative;
+  width: 50%;
+}
+
+.searchInput {
+  /* width: 400px; */
+  width: 100%;
+  margin-left: 30px;
+  background: #ffffff;
+  border: 2px solid #21bf48;
+  border-radius: 50px;
+  padding: 10px;
+  vertical-align: top;
+}
+
+.searchInput:focus {
+  outline: none;
+}
+
+.searchImg {
+  position: absolute;
+  top: 5px;
+  right: -30px;
+}
+
+.headerRightSide {
+  display: flex;
+}
+
+.cartContainer {
+  text-align: center;
+}
+
+.cartContainer::after {
+  content: "장바구니";
+  display: block;
+  font-family: "Spoqa Han Sans Neo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: #767676;
+}
+
+.userContainer {
+  margin-left: 30px;
+}
+
+.userContainer::after {
+  content: "로그인";
+  display: block;
+  font-family: "Spoqa Han Sans Neo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: #767676;
+}
