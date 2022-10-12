@@ -1,4 +1,4 @@
-import styles from "./styles/Product.module.css";
+import styles from "./styles/Slide.module.css";
 import Slider from "react-slick";
 import bookImg from "../asset/book.jpg";
 import cooperationImg from "../asset/협업.jpg";
@@ -6,12 +6,12 @@ import profileImg from "../asset/프로필2.jpg";
 
 function SlideImg() {
   const settings = {
-    dots: true, // 슬라이드 밑에 점 보이게
+    dots: true, // 슬라이드 포인트
     infinite: true, // 무한으로 반복
     speed: 500,
     arrows: true,
     slidesToShow: 1, // 1장씩 보이게
-    slidesToScroll: 1, // 1장씩 뒤로 넘어가게
+    slidesToScroll: 1, // 1장씩 넘어가게
   };
 
   return (
