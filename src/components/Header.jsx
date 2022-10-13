@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import LogoImg from "../asset/Logo-hodu.svg";
 import SearchImg from "../asset/search.svg";
 import CartImg from "../asset/shopping-cart.svg";
@@ -31,13 +32,15 @@ function Header() {
         <div className={styles.cartContainer}>
           <img className={styles.cart} src={CartImg} alt="장바구니" />
         </div>
-        <div className={styles.userContainer}>
-          <img
-            className={styles.user}
-            src={UserImg}
-            alt="로그인 및 마이페이지"
-          />
-        </div>
+        <Link to="/login">
+          <div className={styles.userContainer}>
+            <img
+              className={styles.user}
+              src={UserImg}
+              alt="로그인 및 마이페이지"
+            />
+          </div>
+        </Link>
       </div>
     </header>
   );
