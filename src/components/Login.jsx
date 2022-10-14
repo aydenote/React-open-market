@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import LogoImg from "../asset/Logo-hodu.svg";
 import styles from "./styles/Login.module.css";
 
@@ -44,8 +45,12 @@ function Login() {
         </form>
       </section>
       <section className={styles.join_findContainer}>
-        <p className={styles.signUp}>회원가입</p>
-        <p className={styles.findPw}>비밀번호 찾기</p>
+        <Link to="/signUp">
+          <p className={styles.signUp}>회원가입</p>
+        </Link>
+        <Link to="/findPw">
+          <p className={styles.findPw}>비밀번호 찾기</p>
+        </Link>
       </section>
     </div>
   );

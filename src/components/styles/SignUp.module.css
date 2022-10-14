@@ -1,0 +1,62 @@
+.main {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logoContainer {
+  margin-bottom: 70px;
+}
+
+.logoContainer img {
+  width: 238px;
+}
+
+.signUpType {
+  position: relative;
+  top: 10px;
+}
+
+.signUpType button {
+  font-family: "Spoqa Han Sans Neo";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #000000;
+}
+
+.buyer,
+.seller {
+  background: #f2f2f2;
+  border: 1px solid #c4c4c4;
+  padding: 20px 0px;
+  border-radius: 10px 10px 0px 0px;
+  width: 275px;
+}
+
+.buyer.clicked,
+.seller.clicked {
+  background-color: #ffffff;
+  z-index: 1;
+  border-bottom: none;
+}
+
+.signUpForm {
+  display: flex;
+  flex-direction: column;
+  width: 550px;
+  padding: 34px;
+  border-radius: 10px;
+  border: 1px solid #c4c4c4;
+  background: #ffffff;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

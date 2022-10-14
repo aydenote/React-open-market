@@ -5,15 +5,13 @@
   justify-content: center;
   align-items: center;
 }
+
 .logoContainer {
   margin-bottom: 70px;
 }
 
 .logoContainer img {
   width: 238px;
-}
-
-.userInfoContainer {
 }
 
 .loginType {
@@ -31,18 +29,13 @@
   color: #000000;
 }
 
-.buyer {
-}
-
-.seller {
-}
-
 .buyer,
 .seller {
-  background: #f2f2f2;
+  width: 275px;
+  padding: 20px 0px;
   border: 1px solid #c4c4c4;
-  padding: 20px 77px;
   border-radius: 10px 10px 0px 0px;
+  background: #f2f2f2;
 }
 
 .buyer.clicked,
@@ -55,7 +48,7 @@
 .loginForm {
   display: flex;
   flex-direction: column;
-  padding: 36px;
+  padding: 34px;
   border-radius: 10px;
   border: 1px solid #c4c4c4;
   background: #ffffff;
@@ -114,6 +107,11 @@
   font-size: 16px;
   line-height: 20px;
   color: #333333;
+}
+
+.signUp:hover,
+.findPw:hover {
+  cursor: pointer;
 }
 
 .signUp::after {
