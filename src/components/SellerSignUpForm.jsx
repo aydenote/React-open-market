@@ -1,8 +1,8 @@
-import styles from "./styles/SignUp.module.css";
+import styles from "./styles/SellerSignUp.module.css";
 
-function SellerSignUp() {
+function SellerSignUpForm() {
   return (
-    <form className={styles.signUpForm} action="">
+    <form className={styles.sellerSignUpForm} action="">
       <label htmlFor="">아이디</label>
       <input type="text" />
       <button type="submit">중복확인</button>
@@ -32,4 +32,4 @@ function SellerSignUp() {
   );
 }
 
-export default SellerSignUp;
+export default SellerSignUpForm;

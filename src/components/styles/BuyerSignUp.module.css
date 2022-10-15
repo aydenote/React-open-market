@@ -1,0 +1,181 @@
+.buyerSignUpForm {
+  display: flex;
+  flex-direction: column;
+  width: 550px;
+  padding: 34px;
+  border-radius: 10px;
+  border: 1px solid #c4c4c4;
+  background: #ffffff;
+}
+
+.userIdLabel {
+  font-family: "Spoqa Han Sans Neo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #767676;
+}
+
+.userIdContainer {
+  margin-top: 10px;
+}
+
+.userIdInput {
+  width: 346px;
+  padding: 18px 10px;
+  vertical-align: top;
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+}
+
+input:focus {
+  outline: none;
+}
+
+.confirmIdBtn {
+  width: 122px;
+  margin-left: 12px;
+  padding: 17px;
+  font-family: "Spoqa Han Sans Neo";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  background: #21bf48;
+}
+
+.userPwLabel {
+  margin: 12px 0px;
+  font-family: "Spoqa Han Sans Neo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #767676;
+}
+
+.userPwInput {
+  width: 480px;
+  padding: 18px 10px;
+  border-radius: 5px;
+  background: url("/src/asset/icon-check-off.svg") no-repeat;
+  background-position: 440px 10px;
+  border: 1px solid #c4c4c4;
+}
+
+.userPwCheckLabel {
+  margin: 12px 0px;
+  font-family: "Spoqa Han Sans Neo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #767676;
+}
+
+.userPwCheckInput {
+  width: 480px;
+  padding: 18px 10px;
+  margin-bottom: 50px;
+  border-radius: 5px;
+  background: url("/src/asset/icon-check-off.svg") no-repeat;
+  background-position: 440px 10px;
+  border: 1px solid #c4c4c4;
+}
+
+.userNameLabel {
+  margin-bottom: 12px;
+  font-family: "Spoqa Han Sans Neo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #767676;
+}
+
+.userNameInput {
+  padding: 18px 10px;
+  vertical-align: top;
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+}
+
+.userPhoneLabel {
+  margin: 12px 0px;
+  font-family: "Spoqa Han Sans Neo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #767676;
+}
+
+.userPhoneFirst {
+  width: 152px;
+  padding: 17.5px 0;
+  text-align: center;
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+}
+
+.userPhoneFirst:focus {
+  outline: none;
+  border: 1px solid #21bf48;
+}
+
+.userPhoneMiddle {
+  width: 152px;
+  margin: 0px 12px;
+  padding: 17.5px 0;
+  text-align: center;
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+}
+
+.userPhoneLast {
+  width: 152px;
+  padding: 17.5px 0px;
+  text-align: center;
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+}
+
+.userEmailLabel {
+  margin: 12px 0px;
+  font-family: "Spoqa Han Sans Neo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #767676;
+}
+
+.userEmailFirst {
+  width: 220px;
+  padding: 17.5px 0;
+  text-align: center;
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+}
+
+.emailAt {
+  margin: 0 11px;
+  font-family: "Spoqa Han Sans Neo";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: #767676;
+}
+
+.userEmailLast {
+  width: 220px;
+  padding: 17.5px 0;
+  text-align: center;
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+}

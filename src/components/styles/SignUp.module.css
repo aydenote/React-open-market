@@ -55,6 +55,58 @@
   background: #ffffff;
 }
 
+.policyForm {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 34px;
+  width: 480px;
+}
+
+.policyCheckBox {
+  position: relative;
+  top: -10px;
+  margin-right: 10px;
+}
+
+.policyLabel {
+  font-family: "Spoqa Han Sans Neo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #767676;
+}
+
+.policyLabel strong {
+  text-decoration: underline;
+}
+
+.policyInput {
+  position: relative;
+  top: -8px;
+  border-radius: 5px;
+  background: #c4c4c4;
+}
+
+.signUpBtn {
+  width: 480px;
+  padding: 19px 200px;
+  background: #c4c4c4;
+  border-radius: 5px;
+  margin: 34px 0px 110px 0px;
+  border: none;
+  font-family: "Spoqa Han Sans Neo";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #ffffff;
+}
+
+.signUpBtn.selected {
+  background: #21bf48;
+}
+
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
