@@ -43,9 +43,9 @@ function ProductInfo() {
             </div>
           </section>
         </section>
-        <section>
+        <section className={styles.bottomContainer}>
           <ul>
-            <li>버튼</li>
+            <li className={styles.clicked}>버튼</li>
             <li>리뷰</li>
             <li>Q&A</li>
             <li>반품/교환정보</li>
