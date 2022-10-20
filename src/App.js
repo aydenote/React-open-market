@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainPage from "./views/MainPage";
 import LoginPage from "./views/LoginPage";
+import CartPage from "./views/CartPage";
 import SignUpPage from "./views/SignUpPage";
 import ProductDetailPage from "./views/ProductDetailPage";
 import "./slick.css";
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/cart" element={<CartPage />} />
         <Route path="/signUp" element={<SignUpPage />} />
         <Route path="/productDetail" element={<ProductDetailPage />} />
       </Routes>

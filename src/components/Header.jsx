@@ -13,7 +13,9 @@ function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.headerLeftSide}>
-        <img className={styles.logoImg} src={LogoImg} alt="로고" />
+        <Link to="/">
+          <img className={styles.logoImg} src={LogoImg} alt="로고" />
+        </Link>
         <div className={styles.searchConatiner}>
           <input
             className={styles.searchInput}
@@ -29,9 +31,11 @@ function Header() {
         </div>
       </div>
       <div className={styles.headerRightSide}>
-        <div className={styles.cartContainer}>
-          <img className={styles.cart} src={CartImg} alt="장바구니" />
-        </div>
+        <Link to="/cart">
+          <div className={styles.cartContainer}>
+            <img className={styles.cart} src={CartImg} alt="장바구니" />
+          </div>
+        </Link>
         <Link to="/login">
           <div className={styles.userContainer}>
             <img
