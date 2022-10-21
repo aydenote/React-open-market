@@ -1,5 +1,7 @@
 import styles from "./styles/Cart.module.css";
 import circleImg from "../asset/check-circle.svg";
+import CartNoneProduct from "./CartNoneProduct";
+import CartProduct from "./CartProduct";
 
 function Cart() {
   return (
@@ -14,6 +16,7 @@ function Cart() {
         <li>상품금액</li>
       </ul>
       {/* 상품이 있는 경우와 없는 경우를 판단하여 컴포넌트를 삼항연산자를 통해 랜더링*/}
+      <CartNoneProduct />
     </section>
   );
 }
