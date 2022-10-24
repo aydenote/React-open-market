@@ -8,23 +8,27 @@ import { useState, useEffect } from "react";
 function Cart() {
   let [cartData, setCartData] = useState();
 
-  useEffect(() => {
-    axios({
-      url: `https://openmarket.weniv.co.kr/cart`,
-      method: "get",
+  const cart = () => {
+    return axios.create({
+      baseURL: "https://openmarket.weniv.co.kr/cart",
       headers: {
-        withCredentials: true,
-        Authroization:
+        Authorization:
           "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJlbWFpbCI6IiIsInVzZXJuYW1lIjoiYnV5ZXIxIiwiZXhwIjoxNjY3MDUzMzIyfQ.l5bCGUyiYwOdfkj5wuB5Zl4XLs4rbjEjhzecs-yFWOw",
       },
-    })
-      .then((response) => {
-        console.log(response);
-        setCartData(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    });
+  };
+
+  async function getCartData() {
+    try {
+      const res = await cart().get();
+      setCartData(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    getCartData();
   }, []);
 
   return (
@@ -38,7 +42,10 @@ function Cart() {
         <li>수량</li>
         <li>상품금액</li>
       </ul>
-      {cartData.count === 0 ? <CartNoneProduct /> : <CartProduct />}
+      {
+        /* {cartData.count === 0 ? <CartNoneProduct /> : <CartProduct />} */
+        console.log(cartData)
+      }
     </section>
   );
 }
