@@ -3,11 +3,11 @@ import styles from "./styles/Cart.module.css";
 import circleImg from "../asset/check-circle.svg";
 import CartNoneProduct from "./CartNoneProduct";
 import CartProduct from "./CartProduct";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function Cart() {
-  let [cartData, setCartData] = useState();
-
+  let [isCart, setIsCart] = useState(false);
+  let cartData = {};
   const cart = () => {
     return axios.create({
       baseURL: "https://openmarket.weniv.co.kr/cart",
@@ -21,7 +21,12 @@ function Cart() {
   async function getCartData() {
     try {
       const res = await cart().get();
-      setCartData(res.data);
+      cartData = await res.data;
+      if (cartData.count > 0) {
+        setIsCart(true);
+      } else {
+        setIsCart(false);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -42,10 +47,7 @@ function Cart() {
         <li>수량</li>
         <li>상품금액</li>
       </ul>
-      {
-        /* {cartData.count === 0 ? <CartNoneProduct /> : <CartProduct />} */
-        console.log(cartData)
-      }
+      {isCart ? <CartProduct cartData={cartData} /> : <CartNoneProduct />}
     </section>
   );
 }
