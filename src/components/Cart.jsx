@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 
 function Cart() {
   let [isCart, setIsCart] = useState(false);
-  let cartData = {};
+  let [cartData, setCartData] = useState({});
   const cart = () => {
     return axios.create({
       baseURL: "https://openmarket.weniv.co.kr/cart",
@@ -21,8 +21,9 @@ function Cart() {
   async function getCartData() {
     try {
       const res = await cart().get();
-      cartData = await res.data;
-      if (cartData.count > 0) {
+      const data = await res.data;
+      setCartData(data);
+      if (data.count > 0) {
         setIsCart(true);
       } else {
         setIsCart(false);
@@ -34,7 +35,7 @@ function Cart() {
 
   useEffect(() => {
     getCartData();
-  }, []);
+  }, [isCart]);
 
   return (
     <section className={styles.mainContainer}>

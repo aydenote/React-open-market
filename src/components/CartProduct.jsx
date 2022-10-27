@@ -1,7 +1,7 @@
 import styles from "./styles/CartProduct.module.css";
 
 function CartProduct(props) {
-  console.log(props);
+  console.log(props.cartData);
   return <h1>hi</h1>;
 }
 
