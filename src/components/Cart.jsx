@@ -1,6 +1,5 @@
 import axios from "axios";
 import styles from "./styles/Cart.module.css";
-import circleImg from "../asset/check-circle.svg";
 import CartNoneProduct from "./CartNoneProduct";
 import CartProduct from "./CartProduct";
 import { useEffect, useState } from "react";
@@ -42,7 +41,8 @@ function Cart() {
       <p className={styles.title}>장바구니</p>
       <ul className={styles.itemList}>
         <li>
-          <img src={circleImg} alt="" />
+          <input className={styles.checkbox} />
+          <label htmlFor="checkCircle"></label>
         </li>
         <li>상품정보</li>
         <li>수량</li>
