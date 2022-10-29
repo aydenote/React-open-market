@@ -1,8 +1,10 @@
 .cartItemContainer {
+  display: flex;
   padding-left: 28px;
   margin-bottom: 10px;
   border: 2px solid #e0e0e0;
   border-radius: 10px;
+  align-items: center;
 }
 
 .checkbox {
@@ -26,4 +28,56 @@ input[type="checkbox"]:checked + label::after {
   margin-left: 2px;
   border-radius: 50%;
   background-color: #21bf48;
+}
+
+.productImg {
+  width: 160px;
+  height: 160px;
+  margin-left: 40px;
+  border-radius: 10px;
+  object-fit: fill;
+}
+
+.productInfoContainer {
+  margin-left: 35px;
+}
+
+.storeName {
+  font-family: "Spoqa Han Sans Neo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #767676;
+}
+
+.productName {
+  margin: 10px 0px;
+  font-family: "Spoqa Han Sans Neo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.productPrice {
+  font-family: "Spoqa Han Sans Neo";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.shipping {
+  margin-top: 40px;
+  font-family: "Spoqa Han Sans Neo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #767676;
+}
+
+.productInfoCount {
+  margin-left: 150px;
+}
+
+.productInfoPrice {
+  margin-left: 200px;
 }
