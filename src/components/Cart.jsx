@@ -7,19 +7,19 @@ import { useEffect, useState } from "react";
 function Cart() {
   let [isCart, setIsCart] = useState(false);
   let [cartData, setCartData] = useState({});
-  const cart = () => {
+  function cartAxios() {
     return axios.create({
       baseURL: "https://openmarket.weniv.co.kr/cart",
       headers: {
         Authorization:
-          "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJlbWFpbCI6IiIsInVzZXJuYW1lIjoiYnV5ZXIxIiwiZXhwIjoxNjY3MDUzMzIyfQ.l5bCGUyiYwOdfkj5wuB5Zl4XLs4rbjEjhzecs-yFWOw",
+          "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJlbWFpbCI6IiIsInVzZXJuYW1lIjoiYnV5ZXIyIiwiZXhwIjoxNjY3NjU5MDc3fQ.-6v1ctWP9bz41w8HEar0rhk_op5W2zmUhlaaFyT5mCM",
       },
     });
-  };
+  }
 
   async function getCartData() {
     try {
-      const res = await cart().get();
+      const res = await cartAxios().get();
       const data = await res.data;
       setCartData(data);
       if (data.count > 0) {
@@ -34,7 +34,10 @@ function Cart() {
 
   useEffect(() => {
     getCartData();
+    // login();
   }, [isCart]);
+
+
 
   return (
     <section className={styles.mainContainer}>
