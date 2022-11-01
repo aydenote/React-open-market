@@ -34,10 +34,7 @@ function Cart() {
 
   useEffect(() => {
     getCartData();
-    // login();
   }, [isCart]);
-
-
 
   return (
     <section className={styles.mainContainer}>

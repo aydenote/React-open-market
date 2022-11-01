@@ -4,11 +4,12 @@ import styles from "./styles/ProductCount.module.css";
 
 function ProductCount(props) {
   function clickMinus(event) {
-    console.log(event.target);
-    props.setCount(props.getCount - 1);
+    const count = event.currentTarget.nextSibling.innerText;
+    count <= 0 ? props.setCount(0) : props.setCount(props.getCount - 1);
   }
+
   function clickPlus(event) {
-    console.log(event.target);
+    const count = event.currentTarget.previousSibling.innerText;
     props.setCount(props.getCount + 1);
   }
 
