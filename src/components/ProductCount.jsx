@@ -3,10 +3,12 @@ import plusImg from "../asset/icon-plus-line.svg";
 import styles from "./styles/ProductCount.module.css";
 
 function ProductCount(props) {
-  function clickMinus() {
+  function clickMinus(event) {
+    console.log(event.target);
     props.setCount(props.getCount - 1);
   }
-  function clickPlus() {
+  function clickPlus(event) {
+    console.log(event.target);
     props.setCount(props.getCount + 1);
   }
 

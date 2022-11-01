@@ -6,6 +6,7 @@
 .checkbox {
   display: none;
 }
+
 .checkbox + label {
   display: inline-block;
   width: 20px;
@@ -26,6 +27,7 @@
 
 .itemList {
   display: flex;
+  width: 1280px;
   margin-bottom: 35px;
   padding: 18px 0 18px 30px;
   background: #f2f2f2;

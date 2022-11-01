@@ -32,7 +32,6 @@ function CartProduct(props) {
 
   return (
     <>
-      {console.log(imgUrl)}
       {imgUrl.map((cartItem) => (
         <article
           className={styles.cartItemContainer}
