@@ -23,10 +23,7 @@ function ProductInfo() {
               {data.shipping_fee === 0 ? "무료배송" : "유료배송"}
             </p>
             <div className={styles.countContainer}>
-              <ProductCount
-                getCount={productCount}
-                setCount={setProductCount}
-              />
+              <ProductCount quantity={1} />
             </div>
             <div className={styles.priceContainer}>
               <p className={styles.total}>총 상품 금액</p>

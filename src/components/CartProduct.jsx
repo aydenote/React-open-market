@@ -64,11 +64,7 @@ function CartProduct(props) {
             </p>
           </section>
           <section className={styles.productInfoCount}>
-            <ProductCount
-              // getCount={productCount}
-              // setCount={setProductCount}
-              quantity={cartItem.data.quantity}
-            />
+            <ProductCount quantity={cartItem.data.quantity} />
           </section>
           <section className={styles.productInfoPrice}>
             <p>{(cartItem.data.price * productCount).toLocaleString()}</p>

@@ -8,7 +8,7 @@ function ProductCount(props) {
 
   function clickMinus(event) {
     const count = event.currentTarget.nextSibling.innerText;
-    count <= 0 ? setProductCount(0) : setProductCount(productCount - 1);
+    count <= 1 ? setProductCount(1) : setProductCount(productCount - 1);
   }
 
   function clickPlus(event) {
