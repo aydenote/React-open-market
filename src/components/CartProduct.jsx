@@ -20,6 +20,7 @@ function CartProduct(props) {
   async function getProductInfo(cartInfo) {
     const promises = cartInfo.map(async (item) => {
       const productInfo = await productAxios(item.product_id).get();
+      productInfo.data.quantity = item.quantity;
       return productInfo;
     });
 
@@ -63,7 +64,11 @@ function CartProduct(props) {
             </p>
           </section>
           <section className={styles.productInfoCount}>
-            <ProductCount getCount={productCount} setCount={setProductCount} />
+            <ProductCount
+              // getCount={productCount}
+              // setCount={setProductCount}
+              quantity={cartItem.data.quantity}
+            />
           </section>
           <section className={styles.productInfoPrice}>
             <p>{(cartItem.data.price * productCount).toLocaleString()}</p>
