@@ -5,7 +5,7 @@ import styles from "./styles/ProductInfo.module.css";
 
 function ProductInfo() {
   const data = useLocation().state.data;
-  const [productCount, setProductCount] = useState(0);
+  let [productCount, setProductCount] = useState(0);
 
   return (
     <section className={styles.mainContainer}>
@@ -23,7 +23,11 @@ function ProductInfo() {
               {data.shipping_fee === 0 ? "무료배송" : "유료배송"}
             </p>
             <div className={styles.countContainer}>
-              <ProductCount quantity={1} />
+              <ProductCount
+                quantity={1}
+                setProductCount={setProductCount}
+                productCount={productCount}
+              />
             </div>
             <div className={styles.priceContainer}>
               <p className={styles.total}>총 상품 금액</p>

@@ -4,8 +4,8 @@ import ProductCount from "./ProductCount";
 import styles from "./styles/CartProduct.module.css";
 
 function CartProduct(props) {
-  const [productCount, setProductCount] = useState(0);
   let [imgUrl, setImgUrl] = useState([]);
+  let [productCount, setProductCount] = useState(0);
 
   function productAxios(productId) {
     return axios.create({
@@ -64,7 +64,11 @@ function CartProduct(props) {
             </p>
           </section>
           <section className={styles.productInfoCount}>
-            <ProductCount quantity={cartItem.data.quantity} />
+            <ProductCount
+              quantity={cartItem.data.quantity}
+              setProductCount={setProductCount}
+              productCount={productCount}
+            />
           </section>
           <section className={styles.productInfoPrice}>
             <p>{(cartItem.data.price * productCount).toLocaleString()}</p>
