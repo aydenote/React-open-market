@@ -12,7 +12,10 @@ function CartProduct(props) {
       baseURL: `https://openmarket.weniv.co.kr/products/${productId}`,
       headers: {
         Authorization:
-          "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJlbWFpbCI6IiIsInVzZXJuYW1lIjoiYnV5ZXIyIiwiZXhwIjoxNjY3NjU5MDc3fQ.-6v1ctWP9bz41w8HEar0rhk_op5W2zmUhlaaFyT5mCM",
+          // "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJlbWFpbCI6IiIsInVzZXJuYW1lIjoiYnV5ZXIyIiwiZXhwIjoxNjY3NjU5MDc3fQ.-6v1ctWP9bz41w8HEar0rhk_op5W2zmUhlaaFyT5mCM",
+          // "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJlbWFpbCI6IiIsInVzZXJuYW1lIjoiYnV5ZXIxIiwiZXhwIjoxNjY4MTc0NTk0fQ.6n63tmvXGyCK4Qwlb4ePx0IhrT54PXRU8j1ljf3Vdp4",
+          // "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJlbWFpbCI6IiIsInVzZXJuYW1lIjoiYnV5ZXIyIiwiZXhwIjoxNjY4MTc0NjgyfQ._Yvge5tKkonupxxwAckfQUmpgX-zpn4ALrLFLPBaVjE",
+          "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJlbWFpbCI6IiIsInVzZXJuYW1lIjoiYnV5ZXIzIiwiZXhwIjoxNjY4MTc0NzU4fQ.m-vrxC2Ecy74PrEc3sAzAmJgEtAP3fiGq6V9cwJonKo",
       },
     });
   }
@@ -31,6 +34,39 @@ function CartProduct(props) {
     getProductInfo(props.cartData.results);
   }, []);
 
+  // function checkBoxOnlyOne(event) {
+  //   const checkboxes = document.getElementsByName("animal");
+
+  //   checkboxes.forEach((cb) => {
+  //     cb.checked = false;
+  //   });
+
+  //   event.checked = true;
+  // }
+
+  // function loginAxios() {
+  //   return axios({
+  //     url: `https://openmarket.weniv.co.kr/accounts/login/`,
+  //     method: "post",
+  //     data: {
+  //       username: "buyer3",
+  //       password: "hodu0910",
+  //       login_type: "BUYER", // BUYER : 일반 구매자, SELLER : 판매자
+  //     },
+  //   });
+  // }
+
+  // async function login() {
+  //   try {
+  //     const res = await loginAxios();
+  //     console.log(res);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
+
+  // login();
+
   return (
     <>
       {imgUrl.map((cartItem) => (
@@ -40,9 +76,10 @@ function CartProduct(props) {
         >
           <input
             className={styles.checkbox}
-            type="checkbox"
+            type="radio"
             name="checkCircle"
             id="checkCircle"
+            // onClick={checkBoxOnlyOne}
           />
           <label className={styles.checkLabel} htmlFor="checkCircle"></label>
           <img

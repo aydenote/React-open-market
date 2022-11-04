@@ -41,8 +41,7 @@ function Cart() {
       <p className={styles.title}>장바구니</p>
       <ul className={styles.itemList}>
         <li>
-          <input className={styles.checkbox} />
-          <label htmlFor="checkCircle"></label>
+          <div className={styles.categoryCircle}></div>
         </li>
         <li>상품정보</li>
         <li>수량</li>

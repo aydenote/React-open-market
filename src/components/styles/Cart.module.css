@@ -3,16 +3,11 @@
   margin: auto;
 }
 
-.checkbox {
-  display: none;
-}
-
-.checkbox + label {
-  display: inline-block;
+.categoryCircle {
   width: 20px;
   height: 20px;
-  border: 2px solid #21bf48;
   border-radius: 50%;
+  border: 2px solid #21bf48;
 }
 
 .title {
