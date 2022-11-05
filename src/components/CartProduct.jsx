@@ -34,39 +34,6 @@ function CartProduct(props) {
     getProductInfo(props.cartData.results);
   }, []);
 
-  // function checkBoxOnlyOne(event) {
-  //   const checkboxes = document.getElementsByName("animal");
-
-  //   checkboxes.forEach((cb) => {
-  //     cb.checked = false;
-  //   });
-
-  //   event.checked = true;
-  // }
-
-  // function loginAxios() {
-  //   return axios({
-  //     url: `https://openmarket.weniv.co.kr/accounts/login/`,
-  //     method: "post",
-  //     data: {
-  //       username: "buyer3",
-  //       password: "hodu0910",
-  //       login_type: "BUYER", // BUYER : 일반 구매자, SELLER : 판매자
-  //     },
-  //   });
-  // }
-
-  // async function login() {
-  //   try {
-  //     const res = await loginAxios();
-  //     console.log(res);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
-
-  // login();
-
   return (
     <>
       {imgUrl.map((cartItem) => (
@@ -79,7 +46,6 @@ function CartProduct(props) {
             type="radio"
             name="checkCircle"
             id="checkCircle"
-            // onClick={checkBoxOnlyOne}
           />
           <label className={styles.checkLabel} htmlFor="checkCircle"></label>
           <img
@@ -108,10 +74,33 @@ function CartProduct(props) {
             />
           </section>
           <section className={styles.productInfoPrice}>
-            <p>{(cartItem.data.price * productCount).toLocaleString()}</p>
+            <p className={styles.sumPrice}>
+              {(cartItem.data.price * productCount).toLocaleString()}
+            </p>
+            <button className={styles.orderBtn}>주문하기</button>
           </section>
         </article>
       ))}
+      <section className={styles.totalInfoContainer}>
+        <div className={styles.itemPriceBox}>
+          <p className={styles.priceText}>총 상품 금액</p>
+          <p className={styles.priceNumber}>46,500</p>
+        </div>
+        <div className={styles.minus}></div>
+        <div className={styles.saleBox}>
+          <p className={styles.saleText}>상품 할인</p>
+          <p className={styles.saleNumber}>0</p>
+        </div>
+        <div className={styles.plus}></div>
+        <div className={styles.shippingFeeBox}>
+          <p className={styles.shippingFeeText}>배송비</p>
+          <p className={styles.shippingFeeNumber}>0</p>
+        </div>
+        <div className={styles.totalPriceBox}>
+          <p className={styles.totalPriceText}>결제 예정 금액</p>
+          <p className={styles.totalPriceNumber}>46,500</p>
+        </div>
+      </section>
     </>
   );
 }

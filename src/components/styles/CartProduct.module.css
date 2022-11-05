@@ -87,3 +87,135 @@ input[type="radio"]:checked + label::after {
 .productInfoPrice {
   margin-left: 200px;
 }
+
+.sumPrice {
+  text-align: center;
+  font-family: "Spoqa Han Sans Neo";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23px;
+  color: #eb5757;
+}
+
+.sumPrice::after {
+  content: "원";
+}
+
+.orderBtn {
+  margin-top: 25px;
+  padding: 10px 35px;
+  text-align: center;
+  font-family: "Spoqa Han Sans Neo";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  border-radius: 5px;
+  color: #ffffff;
+  background: #21bf48;
+  outline: none;
+  border: none;
+}
+
+.orderBtn:hover {
+  cursor: pointer;
+}
+
+.totalInfoContainer {
+  width: 1280px;
+  display: flex;
+  margin-top: 80px;
+  padding: 46px 91px 42px 112px;
+  justify-content: space-around;
+  background: #f2f2f2;
+  border-radius: 10px;
+}
+
+.priceText,
+.saleText,
+.shippingFeeText {
+  font-family: "Spoqa Han Sans Neo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.priceNumber {
+  font-family: "Spoqa Han Sans Neo";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+}
+
+.priceNumber,
+.saleNumber,
+.shippingFeeNumber {
+  margin-top: 12px;
+  text-align: center;
+  font-family: "Spoqa Han Sans Neo";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+}
+
+.priceNumber::after,
+.saleNumber::after,
+.shippingFeeNumber::after {
+  content: "원";
+  font-family: "Spoqa Han Sans Neo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.minus {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  background-image: url("/src/asset/icon-minus-line.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.plus {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  background-image: url("/src/asset/icon-plus-line.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.totalPriceText {
+  font-family: "Spoqa Han Sans Neo";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.totalPriceNumber {
+  font-family: "Spoqa Han Sans Neo";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 45px;
+  color: #eb5757;
+}
+
+.totalPriceNumber::after {
+  content: "원";
+  font-family: "Spoqa Han Sans Neo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 23px;
+}
