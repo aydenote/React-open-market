@@ -195,6 +195,7 @@ input[type="radio"]:checked + label::after {
 }
 
 .totalPriceText {
+  text-align: center;
   font-family: "Spoqa Han Sans Neo";
   font-style: normal;
   font-weight: 700;
@@ -203,6 +204,7 @@ input[type="radio"]:checked + label::after {
 }
 
 .totalPriceNumber {
+  text-align: center;
   font-family: "Spoqa Han Sans Neo";
   font-style: normal;
   font-weight: 700;
