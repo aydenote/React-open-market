@@ -12,7 +12,7 @@ function Cart() {
       baseURL: "https://openmarket.weniv.co.kr/cart",
       headers: {
         Authorization:
-          "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJlbWFpbCI6IiIsInVzZXJuYW1lIjoiYnV5ZXIyIiwiZXhwIjoxNjY3NjU5MDc3fQ.-6v1ctWP9bz41w8HEar0rhk_op5W2zmUhlaaFyT5mCM",
+          "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJlbWFpbCI6IiIsInVzZXJuYW1lIjoiYnV5ZXIxIiwiZXhwIjoxNjY4MzMyMTk4fQ.vaIg0_zDvz3uDF2eFyDOwq7IL0KAO_00BZnRXCfs8c8",
       },
     });
   }

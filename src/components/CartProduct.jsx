@@ -5,17 +5,13 @@ import styles from "./styles/CartProduct.module.css";
 
 function CartProduct(props) {
   let [imgUrl, setImgUrl] = useState([]);
-  let [productCount, setProductCount] = useState(0);
 
   function productAxios(productId) {
     return axios.create({
       baseURL: `https://openmarket.weniv.co.kr/products/${productId}`,
       headers: {
         Authorization:
-          // "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJlbWFpbCI6IiIsInVzZXJuYW1lIjoiYnV5ZXIyIiwiZXhwIjoxNjY3NjU5MDc3fQ.-6v1ctWP9bz41w8HEar0rhk_op5W2zmUhlaaFyT5mCM",
-          // "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJlbWFpbCI6IiIsInVzZXJuYW1lIjoiYnV5ZXIxIiwiZXhwIjoxNjY4MTc0NTk0fQ.6n63tmvXGyCK4Qwlb4ePx0IhrT54PXRU8j1ljf3Vdp4",
-          // "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJlbWFpbCI6IiIsInVzZXJuYW1lIjoiYnV5ZXIyIiwiZXhwIjoxNjY4MTc0NjgyfQ._Yvge5tKkonupxxwAckfQUmpgX-zpn4ALrLFLPBaVjE",
-          "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJlbWFpbCI6IiIsInVzZXJuYW1lIjoiYnV5ZXIzIiwiZXhwIjoxNjY4MTc0NzU4fQ.m-vrxC2Ecy74PrEc3sAzAmJgEtAP3fiGq6V9cwJonKo",
+          "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJlbWFpbCI6IiIsInVzZXJuYW1lIjoiYnV5ZXIxIiwiZXhwIjoxNjY4MzMyMTk4fQ.vaIg0_zDvz3uDF2eFyDOwq7IL0KAO_00BZnRXCfs8c8",
       },
     });
   }
@@ -33,6 +29,10 @@ function CartProduct(props) {
   useEffect(() => {
     getProductInfo(props.cartData.results);
   }, []);
+
+  function prodocutQty(event) {
+    console.dir(event);
+  }
 
   return (
     <>
@@ -69,22 +69,15 @@ function CartProduct(props) {
           <section className={styles.productInfoCount}>
             <ProductCount
               quantity={cartItem.data.quantity}
-              setProductCount={setProductCount}
-              productCount={productCount}
+              productInfo={cartItem}
             />
-          </section>
-          <section className={styles.productInfoPrice}>
-            <p className={styles.sumPrice}>
-              {(cartItem.data.price * productCount).toLocaleString()}
-            </p>
-            <button className={styles.orderBtn}>주문하기</button>
           </section>
         </article>
       ))}
       <section className={styles.totalInfoContainer}>
         <div className={styles.itemPriceBox}>
           <p className={styles.priceText}>총 상품 금액</p>
-          <p className={styles.priceNumber}>46,500</p>
+          <p className={styles.priceNumber}>{}</p>
         </div>
         <div className={styles.minus}></div>
         <div className={styles.saleBox}>
@@ -94,11 +87,11 @@ function CartProduct(props) {
         <div className={styles.plus}></div>
         <div className={styles.shippingFeeBox}>
           <p className={styles.shippingFeeText}>배송비</p>
-          <p className={styles.shippingFeeNumber}>0</p>
+          <p className={styles.shippingFeeNumber}>{}</p>
         </div>
         <div className={styles.totalPriceBox}>
           <p className={styles.totalPriceText}>결제 예정 금액</p>
-          <p className={styles.totalPriceNumber}>46,500</p>
+          <p className={styles.totalPriceNumber}>{}</p>
         </div>
       </section>
     </>
