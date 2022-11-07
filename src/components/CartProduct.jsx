@@ -30,10 +30,6 @@ function CartProduct(props) {
     getProductInfo(props.cartData.results);
   }, []);
 
-  function prodocutQty(event) {
-    console.dir(event);
-  }
-
   return (
     <>
       {imgUrl.map((cartItem) => (
@@ -44,10 +40,10 @@ function CartProduct(props) {
           <input
             className={styles.checkbox}
             type="radio"
-            name="checkCircle"
-            id="checkCircle"
+            name="itemSelected"
+            id="itemSelected"
           />
-          <label className={styles.checkLabel} htmlFor="checkCircle"></label>
+          <label className={styles.checkLabel} htmlFor="itemSelected"></label>
           <img
             className={styles.productImg}
             src={cartItem.data.image}
