@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import minusImg from "../asset/icon-minus-line.svg";
 import plusImg from "../asset/icon-plus-line.svg";
 import ProductQty from "./ProductQty";
+import CartTotalPrice from "./CartTotalPrice";
 import styles from "./styles/ProductCount.module.css";
 
 function ProductCount(props) {
@@ -10,11 +11,12 @@ function ProductCount(props) {
   function clickMinus(event) {
     const count = event.currentTarget.nextSibling.innerText;
     count <= 1 ? setProductCount(1) : setProductCount(productCount - 1);
+    props.setChangeCount(props.changeCount - 1);
   }
 
-  function clickPlus(event) {
-    const count = event.currentTarget.previousSibling.innerText;
+  function clickPlus() {
     setProductCount(productCount + 1);
+    props.setChangeCount(props.changeCount + 1);
   }
 
   return (

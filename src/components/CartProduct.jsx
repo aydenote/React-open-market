@@ -1,10 +1,12 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import ProductCount from "./ProductCount";
+import CartTotalPrice from "./CartTotalPrice";
 import styles from "./styles/CartProduct.module.css";
 
 function CartProduct(props) {
   let [imgUrl, setImgUrl] = useState([]);
+  let [changeCount, setChangeCount] = useState({});
 
   function productAxios(productId) {
     return axios.create({
@@ -66,30 +68,13 @@ function CartProduct(props) {
             <ProductCount
               quantity={cartItem.data.quantity}
               productInfo={cartItem}
+              setChangeCount={setChangeCount}
+              changeCount={changeCount}
             />
           </section>
         </article>
       ))}
-      <section className={styles.totalInfoContainer}>
-        <div className={styles.itemPriceBox}>
-          <p className={styles.priceText}>총 상품 금액</p>
-          <p className={styles.priceNumber}>{}</p>
-        </div>
-        <div className={styles.minus}></div>
-        <div className={styles.saleBox}>
-          <p className={styles.saleText}>상품 할인</p>
-          <p className={styles.saleNumber}>0</p>
-        </div>
-        <div className={styles.plus}></div>
-        <div className={styles.shippingFeeBox}>
-          <p className={styles.shippingFeeText}>배송비</p>
-          <p className={styles.shippingFeeNumber}>{}</p>
-        </div>
-        <div className={styles.totalPriceBox}>
-          <p className={styles.totalPriceText}>결제 예정 금액</p>
-          <p className={styles.totalPriceNumber}>{}</p>
-        </div>
-      </section>
+      <CartTotalPrice />
     </>
   );
 }
