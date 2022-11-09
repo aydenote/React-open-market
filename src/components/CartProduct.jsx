@@ -6,7 +6,6 @@ import styles from "./styles/CartProduct.module.css";
 
 function CartProduct(props) {
   let [imgUrl, setImgUrl] = useState([]);
-  let [changeCount, setChangeCount] = useState({});
 
   function productAxios(productId) {
     return axios.create({
@@ -68,13 +67,11 @@ function CartProduct(props) {
             <ProductCount
               quantity={cartItem.data.quantity}
               productInfo={cartItem}
-              setChangeCount={setChangeCount}
-              changeCount={changeCount}
             />
           </section>
         </article>
       ))}
-      <CartTotalPrice />
+      <CartTotalPrice cartInfo={imgUrl} />
     </>
   );
 }

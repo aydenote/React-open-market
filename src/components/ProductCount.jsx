@@ -1,23 +1,31 @@
-import { useEffect, useState } from "react";
+import { useMemo, useEffect, useState } from "react";
 import minusImg from "../asset/icon-minus-line.svg";
 import plusImg from "../asset/icon-plus-line.svg";
-import ProductQty from "./ProductQty";
-import CartTotalPrice from "./CartTotalPrice";
+import ProductPrice from "./ProductPrice";
+import CartProduct from "./CartProduct";
 import styles from "./styles/ProductCount.module.css";
 
 function ProductCount(props) {
-  let [productCount, setProductCount] = useState(props.quantity);
+  let [productCount, setProductCount] = useState(
+    props.productInfo.data.quantity
+  );
 
   function clickMinus(event) {
     const count = event.currentTarget.nextSibling.innerText;
     count <= 1 ? setProductCount(1) : setProductCount(productCount - 1);
-    props.setChangeCount(props.changeCount - 1);
   }
 
   function clickPlus() {
     setProductCount(productCount + 1);
-    props.setChangeCount(props.changeCount + 1);
   }
+
+  // useEffect(() => {
+  //   return <CartProduct />;
+  // }, [productCount]);
+
+  // useMemo(() => {
+  //   console.log("1");
+  // }, [productCount]);
 
   return (
     <>
@@ -30,7 +38,10 @@ function ProductCount(props) {
           <img src={plusImg} alt="상품 수량 증가" />
         </button>
       </div>
-      <ProductQty productInfo={props.productInfo} productCount={productCount} />
+      <ProductPrice
+        productInfo={props.productInfo}
+        productCount={productCount}
+      />
     </>
   );
 }

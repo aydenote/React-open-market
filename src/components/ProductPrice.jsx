@@ -1,6 +1,6 @@
-import styles from "./styles/ProductQty.module.css";
+import styles from "./styles/ProductPrice.module.css";
 
-function ProductQty({ productInfo, productCount }) {
+function ProductPrice({ productInfo, productCount }) {
   return (
     <section className={styles.productInfoPrice}>
       <p className={styles.sumPrice}>
@@ -11,4 +11,4 @@ function ProductQty({ productInfo, productCount }) {
   );
 }
 
-export default ProductQty;
+export default ProductPrice;
