@@ -1,8 +1,7 @@
-import { useMemo, useEffect, useState } from "react";
+import { useState } from "react";
 import minusImg from "../asset/icon-minus-line.svg";
 import plusImg from "../asset/icon-plus-line.svg";
 import ProductPrice from "./ProductPrice";
-import CartProduct from "./CartProduct";
 import styles from "./styles/ProductCount.module.css";
 
 function ProductCount(props) {
@@ -18,14 +17,6 @@ function ProductCount(props) {
   function clickPlus() {
     setProductCount(productCount + 1);
   }
-
-  // useEffect(() => {
-  //   return <CartProduct />;
-  // }, [productCount]);
-
-  // useMemo(() => {
-  //   console.log("1");
-  // }, [productCount]);
 
   return (
     <>

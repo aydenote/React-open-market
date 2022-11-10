@@ -9,7 +9,6 @@ function Header() {
   function clickSearch() {
     console.log("찾기!");
   }
-
   return (
     <header className={styles.header}>
       <div className={styles.headerLeftSide}>
