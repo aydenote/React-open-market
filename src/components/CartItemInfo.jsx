@@ -1,8 +1,10 @@
 import styles from "./styles/CartItemInfo.module.css";
 import ProductCount from "./ProductCount";
 import CartTotalPrice from "./CartTotalPrice";
+import { useState } from "react";
 
 function CartItemInfo({ productData }) {
+  let [price, setPrice] = useState(0);
   return (
     <>
       {productData.map((cartItem) => (
@@ -39,11 +41,14 @@ function CartItemInfo({ productData }) {
             <ProductCount
               quantity={cartItem.data.quantity}
               productInfo={cartItem}
+              setPrice={setPrice}
+              price={price}
             />
           </section>
         </article>
       ))}
-      <CartTotalPrice cartInfo={productData} />
+
+      {<CartTotalPrice cartInfo={productData} price={price} />}
     </>
   );
 }
