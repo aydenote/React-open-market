@@ -6,8 +6,7 @@ function GetCartInfo({ setCartData }) {
     return axios.create({
       baseURL: "https://openmarket.weniv.co.kr/cart",
       headers: {
-        Authorization:
-          "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJlbWFpbCI6IiIsInVzZXJuYW1lIjoiYnV5ZXIxIiwiZXhwIjoxNjY4MzMyMTk4fQ.vaIg0_zDvz3uDF2eFyDOwq7IL0KAO_00BZnRXCfs8c8",
+        Authorization: "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJlbWFpbCI6IiIsInVzZXJuYW1lIjoiYnV5ZXIxIiwiZXhwIjoxNjY4OTU2NjY0fQ.x6t1EsSh12ntMdwTd3qN2gj3OnVUBG-evFO7GGGM1NY",
       },
     });
   }

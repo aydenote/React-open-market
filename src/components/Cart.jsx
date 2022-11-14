@@ -18,11 +18,7 @@ function Cart() {
         <li>수량</li>
         <li>상품금액</li>
       </ul>
-      {cartData ? (
-        <CartProduct cartData={cartData} />
-      ) : (
-        <GetCartInfo setCartData={setCartData} />
-      )}
+      {cartData ? <CartProduct cartData={cartData} /> : <GetCartInfo setCartData={setCartData} />}
       {cartData && cartData.count == false ? <CartNoneProduct /> : null}
     </section>
   );
