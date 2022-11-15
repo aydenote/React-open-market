@@ -6,6 +6,7 @@ import DeleteBtn from "./DeleteBtn";
 
 function CartItemInfo({ productData }) {
   let [price, setPrice] = useState(0);
+
   return (
     <>
       {productData.map((cartItem) => (
@@ -24,10 +25,9 @@ function CartItemInfo({ productData }) {
           <section className={styles.productInfoCount}>
             <ProductCount quantity={cartItem.data.quantity} productInfo={cartItem} setPrice={setPrice} price={price} />
           </section>
-          <DeleteBtn />
+          <DeleteBtn setPrice={setPrice} />
         </article>
       ))}
-
       {<CartTotalPrice cartInfo={productData} price={price} />}
     </>
   );

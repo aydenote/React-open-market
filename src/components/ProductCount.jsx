@@ -5,9 +5,7 @@ import ProductPrice from "./ProductPrice";
 import styles from "./styles/ProductCount.module.css";
 
 function ProductCount(props) {
-  let [productCount, setProductCount] = useState(
-    props.productInfo.data.quantity
-  );
+  let [productCount, setProductCount] = useState(props.productInfo.data.quantity);
 
   function clickMinus(event) {
     const count = event.currentTarget.nextSibling.innerText;
@@ -26,9 +24,7 @@ function ProductCount(props) {
 
   function getProductPrice() {
     let totalPrice = 0;
-    let priceArr = Array.prototype.slice.call(
-      document.querySelectorAll(".price")
-    );
+    let priceArr = Array.prototype.slice.call(document.querySelectorAll(".price"));
 
     for (let i = 0; i < priceArr.length; i++) {
       totalPrice += parseInt(priceArr[i].innerText.replaceAll(",", ""));
@@ -51,10 +47,7 @@ function ProductCount(props) {
           <img src={plusImg} alt="상품 수량 증가" />
         </button>
       </div>
-      <ProductPrice
-        productInfo={props.productInfo}
-        productCount={productCount}
-      />
+      <ProductPrice productInfo={props.productInfo} productCount={productCount} />
     </>
   );
 }

@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import styles from "./styles/CartTotalPrice.module.css";
 
 function CartTotalPrice({ cartInfo, price }) {
@@ -26,15 +25,11 @@ function CartTotalPrice({ cartInfo, price }) {
       <div className={styles.plus}></div>
       <div className={styles.shippingFeeBox}>
         <p className={styles.shippingFeeText}>배송비</p>
-        <p className={styles.shippingFeeNumber}>
-          {getShippingFee().toLocaleString()}
-        </p>
+        <p className={styles.shippingFeeNumber}>{getShippingFee().toLocaleString()}</p>
       </div>
       <div className={styles.totalPriceBox}>
         <p className={styles.totalPriceText}>결제 예정 금액</p>
-        <p className={styles.totalPriceNumber}>
-          {(price + getShippingFee()).toLocaleString()}
-        </p>
+        <p className={styles.totalPriceNumber}>{(price + getShippingFee()).toLocaleString()}</p>
       </div>
     </section>
   );

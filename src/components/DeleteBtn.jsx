@@ -3,7 +3,7 @@ import styles from "./styles/DeleteBtn.module.css";
 import deleteImg from "../asset/icon-delete.svg";
 import { useState } from "react";
 
-function DeleteBtn() {
+function DeleteBtn(props) {
   const [modalOpen, setModalOpen] = useState(false);
 
   function clickDeleteBtn() {
@@ -15,7 +15,7 @@ function DeleteBtn() {
       <button className={styles.deleteBtn} onClick={clickDeleteBtn}>
         <img src={deleteImg} alt="상품 삭제" />
       </button>
-      {modalOpen && <ModalCancel setModalOpen={setModalOpen} />}
+      {modalOpen && <ModalCancel setModalOpen={setModalOpen} setPrice={props.setPrice} />}
     </>
   );
 }

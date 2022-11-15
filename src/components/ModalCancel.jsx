@@ -1,9 +1,25 @@
 import styles from "./styles/ModalCancel.module.css";
 import deleteImg from "../asset/icon-delete.svg";
 
-function ModalCancel({ setModalOpen }) {
+function ModalCancel({ setModalOpen, setPrice }) {
   function closeModal() {
     setModalOpen(false);
+  }
+
+  function clickAccept(event) {
+    const cancelNode = event.target.closest("article").parentNode;
+    cancelNode.parentNode.removeChild(cancelNode);
+    getProductPrice();
+  }
+
+  function getProductPrice() {
+    let totalPrice = 0;
+    let priceArr = Array.prototype.slice.call(document.querySelectorAll(".price"));
+
+    for (let i = 0; i < priceArr.length; i++) {
+      totalPrice += parseInt(priceArr[i].innerText.replaceAll(",", ""));
+    }
+    setPrice(totalPrice);
   }
 
   return (
@@ -16,7 +32,9 @@ function ModalCancel({ setModalOpen }) {
         <button className={styles.cancelBtn} onClick={closeModal}>
           취소
         </button>
-        <button className={styles.acceptBtn}>확인</button>
+        <button className={styles.acceptBtn} onClick={clickAccept}>
+          확인
+        </button>
       </div>
     </article>
   );
