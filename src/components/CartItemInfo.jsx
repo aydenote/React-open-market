@@ -6,6 +6,7 @@ import DeleteBtn from "./DeleteBtn";
 
 function CartItemInfo({ productData }) {
   let [price, setPrice] = useState(0);
+  let [shippingFee, setShippingFee] = useState(0);
 
   return (
     <>
@@ -25,10 +26,10 @@ function CartItemInfo({ productData }) {
           <section className={styles.productInfoCount}>
             <ProductCount quantity={cartItem.data.quantity} productInfo={cartItem} setPrice={setPrice} price={price} />
           </section>
-          <DeleteBtn setPrice={setPrice} />
+          <DeleteBtn productData={productData} setPrice={setPrice} />
         </article>
       ))}
-      {<CartTotalPrice cartInfo={productData} price={price} />}
+      {<CartTotalPrice cartInfo={productData} price={price} shippingFee={shippingFee} setShippingFee={setShippingFee} />}
     </>
   );
 }

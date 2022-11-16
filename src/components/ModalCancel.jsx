@@ -7,9 +7,8 @@ function ModalCancel({ setModalOpen, setPrice }) {
   }
 
   function clickAccept(event) {
-    const cancelNode = event.target.closest("article").parentNode;
-    cancelNode.parentNode.removeChild(cancelNode);
     getProductPrice();
+    getShippingFee(event);
   }
 
   function getProductPrice() {
@@ -20,6 +19,11 @@ function ModalCancel({ setModalOpen, setPrice }) {
       totalPrice += parseInt(priceArr[i].innerText.replaceAll(",", ""));
     }
     setPrice(totalPrice);
+  }
+
+  function getShippingFee(event) {
+    const cancelNode = event.target.closest("article").parentNode;
+    cancelNode.parentNode.removeChild(cancelNode);
   }
 
   return (
