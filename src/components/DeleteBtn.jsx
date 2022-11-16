@@ -15,7 +15,7 @@ function DeleteBtn(props) {
       <button className={styles.deleteBtn} onClick={clickDeleteBtn}>
         <img src={deleteImg} alt="상품 삭제" />
       </button>
-      {modalOpen && <ModalCancel productData={props.productData} setModalOpen={setModalOpen} setPrice={props.setPrice} />}
+      {modalOpen && <ModalCancel setModalOpen={setModalOpen} setPrice={props.setPrice} />}
     </>
   );
 }
