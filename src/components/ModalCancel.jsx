@@ -1,7 +1,7 @@
 import styles from "./styles/ModalCancel.module.css";
 import deleteImg from "../asset/icon-delete.svg";
 
-function ModalCancel({ setModalOpen, setPrice }) {
+function ModalCancel({ cartInfo, setModalOpen, setPrice, setShipping }) {
   function closeModal() {
     setModalOpen(false);
   }
@@ -10,6 +10,7 @@ function ModalCancel({ setModalOpen, setPrice }) {
     const cancelNode = event.target.closest("article").parentNode;
     cancelNode.parentNode.removeChild(cancelNode);
     getProductPrice();
+    getShippingFee(cancelNode.dataset.id);
   }
 
   function getProductPrice() {
@@ -20,6 +21,14 @@ function ModalCancel({ setModalOpen, setPrice }) {
       totalPrice += parseInt(priceArr[i].innerText.replaceAll(",", ""));
     }
     setPrice(totalPrice);
+  }
+
+  function getShippingFee(id) {
+    let totalShippingFee = 0;
+    cartInfo = cartInfo.filter((item) => {
+      return item.data.product_id !== parseInt(id);
+    });
+    setShipping(totalShippingFee);
   }
 
   return (

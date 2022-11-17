@@ -1,15 +1,18 @@
+import { useEffect } from "react";
 import styles from "./styles/CartTotalPrice.module.css";
 
-function CartTotalPrice({ cartInfo, price }) {
+function CartTotalPrice({ cartInfo, price, shipping, setShipping }) {
   function getShippingFee() {
     let totalShippingFee = 0;
-
     cartInfo.forEach((item) => {
       totalShippingFee += item.data.shipping_fee;
     });
-
-    return totalShippingFee;
+    setShipping(totalShippingFee);
   }
+
+  useEffect(() => {
+    getShippingFee();
+  }, []);
 
   return (
     <section className={styles.totalInfoContainer}>
@@ -25,11 +28,11 @@ function CartTotalPrice({ cartInfo, price }) {
       <div className={styles.plus}></div>
       <div className={styles.shippingFeeBox}>
         <p className={styles.shippingFeeText}>배송비</p>
-        <p className={styles.shippingFeeNumber}>{getShippingFee().toLocaleString()}</p>
+        <p className={styles.shippingFeeNumber}>{shipping.toLocaleString()}</p>
       </div>
       <div className={styles.totalPriceBox}>
         <p className={styles.totalPriceText}>결제 예정 금액</p>
-        <p className={styles.totalPriceNumber}>{(price + getShippingFee()).toLocaleString()}</p>
+        <p className={styles.totalPriceNumber}>{(price + shipping).toLocaleString()}</p>
       </div>
     </section>
   );

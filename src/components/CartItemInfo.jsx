@@ -6,11 +6,12 @@ import DeleteBtn from "./DeleteBtn";
 
 function CartItemInfo({ productData }) {
   let [price, setPrice] = useState(0);
+  let [shipping, setShipping] = useState(0);
 
   return (
     <>
       {productData.map((cartItem) => (
-        <article className={styles.cartItemContainer} key={cartItem.data.product_id}>
+        <article className={styles.cartItemContainer} key={cartItem.data.product_id} data-id={cartItem.data.product_id}>
           <input className={styles.checkbox} type="radio" name="itemSelected" id="itemSelected" />
           <label className={styles.checkLabel} htmlFor="itemSelected"></label>
           <img className={styles.productImg} src={cartItem.data.image} alt="장바구니 상품" />
@@ -25,10 +26,10 @@ function CartItemInfo({ productData }) {
           <section className={styles.productInfoCount}>
             <ProductCount quantity={cartItem.data.quantity} productInfo={cartItem} setPrice={setPrice} price={price} />
           </section>
-          <DeleteBtn setPrice={setPrice} />
+          <DeleteBtn cartInfo={productData} setPrice={setPrice} setShipping={setShipping} />
         </article>
       ))}
-      {<CartTotalPrice cartInfo={productData} price={price} />}
+      {<CartTotalPrice cartInfo={productData} price={price} shipping={shipping} setShipping={setShipping} />}
     </>
   );
 }
