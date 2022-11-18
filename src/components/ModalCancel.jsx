@@ -25,9 +25,14 @@ function ModalCancel({ cartInfo, setModalOpen, setPrice, setShipping }) {
 
   function getShippingFee(id) {
     let totalShippingFee = 0;
-    cartInfo = cartInfo.filter((item) => {
-      return item.data.product_id !== parseInt(id);
-    });
+    cartInfo = cartInfo
+      .filter((item) => {
+        return item.data.product_id !== parseInt(id);
+      })
+      .forEach((item) => {
+        totalShippingFee += item.data.shipping_fee;
+      });
+
     setShipping(totalShippingFee);
   }
 
