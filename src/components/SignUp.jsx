@@ -15,12 +15,12 @@ function SignUp(props) {
     const loginType = event.target.innerText;
 
     if (loginType === "구매회원 가입") {
-      event.target.classList.add("SignUp_clicked__KFQGo");
-      event.target.nextSibling.classList.remove("SignUp_clicked__KFQGo");
+      event.target.classList.add(`${styles.clicked}`);
+      event.target.nextSibling.classList.remove(`${styles.clicked}`);
       setType("buyer");
     } else {
-      event.target.classList.add("SignUp_clicked__KFQGo");
-      event.target.previousSibling.classList.remove("SignUp_clicked__KFQGo");
+      event.target.classList.add(`${styles.clicked}`);
+      event.target.previousSibling.classList.remove(`${styles.clicked}`);
       setType("seller");
     }
   }
@@ -42,10 +42,7 @@ function SignUp(props) {
       </section>
       <section className={styles.userInfoContainer}>
         <div className={styles.signUpType}>
-          <button
-            className={[styles.buyer, styles.clicked].join(" ")}
-            onClick={clickSignUpType}
-          >
+          <button className={[styles.buyer, styles.clicked].join(" ")} onClick={clickSignUpType}>
             구매회원 가입
           </button>
           <button className={styles.seller} onClick={clickSignUpType}>
@@ -55,15 +52,9 @@ function SignUp(props) {
       </section>
       {type === "buyer" ? <BuyerSignUpForm /> : <SellerSignUpForm />}
       <form className={styles.policyForm} action="">
-        <img
-          className={styles.policyCheckBox}
-          onClick={clickPolicy}
-          src={checkbox}
-          alt="이용 정책 동의"
-        />
+        <img className={styles.policyCheckBox} onClick={clickPolicy} src={checkbox} alt="이용 정책 동의" />
         <label className={styles.policyLabel} htmlFor="policyCheck">
-          호두샵의 <strong>이용약관</strong> 및{" "}
-          <strong>개인정보처리방침</strong>에 대한 내용을 확인하였고 동의합니다.
+          호두샵의 <strong>이용약관</strong> 및 <strong>개인정보처리방침</strong>에 대한 내용을 확인하였고 동의합니다.
         </label>
       </form>
       <button className={styles.signUpBtn}>가입하기</button>

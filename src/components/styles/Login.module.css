@@ -38,8 +38,7 @@
   background: #f2f2f2;
 }
 
-.buyer.clicked,
-.seller.clicked {
+.loginType .clicked {
   background-color: #ffffff;
   z-index: 1;
   border-bottom: none;

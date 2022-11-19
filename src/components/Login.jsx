@@ -7,11 +7,12 @@ function Login() {
   function clickLoginType(event) {
     const loginType = event.target.innerText;
     if (loginType === "구매회원 로그인") {
-      event.target.nextSibling.classList.toggle("Login_clicked__YEZUH");
+      event.target.classList.add(`${styles.clicked}`);
+      event.target.nextSibling.classList.remove(`${styles.clicked}`);
     } else {
-      event.target.previousSibling.classList.toggle("Login_clicked__YEZUH");
+      event.target.classList.add(`${styles.clicked}`);
+      event.target.previousSibling.classList.remove(`${styles.clicked}`);
     }
-    event.target.classList.toggle("Login_clicked__YEZUH");
   }
 
   return (
@@ -21,10 +22,8 @@ function Login() {
       </section>
       <section className={styles.userInfoContainer}>
         <div className={styles.loginType}>
-          <button
-            className={[styles.buyer, styles.clicked].join(" ")}
-            onClick={clickLoginType}
-          >
+          {/* <button className={[styles.buyer, styles.clicked].join(" ")} onClick={clickLoginType}> */}
+          <button className={`${styles.buyer} ${styles.clicked}`} onClick={clickLoginType}>
             구매회원 로그인
           </button>
           <button className={styles.seller} onClick={clickLoginType}>
@@ -33,12 +32,7 @@ function Login() {
         </div>
         <form className={styles.loginForm} action="">
           <input type="text" id="userId" placeholder="아이디" />
-          <input
-            type="password"
-            name="userPw"
-            id="userPw"
-            placeholder="비밀번호"
-          />
+          <input type="password" name="userPw" id="userPw" placeholder="비밀번호" />
           <button className={styles.loginBtn} type="submit">
             로그인
           </button>
