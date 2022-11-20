@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
-import ProductCount from "./ProductCount.jsx";
+import DetailCount from "./DetailCount.jsx";
 import styles from "./styles/ProductInfo.module.css";
 
 function ProductInfo() {
   const data = useLocation().state.data;
-  let [productCount, setProductCount] = useState(0);
+  let [productCount, setProductCount] = useState(1);
+  let currentUrl = window.location.pathname.replace("/", "");
 
   return (
     <section className={styles.mainContainer}>
@@ -19,23 +20,16 @@ function ProductInfo() {
             <p className={styles.productName}>{data.product_name}</p>
             <p className={styles.productPrice}>{data.price.toLocaleString()}</p>
             <p className={styles.shipping}>
-              {data.shipping_method === "PARCEL" ? "소포배송" : "택배배송"} /{" "}
-              {data.shipping_fee === 0 ? "무료배송" : "유료배송"}
+              {data.shipping_method === "PARCEL" ? "소포배송" : "택배배송"} / {data.shipping_fee === 0 ? "무료배송" : "유료배송"}
             </p>
             <div className={styles.countContainer}>
-              <ProductCount
-                quantity={1}
-                setProductCount={setProductCount}
-                productCount={productCount}
-              />
+              <DetailCount setProductCount={setProductCount} productCount={productCount} />
             </div>
             <div className={styles.priceContainer}>
               <p className={styles.total}>총 상품 금액</p>
               <div className={styles.totalContainer}>
                 <p className={styles.totalCount}>총 수량 {productCount}개</p>
-                <p className={styles.totalPrice}>
-                  {(productCount * data.price).toLocaleString()}
-                </p>
+                <p className={styles.totalPrice}>{(productCount * data.price).toLocaleString()}</p>
               </div>
             </div>
             <div className={styles.buttonContainer}>

@@ -5,7 +5,7 @@ import ProductPrice from "./ProductPrice";
 import styles from "./styles/ProductCount.module.css";
 
 function ProductCount(props) {
-  let [productCount, setProductCount] = useState(props.productInfo.data.quantity);
+  let [productCount, setProductCount] = useState(props.quantity);
 
   function clickMinus(event) {
     const count = event.currentTarget.nextSibling.innerText;
@@ -34,7 +34,7 @@ function ProductCount(props) {
 
   useEffect(() => {
     getProductPrice();
-  }, []);
+  });
 
   return (
     <>
