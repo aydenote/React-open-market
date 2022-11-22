@@ -48,7 +48,7 @@ function Login() {
         navigate("/", { state: pathname });
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
       if (error.response.data.FAIL_Message === "로그인 정보가 없습니다.") {
         setFailText(true);
       }

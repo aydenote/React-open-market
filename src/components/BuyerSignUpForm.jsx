@@ -1,6 +1,36 @@
 import styles from "./styles/BuyerSignUp.module.css";
+import axios from "axios";
+import { useState } from "react";
 
 function BuyerSignUpForm() {
+  let [validText, setValidText] = useState("");
+  function validIdAxios(id) {
+    return axios({
+      url: `https://openmarket.weniv.co.kr/accounts/signup/valid/username/`,
+      method: "post",
+      data: {
+        username: `${id}`,
+      },
+    });
+  }
+
+  async function checkDuplicate(event) {
+    event.preventDefault();
+    const userId = document.querySelector(`.${styles.userIdInput}`).value;
+    const validText = document.querySelector(`.${styles.validText}`);
+    try {
+      const res = await validIdAxios(userId);
+      setValidText(res.data.Success);
+      validText.classList.remove(`${styles.fail}`);
+      validText.classList.add(`${styles.success}`);
+    } catch (error) {
+      console.error(error.response.data.FAIL_Message);
+      setValidText(error.response.data.FAIL_Message);
+      validText.classList.remove(`${styles.success}`);
+      validText.classList.add(`${styles.fail}`);
+    }
+  }
+
   return (
     <form className={styles.buyerSignUpForm} action="">
       <label className={styles.userIdLabel} htmlFor="">
@@ -8,8 +38,11 @@ function BuyerSignUpForm() {
       </label>
       <div className={styles.userIdContainer}>
         <input className={styles.userIdInput} type="text" />
-        <button className={styles.confirmIdBtn}>중복확인</button>
+        <button className={styles.confirmIdBtn} onClick={checkDuplicate}>
+          중복확인
+        </button>
       </div>
+      {validText === "" ? <p className={styles.validText}></p> : <p className={styles.validText}>{validText}</p>}
       <label className={styles.userPwLabel} htmlFor="">
         비밀번호
       </label>

@@ -48,6 +48,30 @@ input:focus {
   background: #21bf48;
 }
 
+.validText {
+  display: none;
+}
+
+.validText.fail {
+  display: block;
+  margin-top: 10px;
+  font-family: "Spoqa Han Sans Neo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: #eb5757;
+}
+
+.validText.success {
+  display: block;
+  margin-top: 10px;
+  font-family: "Spoqa Han Sans Neo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: #21bf48;
+}
+
 .userPwLabel {
   margin: 12px 0px;
   font-family: "Spoqa Han Sans Neo";
