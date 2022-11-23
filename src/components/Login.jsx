@@ -1,15 +1,14 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useState } from "react";
 import axios from "axios";
+import { setCookie } from "../util/cookie";
 import LogoImg from "../asset/Logo-hodu.svg";
 import styles from "./styles/Login.module.css";
 import LoginFail from "./LoginFail";
-import { useState } from "react";
-import { useCookies } from "react-cookie";
 
 function Login() {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const [cookies, setCookie, removeCookie] = useCookies(["Token"]);
   let [failText, setFailText] = useState(false);
   let loginType = "구매회원 로그인";
 
