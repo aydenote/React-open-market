@@ -4,10 +4,12 @@ import LogoImg from "../asset/Logo-hodu.svg";
 import styles from "./styles/Login.module.css";
 import LoginFail from "./LoginFail";
 import { useState } from "react";
+import { useCookies } from "react-cookie";
 
 function Login() {
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const [cookies, setCookie, removeCookie] = useCookies(["Token"]);
   let [failText, setFailText] = useState(false);
   let loginType = "구매회원 로그인";
 
@@ -44,7 +46,7 @@ function Login() {
     try {
       const res = await loginAxios();
       if (res.status === 200) {
-        localStorage.setItem("Token", res.data.token);
+        setCookie("Token", res.data.token);
         navigate("/", { state: pathname });
       }
     } catch (error) {
