@@ -62,18 +62,3 @@ header {
   line-height: 14px;
   color: #767676;
 }
-
-.userContainer {
-  margin-left: 30px;
-}
-
-.userContainer::after {
-  content: "로그인";
-  display: block;
-  font-family: "Spoqa Han Sans Neo";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 14px;
-  color: #767676;
-}
