@@ -46,12 +46,13 @@ function Login() {
       const res = await loginAxios();
       if (res.status === 200) {
         setCookie("Token", res.data.token);
+        setCookie("UserType", res.data.user_type);
         navigate("/", { state: pathname });
       }
     } catch (error) {
       console.error(error);
-      if (error.response.data.FAIL_Message === "로그인 정보가 없습니다.") {
-        setFailText(true);
+      if (error.response.data.FAIL_Message) {
+        setFailText(error.response.data.FAIL_Message);
       }
     }
   }
@@ -73,7 +74,7 @@ function Login() {
         <form className={styles.loginForm} action="">
           <input type="text" id="userId" placeholder="아이디" />
           <input type="password" id="userPw" placeholder="비밀번호" />
-          {failText ? <LoginFail /> : null}
+          {failText ? <LoginFail failText={failText} /> : null}
           <button className={styles.loginBtn} onClick={clickLogin}>
             로그인
           </button>

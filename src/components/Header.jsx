@@ -1,11 +1,10 @@
-// import { useState } from "react";
 import { Link } from "react-router-dom";
-import MyPage from "./MyPage";
+import HeaderUser from "./HeaderUser";
+import HeaderNonLogin from "./HeaderNonLogin";
 import LogoImg from "../asset/Logo-hodu.svg";
 import SearchImg from "../asset/search.svg";
-import CartImg from "../asset/shopping-cart.svg";
 import styles from "./styles/Header.module.css";
-import { getCookie, deleteCookie } from "../util/cookie";
+import { getCookie } from "../util/cookie";
 
 function Header() {
   function clickSearch() {
@@ -22,20 +21,7 @@ function Header() {
           <img className={styles.searchImg} onClick={clickSearch} src={SearchImg} alt="검색" />
         </div>
       </div>
-      <div className={styles.headerRightSide}>
-        <Link to="/cart">
-          <div className={styles.cartContainer}>
-            <img className={styles.cart} src={CartImg} alt="장바구니" />
-          </div>
-        </Link>
-        {getCookie("Token") ? (
-          <MyPage />
-        ) : (
-          <Link to="/login">
-            <MyPage />
-          </Link>
-        )}
-      </div>
+      <div className={styles.headerRightSide}>{getCookie("Token") ? <HeaderUser userType={getCookie("UserType")} /> : <HeaderNonLogin />}</div>
     </header>
   );
 }

@@ -1,18 +1,13 @@
-.userContainer {
-  margin-left: 30px;
+.cartContainer {
+  text-align: center;
 }
 
-.userContainer:hover {
+.cartContainer:hover {
   cursor: pointer;
 }
 
-.isLoginImg {
-  display: block;
-  margin: auto;
-}
-
-.login::after {
-  content: "로그인";
+.cartContainer::after {
+  content: "장바구니";
   display: block;
   font-family: "Spoqa Han Sans Neo";
   font-style: normal;
@@ -22,7 +17,20 @@
   color: #767676;
 }
 
-.mypage::after {
+.cart {
+  display: block;
+  margin: auto;
+}
+
+.myPageContainer {
+  margin-left: 30px;
+}
+
+.myPageContainer:hover {
+  cursor: pointer;
+}
+
+.myPageContainer::after {
   content: "마이페이지";
   display: block;
   font-family: "Spoqa Han Sans Neo";
@@ -31,4 +39,9 @@
   font-size: 12px;
   line-height: 14px;
   color: #767676;
+}
+
+.myPage {
+  display: block;
+  margin: auto;
 }

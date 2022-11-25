@@ -47,18 +47,3 @@ header {
 .headerRightSide {
   display: flex;
 }
-
-.cartContainer {
-  text-align: center;
-}
-
-.cartContainer::after {
-  content: "장바구니";
-  display: block;
-  font-family: "Spoqa Han Sans Neo";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 14px;
-  color: #767676;
-}
