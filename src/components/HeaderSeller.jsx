@@ -1,14 +1,12 @@
 import { Link } from "react-router-dom";
 import BagImg from "../asset/icon-shopping-bag.svg";
-import UserImg from "../asset/user.svg";
 import styles from "./styles/HeaderSeller.module.css";
+import MyPage from "./MyPage";
 
 function HeaderSeller() {
   return (
     <>
-      <div className={styles.myPageContainer}>
-        <img className={styles.myPage} src={UserImg} alt="마이페이지" />
-      </div>
+      <MyPage />
       <Link to="/sellerCenter">
         <div className={styles.sellerCenter}>
           <img className={styles.sellerImg} src={BagImg} alt="" />

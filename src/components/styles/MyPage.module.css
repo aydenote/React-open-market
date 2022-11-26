@@ -1,13 +1,14 @@
-.cartContainer {
-  text-align: center;
+.myPageContainer {
+  position: relative;
+  margin-left: 30px;
 }
 
-.cartContainer:hover {
+.myPageContainer:hover {
   cursor: pointer;
 }
 
-.cartContainer::after {
-  content: "장바구니";
+.myPageContainer::after {
+  content: "마이페이지";
   display: block;
   font-family: "Spoqa Han Sans Neo";
   font-style: normal;
@@ -17,7 +18,7 @@
   color: #767676;
 }
 
-.cart {
+.myPage {
   display: block;
   margin: auto;
 }

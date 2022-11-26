@@ -1,4 +1,4 @@
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import { setCookie } from "../util/cookie";
@@ -8,7 +8,6 @@ import LoginFail from "./LoginFail";
 
 function Login() {
   const navigate = useNavigate();
-  const { pathname } = useLocation();
   let [failText, setFailText] = useState(false);
   let loginType = "구매회원 로그인";
 
@@ -47,7 +46,7 @@ function Login() {
       if (res.status === 200) {
         setCookie("Token", res.data.token);
         setCookie("UserType", res.data.user_type);
-        navigate("/", { state: pathname });
+        navigate("/");
       }
     } catch (error) {
       console.error(error);
