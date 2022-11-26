@@ -1,12 +1,13 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { getCookie } from "../util/cookie";
 
 function GetProductData(props) {
   function productAxios(productId) {
     return axios.create({
       baseURL: `https://openmarket.weniv.co.kr/products/${productId}`,
       headers: {
-        Authorization: "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJlbWFpbCI6IiIsInVzZXJuYW1lIjoiYnV5ZXIxIiwiZXhwIjoxNjY4OTU2NjY0fQ.x6t1EsSh12ntMdwTd3qN2gj3OnVUBG-evFO7GGGM1NY",
+        Authorization: `JWT ${getCookie("Token")}`,
       },
     });
   }
