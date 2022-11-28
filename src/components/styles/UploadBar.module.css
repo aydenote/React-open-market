@@ -1,0 +1,45 @@
+.dashboardHeader {
+  margin: 44px 0px 0px 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  display: inline-block;
+  font-family: "Spoqa Han Sans Neo";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 44px;
+}
+
+.storeName {
+  display: inline-block;
+  margin-left: 16px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 44px;
+  color: #21bf48;
+}
+
+.uploadBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 100px;
+  border: none;
+  background: #21bf48;
+  border-radius: 5px;
+}
+
+.uploadBtn::after {
+  display: inline-block;
+  margin-left: 9px;
+  content: "상품 업로드";
+  color: #ffffff;
+}
+
+.uploadBtn:hover {
+  cursor: pointer;
+}
