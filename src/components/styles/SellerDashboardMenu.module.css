@@ -1,0 +1,48 @@
+.itemList {
+  display: flex;
+  max-width: 250px;
+  flex-direction: column;
+  margin-left: 100px;
+}
+
+.saleProduct,
+.orderProduct,
+.reviewProduct,
+.analysis,
+.storeSetting {
+  width: 250px;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.saleProduct:hover,
+.orderProduct:hover,
+.reviewProduct:hover,
+.analysis:hover,
+.storeSetting:hover {
+  background-color: #effff3;
+}
+
+.saleProduct {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.saleItemCount {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  text-align: center;
+  color: #ffffff;
+  background: #eb5757;
+}
+
+.saleProduct.clicked,
+.orderProduct.clicked,
+.reviewProduct.clicked,
+.analysis.clicked,
+.storeSetting.clicked {
+  background: #21bf48;
+}
