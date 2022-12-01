@@ -2,3 +2,7 @@
   min-width: 800px;
   margin: auto;
 }
+
+.menuDetailBox {
+  display: flex;
+}

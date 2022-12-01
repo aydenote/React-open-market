@@ -1,7 +1,6 @@
 .itemList {
-  display: flex;
-  max-width: 250px;
-  flex-direction: column;
+  display: inline-block;
+  width: 250px;
   margin-left: 100px;
 }
 
