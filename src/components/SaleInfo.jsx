@@ -1,3 +1,4 @@
+import SaleDeleteButton from "./SaleDeleteButton";
 import styles from "./styles/SaleInfo.module.css";
 
 function SaleInfo({ sellerData }) {
@@ -12,8 +13,7 @@ function SaleInfo({ sellerData }) {
         </ul>
       </header>
       {sellerData.map((item) => (
-        <section className={styles.itemContainer} key={item.product_id}>
-          {console.log(item)}
+        <article className={styles.itemContainer} key={item.product_id} data-id={item.product_id}>
           <div className={styles.itemInfo}>
             <img className={styles.itemImg} src={item.image} alt="상품" />
             <div className={styles.itemInfoText}>
@@ -23,8 +23,8 @@ function SaleInfo({ sellerData }) {
           </div>
           <p className={styles.itemPrice}>{item.price.toLocaleString()}원</p>
           <button className={styles.itemUpdate}>수정</button>
-          <button className={styles.itemDelete}>삭제</button>
-        </section>
+          <SaleDeleteButton />
+        </article>
       ))}
     </section>
   );
