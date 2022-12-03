@@ -5,6 +5,7 @@ import CartPage from "./views/CartPage";
 import SignUpPage from "./views/SignUpPage";
 import ProductDetailPage from "./views/ProductDetailPage";
 import SellerCenterPage from "./views/SellerCenterPage";
+import AddProductPage from "./views/AddProductPage";
 import "./slick.css";
 import "./slick-theme.css";
 
@@ -18,6 +19,7 @@ function App() {
         <Route path="/signUp" element={<SignUpPage />} />
         <Route path="/productDetail" element={<ProductDetailPage />} />
         <Route path="/sellerCenter" element={<SellerCenterPage />} />
+        <Route path="/addProduct" element={<AddProductPage />} />
       </Routes>
     </BrowserRouter>
   );

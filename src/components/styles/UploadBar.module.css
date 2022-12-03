@@ -23,23 +23,22 @@
   color: #21bf48;
 }
 
-.uploadBtn {
+.addProductLink {
   display: flex;
-  justify-content: center;
   align-items: center;
   margin-right: 100px;
-  border: none;
+  padding: 12px;
   background: #21bf48;
   border-radius: 5px;
 }
 
-.uploadBtn::after {
+.addProductLink::after {
   display: inline-block;
   margin-left: 9px;
   content: "상품 업로드";
   color: #ffffff;
 }
 
-.uploadBtn:hover {
+.addProductLink:hover {
   cursor: pointer;
 }

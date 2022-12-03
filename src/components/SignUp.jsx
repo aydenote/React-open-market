@@ -4,7 +4,6 @@ import LogoImg from "../asset/Logo-hodu.svg";
 import checkbox from "../asset/check-box.svg";
 import fillbox from "../asset/check-fill-box.svg";
 import styles from "./styles/SignUp.module.css";
-
 import { useState } from "react";
 
 function SignUp(props) {
