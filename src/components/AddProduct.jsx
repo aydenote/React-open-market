@@ -6,8 +6,10 @@ function AddProduct() {
   return (
     <>
       <h1 className={styles.pageTitle}>상품 등록</h1>
-      <Caution />
-      <AddProductInfo />
+      <section className={styles.mainContentBox}>
+        <Caution />
+        <AddProductInfo />
+      </section>
     </>
   );
 }
