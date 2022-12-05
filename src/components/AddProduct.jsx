@@ -1,5 +1,7 @@
 import Caution from "./Caution";
 import AddProductInfo from "./AddProductInfo";
+import AddProductInfoDetail from "./AddProductInfoDetail";
+import ProductDetailText from "./ProductDetailText";
 import styles from "./styles/AddProduct.module.css";
 
 function AddProduct() {
@@ -9,6 +11,8 @@ function AddProduct() {
       <section className={styles.mainContentBox}>
         <Caution />
         <AddProductInfo />
+        <AddProductInfoDetail />
+        <ProductDetailText />
       </section>
     </>
   );

@@ -8,5 +8,7 @@
 }
 
 .mainContentBox {
-  display: flex;
+  display: grid;
+  grid-template-columns: 420px 534px 875px;
+  grid-template-rows: 484px 1fr;
 }

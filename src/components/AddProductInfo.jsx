@@ -17,23 +17,20 @@ function AddProductInfo() {
 
   return (
     <main className={styles.container}>
-      <section>
-        <h2 className={styles.infoTitle}>상품 이미지</h2>
-        <input
-          className={styles.imgInput}
-          type="file"
-          id="imgFile"
-          accept="image/*"
-          onChange={(event) => {
-            if (event.target.files[0]) {
-              encodeFileToBase64(event.target.files[0]);
-            }
-          }}
-        ></input>
-        <label htmlFor="imgFile">
-          {imageSrc ? <img className={styles.previewImg} src={imageSrc} alt="" /> : <div className={styles.nonImg} />}
-          </label>
-      </section>
+      <p className={styles.infoTitle}>상품 이미지</p>
+      <input
+        className={styles.imgInput}
+        type="file"
+        id="imgFile"
+        accept="image/*"
+        onChange={(event) => {
+          if (event.target.files[0]) {
+            encodeFileToBase64(event.target.files[0]);
+          }
+        }}
+      ></input>
+      <label htmlFor="imgFile">{imageSrc ? <img className={styles.previewImg} src={imageSrc} alt="" /> : <div className={styles.nonImg} />}</label>
+
     </main>
   );
 }
