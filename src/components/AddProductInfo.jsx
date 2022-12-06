@@ -1,12 +1,13 @@
 import { useState } from "react";
 import styles from "./styles/AddProductInfo.module.css";
 
-function AddProductInfo() {
+function AddProductInfo({ setImgFile }) {
   const [imageSrc, setImageSrc] = useState("");
 
   function encodeFileToBase64(fileBlob) {
     const reader = new FileReader();
     reader.readAsDataURL(fileBlob);
+    setImgFile(reader);
     return new Promise((resolve) => {
       reader.onload = () => {
         setImageSrc(reader.result);
@@ -30,7 +31,6 @@ function AddProductInfo() {
         }}
       ></input>
       <label htmlFor="imgFile">{imageSrc ? <img className={styles.previewImg} src={imageSrc} alt="" /> : <div className={styles.nonImg} />}</label>
-
     </main>
   );
 }

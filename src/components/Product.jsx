@@ -21,22 +21,12 @@ function Product() {
   return (
     <ul className={styles.productContainer}>
       {productData.results.map((product) => (
-        <Link
-          to="/productDetail"
-          state={{ data: product }}
-          key={product.product_id}
-        >
+        <Link to="/productDetail" state={{ data: product }} key={product.product_id}>
           <li className={styles.productList} key={product.product_id}>
-            <img
-              className={styles.productImg}
-              src={product.image}
-              alt="상품 이미지"
-            />
+            <img className={styles.productImg} src={product.image} alt="상품 이미지" />
             <p className={styles.productStoreName}>{product.store_name}</p>
             <p className={styles.productName}>{product.product_name}</p>
-            <p className={styles.productPrice}>
-              {product.price.toLocaleString()}
-            </p>
+            <p className={styles.productPrice}>{product.price.toLocaleString()}</p>
           </li>
         </Link>
       ))}
