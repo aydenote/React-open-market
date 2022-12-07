@@ -7,7 +7,7 @@ function AddProductInfo({ setImgFile }) {
   function encodeFileToBase64(fileBlob) {
     const reader = new FileReader();
     reader.readAsDataURL(fileBlob);
-    setImgFile(reader);
+    setImgFile(fileBlob);
     return new Promise((resolve) => {
       reader.onload = () => {
         setImageSrc(reader.result);

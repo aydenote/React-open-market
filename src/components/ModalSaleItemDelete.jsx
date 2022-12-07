@@ -9,18 +9,11 @@ function ModalSaleItemDelete({ setModalOpen }) {
   }
 
   function saleProductDeleteAxios(productId) {
-    axios
-      .delete(`https://openmarket.weniv.co.kr/products/${productId}`, {
-        headers: {
-          Authorization: `JWT ${getCookie("Token")}`,
-        },
-      })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    axios.delete(`https://openmarket.weniv.co.kr/products/${productId}`, {
+      headers: {
+        Authorization: `JWT ${getCookie("Token")}`,
+      },
+    });
   }
 
   async function clickAccept(event) {

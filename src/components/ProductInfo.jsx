@@ -6,7 +6,6 @@ import styles from "./styles/ProductInfo.module.css";
 function ProductInfo() {
   const data = useLocation().state.data;
   let [productCount, setProductCount] = useState(1);
-  let currentUrl = window.location.pathname.replace("/", "");
 
   return (
     <section className={styles.mainContainer}>

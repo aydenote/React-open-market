@@ -1,40 +1,47 @@
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { getCookie } from "../util/cookie";
 import styles from "./styles/AddProductBtn.module.css";
+import productInfoStyles from "./styles/AddProductInfoDetail.module.css";
 
 function AddProductBtn({ imgFile }) {
-  function addProductAxios(imgFile, productImg) {
+  const navigate = useNavigate();
+  function addProductAxios(imgFile, productName, productPrice, shippingMethod, shippingFee, productStock, productInfo) {
+    const formData = new FormData();
+    formData.append("product_name", productName);
+    formData.append("image", imgFile);
+    formData.append("price", productPrice);
+    formData.append("shipping_method", shippingMethod === "parcel" ? "PARCEL" : "DELIVERY ");
+    formData.append("shipping_fee", shippingFee);
+    formData.append("stock", productStock);
+    formData.append("product_info", productInfo);
+    formData.append("token", getCookie("Token"));
     return axios({
       url: `https://openmarket.weniv.co.kr/products/`,
       method: "post",
       headers: {
         Authorization: `JWT ${getCookie("Token")}`,
       },
-      data: {
-        product_name: "테스트",
-        // image: productImg,
-        // image: imgFile,
-        image: "https://openmarket.weniv.co.kr/media/products/2022/11/28/3e98fec97717ed541b327f6360f349fd.jpg",
-        price: 1,
-        shipping_method: "DELIVERY", // PARCEL 또는 DELIVERY 선택
-        shipping_fee: 1,
-        stock: 1,
-        product_info: "테스트 중입니다",
-        token: getCookie("Token"),
-      },
+      data: formData,
     });
   }
 
   async function addProduct() {
     const inputEl = document.querySelectorAll(`input`);
-    const productImg = inputEl[0].nextElementSibling.childNodes[0].src;
-    // const productName = inputEl[1].value;
-    // const productPrice = parseInt(inputEl[2].value.replaceAll(",", ""));
-    // const shippingMethodxW
-    // const shippingFee = parseInt(inputEl[3].value.replaceAll(",", ""));
-    // const productStock = parseInt(inputEl[4].value.replaceAll(",", ""));
-
-    const res = await addProductAxios(imgFile, productImg);
+    const productName = inputEl[1].value;
+    const productPrice = parseInt(inputEl[2].value.replaceAll(",", ""));
+    const shippingMethod = document.querySelector(`.${productInfoStyles.clicked}`).dataset.key;
+    const shippingFee = parseInt(inputEl[3].value.replaceAll(",", ""));
+    const productStock = parseInt(inputEl[4].value.replaceAll(",", ""));
+    const productInfo = document.querySelector("textarea").value;
+    try {
+      const res = await addProductAxios(imgFile, productName, productPrice, shippingMethod, shippingFee, productStock, productInfo);
+      if (res.status === 201) {
+        navigate("/sellerCenter");
+      }
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   return (

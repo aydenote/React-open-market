@@ -8,7 +8,6 @@ function ModalCancel({ cartInfo, setModalOpen, setPrice, setShipping }) {
 
   function clickAccept(event) {
     const cancelNode = event.target.closest("article").parentNode;
-    console.dir(event.target.closest("article"));
     cancelNode.parentNode.removeChild(cancelNode);
     getProductPrice();
     getShippingFee(cancelNode.dataset.id);
