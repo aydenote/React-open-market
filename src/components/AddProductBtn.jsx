@@ -25,6 +25,10 @@ function AddProductBtn({ imgFile }) {
       data: formData,
     });
   }
+  function clickCancel(event) {
+    event.preventDefault();
+    navigate("/sellerCenter");
+  }
 
   async function addProduct() {
     const inputEl = document.querySelectorAll(`input`);
@@ -46,7 +50,9 @@ function AddProductBtn({ imgFile }) {
 
   return (
     <section className={styles.BtnContainer}>
-      <button className={styles.cancelBtn}>취소</button>
+      <button className={styles.cancelBtn} onClick={clickCancel}>
+        취소
+      </button>
       <button className={styles.saveBtn} onClick={addProduct}>
         저장하기
       </button>
