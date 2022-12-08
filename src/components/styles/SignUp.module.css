@@ -63,9 +63,21 @@
 }
 
 .policyCheckBox {
-  position: relative;
-  top: -10px;
-  margin-right: 10px;
+  display: none;
+}
+
+input[id="checkbox"] + label {
+  display: inline-block;
+  width: 20px;
+  height: 16px;
+  margin: 3px 10px 0px 0px;
+  border: 1px solid #c4c4c4;
+  cursor: pointer;
+}
+
+input[id="checkbox"]:checked + label {
+  background: url("../../asset/icon-check.svg") no-repeat center;
+  border: 1px solid #21bf48;
 }
 
 .policyLabel {

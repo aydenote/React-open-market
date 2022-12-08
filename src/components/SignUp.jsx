@@ -1,14 +1,11 @@
 import SellerSignUpForm from "../components/SellerSignUpForm.jsx";
 import BuyerSignUpForm from "../components/BuyerSignUpForm.jsx";
 import LogoImg from "../asset/Logo-hodu.svg";
-import checkbox from "../asset/check-box.svg";
-import fillbox from "../asset/check-fill-box.svg";
 import styles from "./styles/SignUp.module.css";
 import { useState } from "react";
 
 function SignUp(props) {
   const [type, setType] = useState(props.signUpType);
-  let flag = "";
 
   function clickSignUpType(event) {
     const loginType = event.target.innerText;
@@ -21,16 +18,6 @@ function SignUp(props) {
       event.target.classList.add(`${styles.clicked}`);
       event.target.previousSibling.classList.remove(`${styles.clicked}`);
       setType("seller");
-    }
-  }
-
-  function clickPolicy(event) {
-    if (flag === "") {
-      event.target.src = `${fillbox}`;
-      flag = "clicked";
-    } else {
-      event.target.src = `${checkbox}`;
-      flag = "";
     }
   }
 
@@ -51,7 +38,8 @@ function SignUp(props) {
       </section>
       {type === "buyer" ? <BuyerSignUpForm /> : <SellerSignUpForm />}
       <form className={styles.policyForm} action="">
-        <img className={styles.policyCheckBox} onClick={clickPolicy} src={checkbox} alt="이용 정책 동의" />
+        <input id="checkbox" className={styles.policyCheckBox} type="checkbox" alt="이용 정책 동의" />
+        <label htmlFor="checkbox"></label>
         <label className={styles.policyLabel} htmlFor="policyCheck">
           호두샵의 <strong>이용약관</strong> 및 <strong>개인정보처리방침</strong>에 대한 내용을 확인하였고 동의합니다.
         </label>

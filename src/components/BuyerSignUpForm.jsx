@@ -33,9 +33,7 @@ function BuyerSignUpForm() {
 
   return (
     <form className={styles.buyerSignUpForm} action="">
-      <label className={styles.userIdLabel} htmlFor="">
-        아이디
-      </label>
+      <p className={styles.userIdLabel}>아이디</p>
       <div className={styles.userIdContainer}>
         <input className={styles.userIdInput} type="text" />
         <button className={styles.confirmIdBtn} onClick={checkDuplicate}>
@@ -43,21 +41,13 @@ function BuyerSignUpForm() {
         </button>
       </div>
       {validText === "" ? <p className={styles.validText}></p> : <p className={styles.validText}>{validText}</p>}
-      <label className={styles.userPwLabel} htmlFor="">
-        비밀번호
-      </label>
+      <p className={styles.userPwLabel}>비밀번호</p>
       <input className={styles.userPwInput} type="password" />
-      <label className={styles.userPwCheckLabel} htmlFor="">
-        비밀번호 재확인
-      </label>
+      <p className={styles.userPwCheckLabel}>비밀번호 재확인</p>
       <input className={styles.userPwCheckInput} type="password" />
-      <label className={styles.userNameLabel} htmlFor="">
-        이름
-      </label>
+      <p className={styles.userNameLabel}>이름</p>
       <input className={styles.userNameInput} type="text" />
-      <label className={styles.userPhoneLabel} htmlFor="">
-        휴대폰번호
-      </label>
+      <p className={styles.userPhoneLabel}>휴대폰번호</p>
       <div className={styles.userPhoneContainer}>
         <select className={styles.userPhoneFirst} name="phone" id="phone">
           <option className={styles} value="DEFAULT">
@@ -76,9 +66,7 @@ function BuyerSignUpForm() {
         <input className={styles.userPhoneMiddle} type="number" />
         <input className={styles.userPhoneLast} type="number" />
       </div>
-      <label className={styles.userEmailLabel} htmlFor="">
-        이메일
-      </label>
+      <p className={styles.userEmailLabel}>이메일</p>
       <div>
         <input className={styles.userEmailFirst} type="text" />
         <span className={styles.emailAt}>@</span>
