@@ -91,6 +91,11 @@ input:focus {
   border: 1px solid #c4c4c4;
 }
 
+.userPwInput.pass {
+  background: url("/src/asset/icon-check-pass.svg") no-repeat;
+  background-position: 440px 10px;
+}
+
 .userPwCheckLabel {
   margin: 12px 0px;
   font-family: "Spoqa Han Sans Neo";
@@ -109,6 +114,11 @@ input:focus {
   background: url("/src/asset/icon-check-off.svg") no-repeat;
   background-position: 440px 10px;
   border: 1px solid #c4c4c4;
+}
+
+.userPwCheckInput.pass {
+  background: url("/src/asset/icon-check-pass.svg") no-repeat;
+  background-position: 440px 10px;
 }
 
 .userNameLabel {
