@@ -107,6 +107,7 @@ input[id="checkbox"]:checked + label {
   border-radius: 5px;
   margin: 34px 0px 110px 0px;
   border: none;
+  cursor: pointer;
   font-family: "Spoqa Han Sans Neo";
   font-style: normal;
   font-weight: 700;

@@ -30,22 +30,34 @@ function BuyerSignUpForm() {
       validText.classList.add(`${styles.fail}`);
     }
   }
+  function inputPassword(event) {
+    const target = event.target;
+    const reCheckInput = document.querySelector(`.${styles.userPwCheckInput}`);
 
-  function checkPassword(event) {
-    const reg = /^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{6,12}$/;
-    const password = event.target.value;
-    if (password.match(reg) == null) {
-      event.target.classList.remove(`${styles.pass}`);
-    } else event.target.classList.add(`${styles.pass}`);
+    if (target.classList[0] == styles.userPwInput) {
+      checkPassword(target);
+      reCheckPassword(reCheckInput);
+    } else {
+      reCheckPassword(target);
+    }
   }
 
-  function reCheckPassword(event) {
-    const password = document.querySelector(`.${styles.userPwInput}`).value;
-    const confirmPassword = event.target.value;
+  function checkPassword(target) {
+    const reg = /^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{6,12}$/;
+    const password = target.value;
+    if (password.match(reg) !== null) {
+      target.classList.add(`${styles.pass}`);
+    } else {
+      target.classList.remove(`${styles.pass}`);
+    }
+  }
 
-    if (password != confirmPassword) {
-      event.target.classList.remove(`${styles.pass}`);
-    } else event.target.classList.add(`${styles.pass}`);
+  function reCheckPassword(target) {
+    const password = document.querySelector(`.${styles.userPwInput}`);
+    const confirmPassword = target.value;
+    if (password.value === confirmPassword && password.classList[1] === `${styles.pass}`) {
+      target.classList.add(`${styles.pass}`);
+    } else target.classList.remove(`${styles.pass}`);
   }
 
   return (
@@ -59,9 +71,9 @@ function BuyerSignUpForm() {
       </div>
       {validText === "" ? <p className={styles.validText}></p> : <p className={styles.validText}>{validText}</p>}
       <p className={styles.userPwLabel}>비밀번호</p>
-      <input className={styles.userPwInput} type="text" placeholder="최소 1개의 숫자 혹은 특수 문자를 포함한 6~12자 영문 비밀번호" onChange={checkPassword} maxLength="12" required />
+      <input className={styles.userPwInput} type="password" placeholder="최소 1개의 숫자 혹은 특수 문자를 포함한 6~12자 영문 비밀번호" onChange={inputPassword} maxLength="12" required />
       <p className={styles.userPwCheckLabel}>비밀번호 재확인</p>
-      <input className={styles.userPwCheckInput} type="text" onChange={reCheckPassword} required />
+      <input className={styles.userPwCheckInput} type="password" onChange={inputPassword} required />
       <p className={styles.userNameLabel}>이름</p>
       <input className={styles.userNameInput} type="text" required />
       <p className={styles.userPhoneLabel}>휴대폰번호</p>
