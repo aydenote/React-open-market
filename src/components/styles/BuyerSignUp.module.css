@@ -138,6 +138,11 @@ input:focus {
   border-radius: 5px;
 }
 
+.userPhoneContainer {
+  display: flex;
+  position: relative;
+}
+
 .userPhoneLabel {
   margin: 12px 0px;
   font-family: "Spoqa Han Sans Neo";
@@ -154,11 +159,49 @@ input:focus {
   text-align: center;
   border: 1px solid #c4c4c4;
   border-radius: 5px;
+  font-family: "Spoqa Han Sans Neo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
 }
 
 .userPhoneFirst:focus {
   outline: none;
   border: 1px solid #21bf48;
+}
+
+.userPhoneFirst {
+  background: url("../../asset/icon-down-arrow.svg") no-repeat 95% 50%;
+  cursor: pointer;
+  -o-appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.userPhoneFirst.clicked {
+  background: url("../../asset/icon-up-arrow.svg") no-repeat 95% 50%;
+}
+
+.selectList {
+  display: none;
+}
+
+.selectList.visible {
+  display: inline-block;
+  position: absolute;
+  top: 110%;
+  width: 152px;
+  text-align: center;
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+  background-color: #ffffff;
+}
+
+.listItem {
+  padding: 10px 0px;
+  cursor: pointer;
 }
 
 .userPhoneMiddle {

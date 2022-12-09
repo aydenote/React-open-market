@@ -60,6 +60,31 @@ function BuyerSignUpForm() {
     } else target.classList.remove(`${styles.pass}`);
   }
 
+  function clickSelectBox(event) {
+    const target = event.target;
+    target.classList.toggle(`${styles.clicked}`);
+    document.querySelector(`.${styles.selectList}`).classList.toggle(`${styles.visible}`);
+  }
+
+  function clickSelectList(event) {
+    const selectedOption = event.target.innerText;
+    const selectBox = document.querySelector(`.${styles.userPhoneFirst}`);
+    const selectList = document.querySelector(`.${styles.selectList}`);
+
+    if (selectedOption.length === 3) {
+      selectBox.innerText = selectedOption;
+      selectBox.classList.remove(`${styles.clicked}`);
+      selectList.classList.remove(`${styles.visible}`);
+    }
+  }
+
+  function inputUserPhone(event) {
+    let phoneNumber = event.target;
+    if (phoneNumber.value.length > phoneNumber.maxLength) {
+      phoneNumber.value = phoneNumber.value.slice(0, 4);
+    }
+  }
+
   return (
     <form className={styles.buyerSignUpForm} action="">
       <p className={styles.userIdLabel}>아이디</p>
@@ -78,22 +103,17 @@ function BuyerSignUpForm() {
       <input className={styles.userNameInput} type="text" required />
       <p className={styles.userPhoneLabel}>휴대폰번호</p>
       <div className={styles.userPhoneContainer}>
-        <select className={styles.userPhoneFirst} name="phone" id="phone">
-          <option className={styles} value="DEFAULT">
-            010
-          </option>
-          <option className={styles} value="011">
-            011
-          </option>
-          <option className={styles} value="016">
-            016
-          </option>
-          <option className={styles} value="017">
-            017
-          </option>
-        </select>
-        <input className={styles.userPhoneMiddle} type="number" required />
-        <input className={styles.userPhoneLast} type="number" required />
+        <div className={styles.userPhoneFirst} onClick={clickSelectBox}>
+          010
+        </div>
+        <ul className={styles.selectList} onClick={clickSelectList}>
+          <li className={styles.listItem}>010</li>
+          <li className={styles.listItem}>011</li>
+          <li className={styles.listItem}>016</li>
+          <li className={styles.listItem}>017</li>
+        </ul>
+        <input className={styles.userPhoneMiddle} type="number" onInput={inputUserPhone} maxLength="4" required />
+        <input className={styles.userPhoneLast} type="number" onInput={inputUserPhone} maxLength="4" required />
       </div>
       <p className={styles.userEmailLabel}>이메일</p>
       <div>
