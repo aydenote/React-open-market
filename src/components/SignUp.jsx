@@ -1,11 +1,15 @@
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 import SellerSignUpForm from "../components/SellerSignUpForm.jsx";
 import BuyerSignUpForm from "../components/BuyerSignUpForm.jsx";
 import LogoImg from "../asset/Logo-hodu.svg";
 import styles from "./styles/SignUp.module.css";
-import { useState } from "react";
+import BuyerSignUpStyles from "./styles/BuyerSignUp.module.css";
 
-function SignUp(props) {
-  const [type, setType] = useState(props.signUpType);
+function SignUp({ signUpType }) {
+  const [type, setType] = useState(signUpType);
+  const navigate = useNavigate();
 
   function clickSignUpType(event) {
     const loginType = event.target.innerText;
@@ -21,10 +25,44 @@ function SignUp(props) {
     }
   }
 
+  function signUpAxios(id, pw, pw2, name, phoneNumber) {
+    return axios({
+      url: `https://openmarket.weniv.co.kr/accounts/signup/`,
+      method: "post",
+      data: {
+        username: `${id}`,
+        password: `${pw}`,
+        password2: `${pw2}`,
+        phone_number: `${phoneNumber}`,
+        name: `${name}`,
+      },
+    });
+  }
+
+  async function createAccount(event) {
+    event.preventDefault();
+    const userData = document.querySelectorAll("input");
+    const id = userData[0].value;
+    const pw = userData[1].value;
+    const pw2 = userData[2].value;
+    const name = userData[3].value;
+    const phoneNumber = document.querySelector(`.${BuyerSignUpStyles.userPhoneFirst}`).innerText + userData[4].value + userData[5].value;
+    try {
+      const res = await signUpAxios(id, pw, pw2, name, phoneNumber);
+      if (res.status === 201) {
+        navigate("/");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   return (
     <div className={styles.main}>
       <section className={styles.logoContainer}>
-        <img src={LogoImg} alt="로고" />
+        <Link to="/login">
+          <img src={LogoImg} alt="로고" />
+        </Link>
       </section>
       <section className={styles.userInfoContainer}>
         <div className={styles.signUpType}>
@@ -44,7 +82,9 @@ function SignUp(props) {
           호두샵의 <strong>이용약관</strong> 및 <strong>개인정보처리방침</strong>에 대한 내용을 확인하였고 동의합니다.
         </label>
       </form>
-      <button className={styles.signUpBtn}>가입하기</button>
+      <button className={styles.signUpBtn} onClick={createAccount}>
+        가입하기
+      </button>
     </div>
   );
 }

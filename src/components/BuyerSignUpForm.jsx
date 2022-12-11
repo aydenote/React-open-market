@@ -20,14 +20,14 @@ function BuyerSignUpForm() {
     const validText = document.querySelector(`.${styles.validText}`);
     try {
       const res = await validIdAxios(userId);
-      setValidText(res.data.Success);
       validText.classList.remove(`${styles.fail}`);
       validText.classList.add(`${styles.success}`);
+      setValidText(res.data.Success);
     } catch (error) {
       console.error(error.response.data.FAIL_Message);
-      setValidText(error.response.data.FAIL_Message);
       validText.classList.remove(`${styles.success}`);
       validText.classList.add(`${styles.fail}`);
+      setValidText(error.response.data.FAIL_Message);
     }
   }
   function inputPassword(event) {
