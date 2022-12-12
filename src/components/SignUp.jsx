@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import SellerSignUpForm from "../components/SellerSignUpForm.jsx";
+import SellerSignUpForm from "./SellerSignUp.jsx";
 import BuyerSignUpForm from "../components/BuyerSignUpForm.jsx";
 import LogoImg from "../asset/Logo-hodu.svg";
 import styles from "./styles/SignUp.module.css";
@@ -25,7 +25,7 @@ function SignUp({ signUpType }) {
     }
   }
 
-  function signUpAxios(id, pw, pw2, name, phoneNumber) {
+  function signUpBuyerAxios(id, pw, pw2, name, phoneNumber) {
     return axios({
       url: `https://openmarket.weniv.co.kr/accounts/signup/`,
       method: "post",
@@ -47,13 +47,16 @@ function SignUp({ signUpType }) {
     const pw2 = userData[2].value;
     const name = userData[3].value;
     const phoneNumber = document.querySelector(`.${BuyerSignUpStyles.userPhoneFirst}`).innerText + userData[4].value + userData[5].value;
-    try {
-      const res = await signUpAxios(id, pw, pw2, name, phoneNumber);
-      if (res.status === 201) {
-        navigate("/");
+    const idValid = document.querySelector(`.${BuyerSignUpStyles.success}`);
+    const pwValid = document.querySelector(`.${BuyerSignUpStyles.userPwCheckInput}.${BuyerSignUpStyles.pass}`);
+    const policy = document.querySelector(`.${styles.policyCheckBox}`).checked;
+    if (idValid && pwValid && name && policy && phoneNumber.length === 11) {
+      try {
+        const res = await signUpBuyerAxios(id, pw, pw2, name, phoneNumber);
+        if (res.status === 201) navigate("/login");
+      } catch (error) {
+        console.error(error);
       }
-    } catch (error) {
-      console.error(error);
     }
   }
 

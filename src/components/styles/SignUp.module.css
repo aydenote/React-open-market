@@ -103,7 +103,6 @@ input[id="checkbox"]:checked + label {
 .signUpBtn {
   width: 480px;
   padding: 19px 200px;
-  background: #c4c4c4;
   border-radius: 5px;
   margin: 34px 0px 110px 0px;
   border: none;
@@ -114,9 +113,6 @@ input[id="checkbox"]:checked + label {
   font-size: 18px;
   line-height: 22px;
   color: #ffffff;
-}
-
-.signUpBtn.selected {
   background: #21bf48;
 }
 

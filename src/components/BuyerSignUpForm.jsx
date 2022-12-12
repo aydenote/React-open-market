@@ -1,6 +1,6 @@
-import styles from "./styles/BuyerSignUp.module.css";
 import axios from "axios";
 import { useState } from "react";
+import styles from "./styles/BuyerSignUp.module.css";
 
 function BuyerSignUpForm() {
   let [validText, setValidText] = useState("");
@@ -57,7 +57,9 @@ function BuyerSignUpForm() {
     const confirmPassword = target.value;
     if (password.value === confirmPassword && password.classList[1] === `${styles.pass}`) {
       target.classList.add(`${styles.pass}`);
-    } else target.classList.remove(`${styles.pass}`);
+    } else {
+      target.classList.remove(`${styles.pass}`);
+    }
   }
 
   function clickSelectBox(event) {
@@ -80,6 +82,7 @@ function BuyerSignUpForm() {
 
   function inputUserPhone(event) {
     let phoneNumber = event.target;
+    // 4자리 숫자만 입력
     if (phoneNumber.value.length > phoneNumber.maxLength) {
       phoneNumber.value = phoneNumber.value.slice(0, 4);
     }

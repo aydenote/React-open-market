@@ -1,6 +1,6 @@
 import styles from "./styles/SellerSignUp.module.css";
 
-function SellerSignUpForm() {
+function SellerSignUp() {
   return (
     <form className={styles.sellerSignUpForm} action="">
       <label className={styles.userIdLabel} htmlFor="">
@@ -54,8 +54,8 @@ function SellerSignUpForm() {
       <label className={styles.userIdLabel} htmlFor="">
         사업자 등록번호
       </label>
-      <div className={styles.userIdContainer}>
-        <input className={styles.userIdInput} type="text" />
+      <div className={styles.companyNumberContainer}>
+        <input className={styles.companyNumberInput} type="text" />
         <button className={styles.confirmIdBtn}>인증</button>
       </div>
       <label className={styles.storeNameLabel} htmlFor="">
@@ -66,4 +66,4 @@ function SellerSignUpForm() {
   );
 }
 
-export default SellerSignUpForm;
+export default SellerSignUp;

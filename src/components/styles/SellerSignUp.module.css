@@ -17,11 +17,12 @@
   line-height: 20px;
   color: #767676;
 }
-
-.userIdContainer {
+.userIdContainer,
+.companyNumberContainer {
   margin-top: 10px;
 }
 
+.companyNumberInput,
 .userIdInput {
   width: 346px;
   padding: 18px 10px;
