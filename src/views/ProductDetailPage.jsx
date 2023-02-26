@@ -1,5 +1,5 @@
-import Header from "../components/Header.jsx";
-import ProductInfo from "../components/ProductInfo.jsx";
+import Header from '../components/header/Header.jsx';
+import ProductInfo from '../components/ProductInfo.jsx';
 
 function ProductDetailPage() {
   return (
