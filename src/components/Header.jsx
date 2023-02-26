@@ -1,30 +1,80 @@
-import { Link } from "react-router-dom";
-import HeaderUser from "./HeaderUser";
-import HeaderNonLogin from "./HeaderNonLogin";
-import LogoImg from "../asset/Logo-hodu.svg";
-import SearchImg from "../asset/search.svg";
-import styles from "./styles/Header.module.css";
-import { getCookie } from "../util/cookie";
+import { Link } from 'react-router-dom';
+import HeaderUser from './HeaderUser';
+import HeaderNonLogin from './HeaderNonLogin';
+import LogoSrc from '../asset/Logo-hodu.svg';
+import SearchSrc from '../asset/search.svg';
+import styled from 'styled-components';
+import { getCookie } from '../util/cookie';
 
 function Header() {
   function clickSearch() {
-    console.log("찾기!");
+    console.log('찾기!');
   }
 
   return (
-    <header className={styles.header}>
-      <div className={styles.headerLeftSide}>
+    <HeaderContainer>
+      <HeaderLeftSide>
         <Link to="/">
-          <img className={styles.logoImg} src={LogoImg} alt="로고" />
+          <LogoImg src={LogoSrc} alt="로고" />
         </Link>
-        <div className={styles.searchConatiner}>
-          <input className={styles.searchInput} type="text" placeholder="상품을 검색해보세요!" />
-          <img className={styles.searchImg} onClick={clickSearch} src={SearchImg} alt="검색" />
-        </div>
-      </div>
-      <div className={styles.headerRightSide}>{getCookie("Token") ? <HeaderUser userType={getCookie("UserType")} /> : <HeaderNonLogin />}</div>
-    </header>
+        <SearchConatiner>
+          <SearchInput type="text" placeholder="상품을 검색해보세요!" />
+          <SearchImg onClick={clickSearch} src={SearchSrc} alt="검색" />
+        </SearchConatiner>
+      </HeaderLeftSide>
+      <HeaderRightSide>
+        {getCookie('Token') ? <HeaderUser userType={getCookie('UserType')} /> : <HeaderNonLogin />}
+      </HeaderRightSide>
+    </HeaderContainer>
   );
 }
 
 export default Header;
+
+const HeaderContainer = styled.header`
+  display: flex;
+  height: 90px;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1);
+`;
+
+const HeaderLeftSide = styled.div`
+  display: inline-block;
+  width: 50%;
+`;
+
+const LogoImg = styled.img`
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+`;
+
+const SearchConatiner = styled.div`
+  display: inline-block;
+  position: relative;
+  width: 50%;
+`;
+
+const SearchInput = styled.input`
+  width: 100%;
+  margin-left: 30px;
+  background: #ffffff;
+  border: 2px solid #21bf48;
+  border-radius: 50px;
+  padding: 10px;
+  vertical-align: top;
+`;
+
+const SearchImg = styled.img`
+  position: absolute;
+  top: 5px;
+  right: -25px;
+  :focus {
+    outline: none;
+  }
+`;
+
+const HeaderRightSide = styled.div`
+  display: flex;
+`;
