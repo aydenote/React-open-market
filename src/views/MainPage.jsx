@@ -1,7 +1,7 @@
-import Header from "../components/Header.jsx";
-import SlideImg from "../components/SlideImg.jsx";
-import Product from "../components/Product.jsx";
-import Footer from "../components/Footer.jsx";
+import Header from '../components/header/Header.jsx';
+import SlideImg from '../components/slide/MainSlide.jsx';
+import Product from '../components/Product.jsx';
+import Footer from '../components/footer/Footer.jsx';
 
 function MainPage() {
   return (
