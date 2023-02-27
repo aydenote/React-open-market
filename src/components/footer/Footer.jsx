@@ -1,7 +1,7 @@
-import styled from 'styled-components';
 import instaSrc from '../../asset/icon-insta.svg';
 import facebookSrc from '../../asset/icon-facebook.svg';
 import youtubeSrc from '../../asset/icon-youtube.svg';
+import styled from 'styled-components';
 
 function Footer() {
   return (

@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
+import { getCookie } from '../../util/cookie';
 import HeaderUser from '../HeaderUser';
 import HeaderNonLogin from '../HeaderNonLogin';
 import LogoSrc from '../../asset/Logo-hodu.svg';
 import SearchSrc from '../../asset/search.svg';
 import styled from 'styled-components';
-import { getCookie } from '../../util/cookie';
 
 function Header() {
   function clickSearch() {

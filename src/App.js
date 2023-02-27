@@ -1,13 +1,13 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import MainPage from "./views/MainPage";
-import LoginPage from "./views/LoginPage";
-import CartPage from "./views/CartPage";
-import SignUpPage from "./views/SignUpPage";
-import ProductDetailPage from "./views/ProductDetailPage";
-import SellerCenterPage from "./views/SellerCenterPage";
-import AddProductPage from "./views/AddProductPage";
-import "./slick.css";
-import "./slick-theme.css";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import MainPage from './views/MainPage';
+import LoginPage from './views/LoginPage';
+import CartPage from './views/CartPage';
+import SignUpPage from './views/SignUpPage';
+import ProductDetailPage from './views/ProductDetailPage';
+import SellerCenterPage from './views/SellerCenterPage';
+import AddProductPage from './views/AddProductPage';
+import './slick.css';
+import './slick-theme.css';
 
 function App() {
   return (
