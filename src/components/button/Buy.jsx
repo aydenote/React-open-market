@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function BuyButton() {
+function Buy() {
   return <BuyBtn>바로 구매</BuyBtn>;
 }
 
-export default BuyButton;
+export default Buy;
 
 const BuyBtn = styled.button`
   flex-grow: 2;

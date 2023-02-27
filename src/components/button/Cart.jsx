@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function CartButton() {
+function Cart() {
   return <CartBtn>장바구니</CartBtn>;
 }
 
-export default CartButton;
+export default Cart;
 
 const CartBtn = styled.button`
   flex-grow: 1;
