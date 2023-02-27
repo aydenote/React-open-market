@@ -1,26 +1,23 @@
-import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { getProduct } from '../apis/products';
+import { setProductState } from '../reducers/mainProduct';
 import styled from 'styled-components';
 
 function MainProduct() {
-  const [loading, setLoading] = useState(true);
-  let [productData, setProductData] = useState([]);
+  const dispatch = useDispatch();
+  const { product } = useSelector(state => state.mainProduct);
 
   useEffect(() => {
-    axios({
-      url: 'https://openmarket.weniv.co.kr/products',
-      method: 'get',
-    }).then(response => {
-      setProductData(response.data);
-      setLoading(false);
+    getProduct().then(productRes => {
+      dispatch(setProductState(productRes.data.results));
     });
   }, []);
 
-  if (loading) return <div>Loading...</div>;
   return (
     <ProductContainer>
-      {productData.results.map(product => (
+      {product.map(product => (
         <Link to="/productDetail" state={{ data: product }} key={product.product_id}>
           <ProductList key={product.product_id}>
             <ProductImg src={product.image} alt="상품 이미지" />
