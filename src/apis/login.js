@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-function login(userId, userPw) {
+function login(userId, userPw, loginType) {
   return axios({
     url: `https://openmarket.weniv.co.kr/accounts/login/`,
     method: 'post',
