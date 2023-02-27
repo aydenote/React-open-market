@@ -1,42 +1,34 @@
-import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
-import axios from "axios";
-import { setCookie } from "../util/cookie";
-import LogoImg from "../asset/Logo-hodu.svg";
-import styles from "./styles/Login.module.css";
-import LoginFail from "./LoginFail";
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import login from '../apis/login';
+import { setCookie } from '../util/cookie';
+import LogoImg from '../asset/Logo-hodu.svg';
+import styles from './styles/Login.module.css';
+import LoginFail from './LoginFail';
 
 function Login() {
   const navigate = useNavigate();
   let [failText, setFailText] = useState(false);
-  let loginType = "구매회원 로그인";
+  let loginType = '구매회원 로그인';
 
   // 클릭한 로그인 타입에 따라 클래스를 추가하여 css 스타일 변경
   function clickLoginType(event) {
     loginType = event.target.innerText;
-    if (loginType === "구매회원 로그인") {
+    if (loginType === '구매회원 로그인') {
       event.target.classList.add(`${styles.clicked}`);
       event.target.nextSibling.classList.remove(`${styles.clicked}`);
-      loginType = "구매회원 로그인";
+      loginType = '구매회원 로그인';
     } else {
       event.target.classList.add(`${styles.clicked}`);
       event.target.previousSibling.classList.remove(`${styles.clicked}`);
-      loginType = "판매회원 로그인";
+      loginType = '판매회원 로그인';
     }
   }
 
   function loginAxios() {
-    const userId = document.querySelector("#userId").value;
-    const userPw = document.querySelector("#userPw").value;
-    return axios({
-      url: `https://openmarket.weniv.co.kr/accounts/login/`,
-      method: "post",
-      data: {
-        username: `${userId}`,
-        password: `${userPw}`,
-        login_type: loginType === "구매회원 로그인" ? "BUYER" : "SELLER", // BUYER : 일반 구매자, SELLER : 판매자
-      },
-    });
+    const userId = document.querySelector('#userId').value;
+    const userPw = document.querySelector('#userPw').value;
+    return login(userId, userPw);
   }
 
   async function clickLogin(event) {
@@ -44,9 +36,9 @@ function Login() {
     try {
       const res = await loginAxios();
       if (res.status === 200) {
-        setCookie("Token", res.data.token);
-        setCookie("UserType", res.data.user_type);
-        navigate("/");
+        setCookie('Token', res.data.token);
+        setCookie('UserType', res.data.user_type);
+        navigate('/');
       }
     } catch (error) {
       console.error(error);
