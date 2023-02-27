@@ -1,13 +1,13 @@
-import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import styled from 'styled-components';
+import { useSelector } from 'react-redux';
 import DetailCount from './DetailCount.jsx';
-import BuyButton from './button/BuyButton';
-import CartButton from './button/CartButton';
+import BuyButton from './button/Buy';
+import CartButton from './button/Cart';
+import styled from 'styled-components';
 
 function ProductInfo() {
   const data = useLocation().state.data;
-  let [productCount, setProductCount] = useState(1);
+  const count = useSelector(state => state.counter);
 
   return (
     <MainContainer>
@@ -25,14 +25,13 @@ function ProductInfo() {
               {data.shipping_fee === 0 ? '무료배송' : '유료배송'}
             </Shipping>
             <CountContainer>
-              <DetailCount setProductCount={setProductCount} productCount={productCount} />
               <DetailCount />
             </CountContainer>
             <PriceContainer>
               <Total>총 상품 금액</Total>
               <TotalContainer>
-                <TotalCount>총 수량 {productCount}개</TotalCount>
-                <TotalPrice>{(productCount * data.price).toLocaleString()}</TotalPrice>
+                <TotalCount>총 수량 {count}개</TotalCount>
+                <TotalPrice>{(count * data.price).toLocaleString()}</TotalPrice>
               </TotalContainer>
             </PriceContainer>
             <ButtonContainer>
