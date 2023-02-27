@@ -1,30 +1,34 @@
-import styles from "./styles/DetailCount.module.css";
-import minusImg from "../asset/icon-minus-line.svg";
-import plusImg from "../asset/icon-plus-line.svg";
+import { useSelector } from 'react-redux';
+import Decrease from './button/Decrease';
+import Increase from './button/Increase';
+import styled from 'styled-components';
 
-function DetailCount({ setProductCount, productCount }) {
-  function clickMinus(event) {
-    const count = event.currentTarget.nextSibling.innerText;
-    count <= 1 ? setProductCount(1) : setProductCount(productCount - 1);
-  }
-
-  function clickPlus() {
-    setProductCount(productCount + 1);
-  }
-
+function DetailCount() {
+  const count = useSelector(state => state.counter);
   return (
-    <>
-      <div className={styles.countContainer}>
-        <button className={styles.minusBtn} onClick={clickMinus}>
-          <img src={minusImg} alt="상품 수량 감소" />
-        </button>
-        <p className={`${styles.productCount} itemCount`}>{productCount}</p>
-        <button className={styles.plusBtn} onClick={clickPlus}>
-          <img src={plusImg} alt="상품 수량 증가" />
-        </button>
-      </div>
-    </>
+    <CountContainer>
+      <Decrease />
+      <ProductCount>{count}</ProductCount>
+      <Increase />
+    </CountContainer>
   );
 }
 
 export default DetailCount;
+
+const CountContainer = styled.div`
+  display: flex;
+  width: 152px;
+  height: 50px;
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+  background: #ffffff;
+`;
+
+const ProductCount = styled.p`
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 50px;
+  text-align: center;
+  line-height: 50px;
+`;
