@@ -1,0 +1,27 @@
+import React from 'react';
+import styled from 'styled-components';
+import minusSrc from '../../asset/icon-minus-line.svg';
+
+function Decrease(props) {
+  function clickMinus(event) {}
+
+  return (
+    <MinusButton onClick={clickMinus}>
+      <img src={minusSrc} alt="상품 수량 감소" />
+    </MinusButton>
+  );
+}
+
+export default Decrease;
+
+const MinusButton = styled.button`
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 50px;
+  padding: 0;
+  border: none;
+  border-right: 1px solid #c4c4c4;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  background-color: #ffffff;
+`;
