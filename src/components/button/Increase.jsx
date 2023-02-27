@@ -1,9 +1,15 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { increaseCount } from '../../reducers/counter';
 import plusSrc from '../../asset/icon-plus-line.svg';
 import styled from 'styled-components';
 
 function Increase() {
-  function clickPlus() {}
+  const dispatch = useDispatch();
+
+  function clickPlus() {
+    dispatch(increaseCount());
+  }
   return (
     <PlusButton onClick={clickPlus}>
       <img src={plusSrc} alt="상품 수량 증가" />

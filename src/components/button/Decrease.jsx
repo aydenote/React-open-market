@@ -1,9 +1,17 @@
 import React from 'react';
-import styled from 'styled-components';
+import { useDispatch, useSelector } from 'react-redux';
+import { decreaseCount } from '../../reducers/counter';
 import minusSrc from '../../asset/icon-minus-line.svg';
+import styled from 'styled-components';
 
-function Decrease(props) {
-  function clickMinus(event) {}
+function Decrease() {
+  const dispatch = useDispatch();
+  const count = useSelector(state => state.counter);
+
+  function clickMinus() {
+    if (count <= 1) return;
+    dispatch(decreaseCount());
+  }
 
   return (
     <MinusButton onClick={clickMinus}>
