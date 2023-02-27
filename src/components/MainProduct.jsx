@@ -1,17 +1,17 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import styles from "./styles/Product.module.css";
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
-function Product() {
+function MainProduct() {
   const [loading, setLoading] = useState(true);
   let [productData, setProductData] = useState([]);
 
   useEffect(() => {
     axios({
-      url: "https://openmarket.weniv.co.kr/products",
-      method: "get",
-    }).then((response) => {
+      url: 'https://openmarket.weniv.co.kr/products',
+      method: 'get',
+    }).then(response => {
       setProductData(response.data);
       setLoading(false);
     });
@@ -19,19 +19,75 @@ function Product() {
 
   if (loading) return <div>Loading...</div>;
   return (
-    <ul className={styles.productContainer}>
-      {productData.results.map((product) => (
+    <ProductContainer>
+      {productData.results.map(product => (
         <Link to="/productDetail" state={{ data: product }} key={product.product_id}>
-          <li className={styles.productList} key={product.product_id}>
-            <img className={styles.productImg} src={product.image} alt="상품 이미지" />
-            <p className={styles.productStoreName}>{product.store_name}</p>
-            <p className={styles.productName}>{product.product_name}</p>
-            <p className={styles.productPrice}>{product.price.toLocaleString()}</p>
-          </li>
+          <ProductList key={product.product_id}>
+            <ProductImg src={product.image} alt="상품 이미지" />
+            <ProductStoreName>{product.store_name}</ProductStoreName>
+            <ProductName>{product.product_name}</ProductName>
+            <ProductPrice>{product.price.toLocaleString()}</ProductPrice>
+          </ProductList>
         </Link>
       ))}
-    </ul>
+    </ProductContainer>
   );
 }
 
-export default Product;
+export default MainProduct;
+
+const ProductContainer = styled.ul`
+  display: grid;
+  max-width: 1280px;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 80px auto;
+`;
+
+const ProductList = styled.li`
+  width: 380px;
+  margin: 15px auto;
+`;
+
+const ProductImg = styled.img`
+  width: 380px;
+  height: 380px;
+  object-fit: fill;
+  border: 1px solid #c4c4c4;
+  border-radius: 10px;
+`;
+
+const ProductStoreName = styled.p`
+  margin: 16px 0px 10px 0;
+  font-family: 'Spoqa Han Sans Neo';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #767676;
+`;
+
+const ProductName = styled.p`
+  margin-bottom: 10px;
+  font-family: 'Spoqa Han Sans Neo';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #000000;
+`;
+
+const ProductPrice = styled.p`
+  font-family: 'Spoqa Han Sans Neo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+  ::after {
+    content: '원';
+    font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+  }
+`;
