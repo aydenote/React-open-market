@@ -1,22 +1,22 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { setSellerType } from '../../reducers/loginType';
+import { setBuyerType } from '../../reducers/loginType';
 import styled from 'styled-components';
 
-function Seller() {
+function LoginBuyer() {
   const dispatch = useDispatch();
   const loginType = useSelector(state => state.loginType);
 
   function clickLoginType() {
-    dispatch(setSellerType('판매회원 로그인'));
+    dispatch(setBuyerType('구매회원 로그인'));
   }
-  return loginType === '판매회원 로그인' ? (
-    <ButtonClicked>판매회원 로그인</ButtonClicked>
+  return loginType === '구매회원 로그인' ? (
+    <ButtonClicked>구매회원 로그인</ButtonClicked>
   ) : (
-    <Button onClick={clickLoginType}>판매회원 로그인</Button>
+    <Button onClick={clickLoginType}>구매회원 로그인</Button>
   );
 }
 
-export default Seller;
+export default LoginBuyer;
 
 const Button = styled.button`
   width: 275px;
