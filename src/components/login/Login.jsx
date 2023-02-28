@@ -1,9 +1,9 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import login from '../apis/login';
-import { setCookie } from '../util/cookie';
-import BuyerButton from './button/Buyer';
-import SellerButton from './button/Seller';
+import login from '../../apis/login';
+import { setCookie } from '../../util/cookie';
+import BuyerButton from '../button/Buyer';
+import SellerButton from '../button/Seller';
 import LogoSrc from '../asset/Logo-hodu.svg';
 import styles from './styles/Login.module.css';
 import LoginFail from './LoginFail';
