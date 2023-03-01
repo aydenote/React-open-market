@@ -1,8 +1,8 @@
 export const BUYER = 'SIGNUPTYPE/BUYER';
 export const SELLER = 'SIGNUPTYPE/SELLER';
 
-export const setBuyerType = signupType => ({ type: BUYER, signupType });
-export const setSellerType = signupType => ({ type: SELLER, signupType });
+export const setBuyerType = () => ({ type: BUYER });
+export const setSellerType = () => ({ type: SELLER });
 
 const initalState = '구매회원 가입';
 
