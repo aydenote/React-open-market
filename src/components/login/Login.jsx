@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import LoginForm from '../form/LoginForm';
-import BuyerButton from '../button/Buyer';
-import SellerButton from '../button/Seller';
+import BuyerButton from '../button/LoginBuyer';
+import SellerButton from '../button/LoginSeller';
 import LogoSrc from '../../asset/Logo-hodu.svg';
 import styled from 'styled-components';
 
