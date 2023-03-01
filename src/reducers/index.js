@@ -4,6 +4,7 @@ import counter from './counter';
 import loginType from './loginType';
 import loginFail from './loginFail';
 import signupType from './signupType';
+import signupFail from './signupFail';
 
 const rootReducer = combineReducers({
   mainProduct,
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   loginType,
   loginFail,
   signupType,
+  signupFail,
 });
 
 export default rootReducer;
