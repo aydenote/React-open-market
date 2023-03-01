@@ -14,4 +14,14 @@ function signup(id, pw, pw2, name, phoneNumber) {
   });
 }
 
+export function validId(id) {
+  return axios({
+    url: `https://openmarket.weniv.co.kr/accounts/signup/valid/username/`,
+    method: 'post',
+    data: {
+      username: `${id}`,
+    },
+  });
+}
+
 export default signup;
