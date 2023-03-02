@@ -4,8 +4,8 @@ import BuyerButton from './button/SignupBuyer';
 import SellerButton from './button/SignupSeller';
 import SignupButton from './button/Signup';
 import PolicyForm from './form/PolicyForm';
-import SellerSignUpForm from './SellerSignUp.jsx';
-import BuyerSignUpForm from '../components/BuyerSignUpForm.jsx';
+import SellerSignUpForm from './form/SellerSignUpForm.jsx';
+import BuyerSignUpForm from './form/BuyerSignUpForm.jsx';
 import LogoSrc from '../asset/Logo-hodu.svg';
 import styled from 'styled-components';
 
