@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import BuyerButton from './button/SignupBuyer';
-import SellerButton from './button/SignupSeller';
-import SignupButton from './button/Signup';
-import PolicyForm from './form/PolicyForm';
-import SellerSignUpForm from './form/SellerSignUpForm.jsx';
-import BuyerSignUpForm from './form/BuyerSignUpForm.jsx';
-import LogoSrc from '../asset/Logo-hodu.svg';
+import BuyerButton from '../button/SignupBuyer';
+import SellerButton from '../button/SignupSeller';
+import SignupButton from '../button/Signup';
+import PolicyForm from '../form/PolicyForm';
+import SellerSignUpForm from '../form/SellerSignUpForm.jsx';
+import BuyerSignUpForm from '../form/BuyerSignUpForm.jsx';
+import LogoSrc from '../../asset/Logo-hodu.svg';
 import styled from 'styled-components';
 
 function SignUp() {
