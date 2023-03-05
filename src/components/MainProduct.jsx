@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { getProduct } from '../apis/products';
+import { getProducts } from '../apis/products';
 import { setProductState } from '../reducers/mainProduct';
 import styled from 'styled-components';
 
@@ -10,7 +10,7 @@ function MainProduct() {
   const { product } = useSelector(state => state.mainProduct);
 
   useEffect(() => {
-    getProduct().then(productRes => {
+    getProducts().then(productRes => {
       dispatch(setProductState(productRes.data.results));
     });
   }, []);
