@@ -8,16 +8,12 @@ export const getProducts = () => {
   });
 };
 
-export async function getProduct(productList) {
-  const productData = [];
-  for (const product of productList) {
-    await axios({
-      baseURL: `https://openmarket.weniv.co.kr/products/${product.product_id}`,
-      method: 'get',
-      headers: {
-        Authorization: `JWT ${getCookie('Token')}`,
-      },
-    }).then(product => productData.push(product.data));
-  }
-  return productData;
+export async function getProduct(productId) {
+  return axios({
+    url: `https://openmarket.weniv.co.kr/products/${productId}`,
+    method: 'get',
+    headers: {
+      Authorization: `JWT ${getCookie('Token')}`,
+    },
+  });
 }
