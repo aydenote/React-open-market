@@ -1,14 +1,14 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { increaseCount } from '../../reducers/counter';
+import { increaseCartData } from '../../reducers/cart';
 import plusSrc from '../../asset/icon-plus-line.svg';
 import styled from 'styled-components';
 
-function Increase() {
+function Increase({ cart }) {
   const dispatch = useDispatch();
 
   function clickPlus() {
-    dispatch(increaseCount());
+    dispatch(increaseCartData(cart.cart_item_id));
   }
   return (
     <PlusButton onClick={clickPlus}>
