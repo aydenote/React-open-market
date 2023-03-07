@@ -1,16 +1,15 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { decreaseCount } from '../../reducers/counter';
+import { useDispatch } from 'react-redux';
+import { decreaseCartData } from '../../reducers/cart';
 import minusSrc from '../../asset/icon-minus-line.svg';
 import styled from 'styled-components';
 
-function Decrease() {
+function Decrease({ cart }) {
   const dispatch = useDispatch();
-  const count = useSelector(state => state.counter);
 
   function clickMinus() {
-    if (count <= 1) return;
-    dispatch(decreaseCount());
+    if (cart.quantity <= 1) return;
+    dispatch(decreaseCartData(cart.cart_item_id));
   }
 
   return (
