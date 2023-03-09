@@ -1,20 +1,16 @@
-import { useState } from "react";
-import GetProductData from "./GetProductData";
-import CartItemInfo from "./CartItemInfo";
+import { useSelector } from 'react-redux';
+import CartItemInfo from './CartItemInfo';
+import CartTotalPrice from './CartTotalPrice';
 
-function CartProduct(props) {
-  let [productData, setProductData] = useState(false);
+function CartProduct() {
+  const cartData = useSelector(state => state.cart);
 
   return (
     <>
-      {productData ? (
-        <CartItemInfo productData={productData} />
-      ) : (
-        <GetProductData
-          cartData={props.cartData.results}
-          setProductData={setProductData}
-        />
-      )}
+      {cartData.map(cartItem => (
+        <CartItemInfo key={cartItem.cart_item_id} cartItem={cartItem} />
+      ))}
+      <CartTotalPrice />
     </>
   );
 }
