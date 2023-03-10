@@ -1,25 +1,33 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setCartData } from '../../reducers/cart';
 import CartNoneProduct from '../CartNoneProduct';
 import CartProduct from '../CartProduct';
-import GetCartInfo from '../GetCartInfo';
+import cart from '../../apis/cart';
 import styled from 'styled-components';
 
 function Cart() {
-  let [cartData, setCartData] = useState(false);
+  const dispatch = useDispatch();
+  const cartData = useSelector(state => state.cart);
+
+  useEffect(() => {
+    cart().then(cartData => {
+      dispatch(setCartData(cartData.data.results));
+    });
+  }, []);
 
   return (
     <MainContainer>
       <Title>장바구니</Title>
       <ItemList>
         <li>
-          <CategoryCircle></CategoryCircle>
+          <CategoryCircle />
         </li>
         <li>상품정보</li>
         <li>수량</li>
         <li>상품금액</li>
       </ItemList>
-      {cartData ? <CartProduct cartData={cartData} /> : <GetCartInfo setCartData={setCartData} />}
-      {cartData && cartData.count == false ? <CartNoneProduct /> : null}
+      {cartData.length ? <CartProduct /> : <CartNoneProduct />}
     </MainContainer>
   );
 }
@@ -48,6 +56,9 @@ const ItemList = styled.ul`
   padding: 18px 0 18px 30px;
   background: #f2f2f2;
   border-radius: 10px;
+  li {
+    flex-grow: 1;
+  }
 `;
 
 const CategoryCircle = styled.div`

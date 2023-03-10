@@ -1,34 +1,38 @@
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import DeleteBtn from './DeleteBtn';
 import OrderButton from './button/Order';
 import Decrease from './button/Decrease';
 import Increase from './button/Increase';
 import { getProduct } from '../apis/products';
+import { setProductData } from '../reducers/product';
 import styled from 'styled-components';
 
 function CartItemInfo({ cartItem }) {
   const [product, setProduct] = useState(null);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     async function getProductAPI() {
       const productData = await getProduct(cartItem.product_id);
-      setProduct(productData);
+      dispatch(setProductData(productData.data));
+      setProduct(productData.data);
     }
     getProductAPI();
   }, []);
 
   return (
     product && (
-      <CartItemContainer key={product.data.product_id}>
+      <CartItemContainer key={product.product_id}>
         <input type="radio" name="itemSelected" id="itemSelected" />
-        <ProductImg src={product.data.image} alt="장바구니 상품" />
+        <ProductImg src={product.image} alt="장바구니 상품" />
         <ProductInfoContainer>
-          <StoreName>{product.data.store_name}</StoreName>
-          <ProductName>{product.data.product_name}</ProductName>
-          <ProductPrice>{product.data.price.toLocaleString()}</ProductPrice>
+          <StoreName>{product.store_name}</StoreName>
+          <ProductName>{product.product_name}</ProductName>
+          <ProductPrice>{product.price.toLocaleString()}</ProductPrice>
           <Shipping>
-            {product.data.shipping_method === 'PARCEL' ? '소포배송' : '택배배송'} /{' '}
-            {product.data.shipping_fee === 0 ? '무료배송' : '유료배송'}
+            {product.shipping_method === 'PARCEL' ? '소포배송' : '택배배송'} /{' '}
+            {product.shipping_fee === 0 ? '무료배송' : '유료배송'}
           </Shipping>
         </ProductInfoContainer>
         <ProductInfoCount>
@@ -37,9 +41,7 @@ function CartItemInfo({ cartItem }) {
           <Increase cart={cartItem} />
         </ProductInfoCount>
         <OrderPriceContainer>
-          <SumProductPrice className="test">
-            {(cartItem.quantity * product.data.price).toLocaleString()}
-          </SumProductPrice>
+          <SumProductPrice>{(cartItem.quantity * product.price).toLocaleString()}</SumProductPrice>
           <OrderButton />
         </OrderPriceContainer>
         <DeleteBtn cartInfo={product} />
