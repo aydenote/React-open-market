@@ -3,11 +3,11 @@ import DeleteModal from '../modal/DeleteModal';
 import deleteSrc from '../../asset/icon-delete.svg';
 import styled from 'styled-components';
 
-function Delete(props) {
+function Delete({ cartItem }) {
   let [modalOpen, setModalOpen] = useState(false);
 
   function clickDeleteBtn() {
-    setModalOpen(true);
+    setModalOpen(cartItem.cart_item_id);
   }
 
   return (
@@ -15,14 +15,7 @@ function Delete(props) {
       <DeleteButton onClick={clickDeleteBtn}>
         <img src={deleteSrc} alt="상품 삭제" />
       </DeleteButton>
-      {modalOpen && (
-        <DeleteModal
-          cartInfo={props.cartInfo}
-          setModalOpen={setModalOpen}
-          setPrice={props.setPrice}
-          setShipping={props.setShipping}
-        />
-      )}
+      {modalOpen && <DeleteModal modalOpen={modalOpen} setModalOpen={setModalOpen} />}
     </>
   );
 }
