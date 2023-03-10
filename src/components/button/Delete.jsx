@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import ModalCancel from './ModalCancel';
-import styles from './styles/DeleteBtn.module.css';
-import deleteImg from '../asset/icon-delete.svg';
+import ModalCancel from '../ModalCancel';
+import deleteSrc from '../asset/icon-delete.svg';
+import styled from 'styled-components';
 
 function Delete(props) {
   let [modalOpen, setModalOpen] = useState(false);
@@ -12,9 +12,9 @@ function Delete(props) {
 
   return (
     <>
-      <button className={styles.deleteBtn} onClick={clickDeleteBtn}>
-        <img src={deleteImg} alt="상품 삭제" />
-      </button>
+      <DeleteButton onClick={clickDeleteBtn}>
+        <img src={deleteSrc} alt="상품 삭제" />
+      </DeleteButton>
       {modalOpen && (
         <ModalCancel
           cartInfo={props.cartInfo}
@@ -28,3 +28,13 @@ function Delete(props) {
 }
 
 export default Delete;
+
+const DeleteButton = styled.button`
+  margin: 18px 18px auto auto;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  :hover {
+    cursor: pointer;
+  }
+`;
