@@ -23,7 +23,7 @@ function CartItemInfo({ cartItem }) {
 
   return (
     product && (
-      <CartItemContainer key={product.product_id}>
+      <CartItemContainer>
         <input type="radio" name="itemSelected" id="itemSelected" />
         <ProductImg src={product.image} alt="장바구니 상품" />
         <ProductInfoContainer>
@@ -44,7 +44,7 @@ function CartItemInfo({ cartItem }) {
           <SumProductPrice>{(cartItem.quantity * product.price).toLocaleString()}</SumProductPrice>
           <OrderButton />
         </OrderPriceContainer>
-        <DeleteButton cartInfo={product} />
+        <DeleteButton cartItem={cartItem} />
       </CartItemContainer>
     )
   );
