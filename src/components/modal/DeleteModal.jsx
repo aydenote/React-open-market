@@ -1,13 +1,13 @@
-import styles from "./styles/ModalCancel.module.css";
-import deleteImg from "../asset/icon-delete.svg";
+import styles from '../styles/ModalCancel.module.css';
+import deleteImg from '../../asset/icon-delete.svg';
 
-function ModalCancel({ cartInfo, setModalOpen, setPrice, setShipping }) {
+function DeleteModal({ cartInfo, setModalOpen, setPrice, setShipping }) {
   function closeModal() {
     setModalOpen(false);
   }
 
   function clickAccept(event) {
-    const cancelNode = event.target.closest("article").parentNode;
+    const cancelNode = event.target.closest('article').parentNode;
     cancelNode.parentNode.removeChild(cancelNode);
     getProductPrice();
     getShippingFee(cancelNode.dataset.id);
@@ -15,10 +15,10 @@ function ModalCancel({ cartInfo, setModalOpen, setPrice, setShipping }) {
 
   function getProductPrice() {
     let totalPrice = 0;
-    let priceArr = Array.prototype.slice.call(document.querySelectorAll(".price"));
+    let priceArr = Array.prototype.slice.call(document.querySelectorAll('.price'));
 
     for (let i = 0; i < priceArr.length; i++) {
-      totalPrice += parseInt(priceArr[i].innerText.replaceAll(",", ""));
+      totalPrice += parseInt(priceArr[i].innerText.replaceAll(',', ''));
     }
     setPrice(totalPrice);
   }
@@ -26,10 +26,10 @@ function ModalCancel({ cartInfo, setModalOpen, setPrice, setShipping }) {
   function getShippingFee(id) {
     let totalShippingFee = 0;
     cartInfo = cartInfo
-      .filter((item) => {
+      .filter(item => {
         return item.data.product_id !== parseInt(id);
       })
-      .forEach((item) => {
+      .forEach(item => {
         totalShippingFee += item.data.shipping_fee;
       });
 
@@ -54,4 +54,4 @@ function ModalCancel({ cartInfo, setModalOpen, setPrice, setShipping }) {
   );
 }
 
-export default ModalCancel;
+export default DeleteModal;

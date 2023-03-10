@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import ModalCancel from '../ModalCancel';
+import DeleteModal from '../modal/DeleteModal';
 import deleteSrc from '../../asset/icon-delete.svg';
 import styled from 'styled-components';
 
@@ -16,7 +16,7 @@ function Delete(props) {
         <img src={deleteSrc} alt="상품 삭제" />
       </DeleteButton>
       {modalOpen && (
-        <ModalCancel
+        <DeleteModal
           cartInfo={props.cartInfo}
           setModalOpen={setModalOpen}
           setPrice={props.setPrice}
