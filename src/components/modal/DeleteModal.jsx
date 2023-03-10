@@ -1,39 +1,21 @@
+import { useDispatch } from 'react-redux';
+import { setCartData } from '../../reducers/cart';
+import { deleteCartItem, getCartList } from '../../apis/cart';
 import deleteSrc from '../../asset/icon-delete.svg';
 import styled from 'styled-components';
 
-function DeleteModal({ cartInfo, setModalOpen, setPrice, setShipping, modalOpen }) {
+function DeleteModal({ setModalOpen, modalOpen }) {
+  const dispatch = useDispatch();
+
   function closeModal() {
     setModalOpen(false);
   }
 
-  function clickAccept(event) {
-    const cancelNode = event.target.closest('article').parentNode;
-    cancelNode.parentNode.removeChild(cancelNode);
-    getProductPrice();
-    getShippingFee(cancelNode.dataset.id);
-  }
-
-  function getProductPrice() {
-    let totalPrice = 0;
-    let priceArr = Array.prototype.slice.call(document.querySelectorAll('.price'));
-
-    for (let i = 0; i < priceArr.length; i++) {
-      totalPrice += parseInt(priceArr[i].innerText.replaceAll(',', ''));
-    }
-    setPrice(totalPrice);
-  }
-
-  function getShippingFee(id) {
-    let totalShippingFee = 0;
-    cartInfo = cartInfo
-      .filter(item => {
-        return item.data.product_id !== parseInt(id);
-      })
-      .forEach(item => {
-        totalShippingFee += item.data.shipping_fee;
-      });
-
-    setShipping(totalShippingFee);
+  async function clickAccept() {
+    await deleteCartItem(modalOpen);
+    await getCartList().then(cartData => {
+      dispatch(setCartData(cartData.data.results));
+    });
   }
 
   return (
