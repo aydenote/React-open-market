@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setCartData } from '../../reducers/cart';
 import CartNoneProduct from './CartNoneProduct';
 import CartProduct from './CartProduct';
-import cart from '../../apis/cart';
+import { getCartList } from '../../apis/cart';
 import styled from 'styled-components';
 
 function Cart() {
@@ -11,7 +11,7 @@ function Cart() {
   const cartData = useSelector(state => state.cart);
 
   useEffect(() => {
-    cart().then(cartData => {
+    getCartList().then(cartData => {
       dispatch(setCartData(cartData.data.results));
     });
   }, []);
