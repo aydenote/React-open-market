@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import ModalCancel from '../ModalCancel';
-import deleteSrc from '../asset/icon-delete.svg';
+import deleteSrc from '../../asset/icon-delete.svg';
 import styled from 'styled-components';
 
 function Delete(props) {

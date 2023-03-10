@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import DeleteBtn from '../DeleteBtn';
+import DeleteButton from '../button/Delete';
 import OrderButton from '../button/Order';
 import Decrease from '../button/Decrease';
 import Increase from '../button/Increase';
@@ -44,7 +44,7 @@ function CartItemInfo({ cartItem }) {
           <SumProductPrice>{(cartItem.quantity * product.price).toLocaleString()}</SumProductPrice>
           <OrderButton />
         </OrderPriceContainer>
-        <DeleteBtn cartInfo={product} />
+        <DeleteButton cartInfo={product} />
       </CartItemContainer>
     )
   );
