@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { getCookie } from '../util/cookie';
 
-function getCartList() {
+export function getCartList() {
   return axios({
     baseURL: 'https://openmarket.weniv.co.kr/cart',
     method: 'GET',
@@ -11,4 +11,12 @@ function getCartList() {
   });
 }
 
-export default getCartList;
+export function deleteCartItem(cartId) {
+  return axios({
+    baseURL: `https://openmarket.weniv.co.kr/cart/${cartId}`,
+    method: 'DELETE',
+    headers: {
+      Authorization: `JWT ${getCookie('Token')}`,
+    },
+  });
+}
