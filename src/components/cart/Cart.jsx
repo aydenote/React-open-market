@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCartData } from '../../reducers/cart';
-import CartNoneProduct from '../CartNoneProduct';
-import CartProduct from '../CartProduct';
+import CartNoneProduct from './CartNoneProduct';
+import CartProduct from './CartProduct';
 import cart from '../../apis/cart';
 import styled from 'styled-components';
 

@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
-import plusSrc from '../asset/icon-plus-line.svg';
-import minusSrc from '../asset/icon-minus-line.svg';
+import plusSrc from '../../asset/icon-plus-line.svg';
+import minusSrc from '../../asset/icon-minus-line.svg';
 import styled from 'styled-components';
 
 function CartTotalPrice() {

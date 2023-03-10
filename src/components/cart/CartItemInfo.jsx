@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import DeleteBtn from './DeleteBtn';
-import OrderButton from './button/Order';
-import Decrease from './button/Decrease';
-import Increase from './button/Increase';
-import { getProduct } from '../apis/products';
-import { setProductData } from '../reducers/product';
+import DeleteBtn from '../DeleteBtn';
+import OrderButton from '../button/Order';
+import Decrease from '../button/Decrease';
+import Increase from '../button/Increase';
+import { getProduct } from '../../apis/products';
+import { setProductData } from '../../reducers/product';
 import styled from 'styled-components';
 
 function CartItemInfo({ cartItem }) {
