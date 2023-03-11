@@ -1,13 +1,14 @@
+import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import DetailCount from './DetailCount.jsx';
 import BuyButton from './button/Buy';
 import CartButton from './button/Cart';
+import Decrease from './button/DetailDecrease';
+import Increase from './button/DetailIncrease';
 import styled from 'styled-components';
 
 function ProductInfo() {
   const data = useLocation().state.data;
-  const count = useSelector(state => state.counter);
+  const [count, setCount] = useState(1);
 
   return (
     <MainContainer>
@@ -25,7 +26,9 @@ function ProductInfo() {
               {data.shipping_fee === 0 ? '무료배송' : '유료배송'}
             </Shipping>
             <CountContainer>
-              <DetailCount />
+              <Decrease count={count} setCount={setCount} />
+              <ProductCount>{count}</ProductCount>
+              <Increase count={count} setCount={setCount} />
             </CountContainer>
             <PriceContainer>
               <Total>총 상품 금액</Total>
@@ -130,10 +133,21 @@ const Shipping = styled.p`
 `;
 
 const CountContainer = styled.div`
+  display: flex;
+  width: 152px;
+  height: 50px;
   margin: 30px 0px;
-  border-top: 2px solid #c4c4c4;
-  border-bottom: 2px solid #c4c4c4;
-  padding: 30px 0px;
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+  background: #ffffff;
+`;
+
+const ProductCount = styled.p`
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 50px;
+  text-align: center;
+  line-height: 50px;
 `;
 
 const PriceContainer = styled.div`
