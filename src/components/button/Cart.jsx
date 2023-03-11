@@ -15,4 +15,7 @@ const CartBtn = styled.button`
   border: none;
   color: white;
   background: #767676;
+  :hover {
+    cursor: pointer;
+  }
 `;

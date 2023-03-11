@@ -14,4 +14,7 @@ const BuyBtn = styled.button`
   border: none;
   color: white;
   background: #21bf48;
+  :hover {
+    cursor: pointer;
+  }
 `;
