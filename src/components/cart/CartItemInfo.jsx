@@ -1,21 +1,17 @@
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
 import DeleteButton from '../button/Delete';
 import OrderButton from '../button/Order';
 import Decrease from '../button/Decrease';
 import Increase from '../button/Increase';
-import { getProduct } from '../../apis/products';
-import { setProductData } from '../../reducers/product';
+import { getProductDetail } from '../../apis/products';
 import styled from 'styled-components';
 
 function CartItemInfo({ cartItem }) {
   const [product, setProduct] = useState(null);
-  const dispatch = useDispatch();
 
   useEffect(() => {
     async function getProductAPI() {
-      const productData = await getProduct(cartItem.product_id);
-      dispatch(setProductData(productData.data));
+      const productData = await getProductDetail(cartItem.product_id);
       setProduct(productData.data);
     }
     getProductAPI();
