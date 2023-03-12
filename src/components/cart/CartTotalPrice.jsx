@@ -1,53 +1,55 @@
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { getProductDetail } from '../../apis/products';
 import plusSrc from '../../asset/icon-plus-line.svg';
 import minusSrc from '../../asset/icon-minus-line.svg';
 import styled from 'styled-components';
 
 function CartTotalPrice() {
+  const [price, setPrice] = useState([]);
   const cartList = useSelector(state => state.cart);
-  const productList = useSelector(state => state.product);
 
-  function getProductPrice() {
+  useEffect(() => {
+    getProductPrice();
+  }, [cartList]);
+
+  async function getProductPrice() {
+    let sumPrice = 0;
+    let sumShipping = 0;
     let totalPrice = 0;
-    for (let i = 0; i < productList.length; i++) {
-      totalPrice += cartList[i].quantity * productList[i].price;
+
+    for (const cartItem of cartList) {
+      const productData = await getProductDetail(cartItem.product_id);
+      sumPrice += productData.data.price * cartItem.quantity;
+      sumShipping += productData.data.shipping_fee;
+      totalPrice = sumPrice + sumShipping;
     }
-    return totalPrice;
+    setPrice([sumPrice, sumShipping, totalPrice]);
   }
 
-  function getShippingPrice() {
-    let totalPrice = 0;
-    for (let i = 0; i < productList.length; i++) {
-      totalPrice += productList[i].shipping_fee;
-    }
-    return totalPrice;
-  }
-
-  function getTotalPrice() {
-    let totalPrice = getProductPrice() + getShippingPrice();
-    return totalPrice;
-  }
   return (
-    <TotalInfoContainer>
-      <div>
-        <PriceText>총 상품 금액</PriceText>
-        <PriceNumber>{getProductPrice().toLocaleString()}</PriceNumber>
-      </div>
-      <Minus></Minus>
-      <div>
-        <SaleText>상품 할인</SaleText>
-        <SaleNumber>0</SaleNumber>
-      </div>
-      <Plus></Plus>
-      <div>
-        <ShippingFeeText>배송비</ShippingFeeText>
-        <ShippingFeeNumber>{getShippingPrice().toLocaleString()}</ShippingFeeNumber>
-      </div>
-      <div>
-        <TotalPriceText>결제 예정 금액</TotalPriceText>
-        <TotalPriceNumber>{getTotalPrice().toLocaleString()}</TotalPriceNumber>
-      </div>
-    </TotalInfoContainer>
+    price.length === 3 && (
+      <TotalInfoContainer>
+        <div>
+          <PriceText>총 상품 금액</PriceText>
+          <PriceNumber>{price[0].toLocaleString()}</PriceNumber>
+        </div>
+        <Minus></Minus>
+        <div>
+          <SaleText>상품 할인</SaleText>
+          <SaleNumber>0</SaleNumber>
+        </div>
+        <Plus></Plus>
+        <div>
+          <ShippingFeeText>배송비</ShippingFeeText>
+          <ShippingFeeNumber>{price[1].toLocaleString()}</ShippingFeeNumber>
+        </div>
+        <div>
+          <TotalPriceText>결제 예정 금액</TotalPriceText>
+          <TotalPriceNumber>{price[2].toLocaleString()}</TotalPriceNumber>
+        </div>
+      </TotalInfoContainer>
+    )
   );
 }
 export default CartTotalPrice;
