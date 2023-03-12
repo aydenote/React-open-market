@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCartData } from '../../reducers/cart';
+import CartTotalPrice from './CartTotalPrice';
 import CartNoneProduct from './CartNoneProduct';
 import CartProduct from './CartProduct';
 import { getCartList } from '../../apis/cart';
@@ -8,7 +9,7 @@ import styled from 'styled-components';
 
 function Cart() {
   const dispatch = useDispatch();
-  const cartData = useSelector(state => state.cart);
+  const cartList = useSelector(state => state.cart);
 
   useEffect(() => {
     getCartList().then(cartData => {
@@ -27,7 +28,14 @@ function Cart() {
         <li>수량</li>
         <li>상품금액</li>
       </ItemList>
-      {cartData.length ? <CartProduct /> : <CartNoneProduct />}
+      {cartList.length ? (
+        <>
+          <CartProduct />
+          <CartTotalPrice />
+        </>
+      ) : (
+        <CartNoneProduct />
+      )}
     </MainContainer>
   );
 }
