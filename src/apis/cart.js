@@ -20,3 +20,18 @@ export function deleteCartItem(cartId) {
     },
   });
 }
+
+export function addCartItem(productId, quantityItem) {
+  return axios({
+    baseURL: `https://openmarket.weniv.co.kr/cart/`,
+    method: 'POST',
+    headers: {
+      Authorization: `JWT ${getCookie('Token')}`,
+    },
+    data: {
+      product_id: productId,
+      quantity: quantityItem,
+      check: true,
+    },
+  });
+}
