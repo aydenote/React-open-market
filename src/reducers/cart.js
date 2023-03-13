@@ -2,6 +2,7 @@ export const ADD = 'CARTDATA/ADD';
 export const SET = 'CARTDATA/SET';
 export const DECREASE = 'CARTDATA/DECREASE';
 export const INCREASE = 'CARTDATA/INCREASE';
+export const DELETE = 'CARTDATA/DELETE';
 
 export function addCartData(cartData) {
   return {
@@ -31,6 +32,13 @@ export function increaseCartData(cartId) {
   };
 }
 
+export function deleteCartData(cartId) {
+  return {
+    type: DELETE,
+    id: cartId,
+  };
+}
+
 const initalState = [];
 
 function cart(state = initalState, action) {
@@ -43,6 +51,8 @@ function cart(state = initalState, action) {
       return state.map(cart => (cart.cart_item_id === action.id ? { ...cart, quantity: cart.quantity - 1 } : cart));
     case INCREASE:
       return state.map(cart => (cart.cart_item_id === action.id ? { ...cart, quantity: cart.quantity + 1 } : cart));
+    case DELETE:
+      return state.filter(cart => cart.cart_item_id !== action.id);
     default:
       return state;
   }
