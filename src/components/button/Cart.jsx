@@ -1,8 +1,21 @@
-import React from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { addCartItem } from '../../apis/cart';
 import styled from 'styled-components';
 
-function Cart() {
-  return <CartBtn>장바구니</CartBtn>;
+function Cart({ count }) {
+  const productData = useLocation().state.data;
+  const navigate = useNavigate();
+
+  async function addCart() {
+    const productId = await productData.product_id;
+    await addCartItem(productId, count)
+      .then(addResult => {
+        if (addResult.status === 201) navigate('/cart');
+      })
+      .catch(error => alert(error.response.data.FAIL_message));
+  }
+
+  return <CartBtn onClick={addCart}>장바구니</CartBtn>;
 }
 
 export default Cart;
