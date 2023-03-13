@@ -39,7 +39,7 @@ function ProductInfo() {
             </PriceContainer>
             <ButtonContainer>
               <BuyButton />
-              <CartButton />
+              <CartButton count={count} />
             </ButtonContainer>
           </ProductInfoContainer>
         </TopContainer>
