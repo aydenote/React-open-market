@@ -7,7 +7,7 @@ function Delete({ cartItem }) {
   let [modalOpen, setModalOpen] = useState(false);
 
   function clickDeleteBtn() {
-    setModalOpen(cartItem.cart_item_id);
+    setModalOpen(cartItem);
   }
 
   return (
