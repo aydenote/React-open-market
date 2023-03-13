@@ -12,10 +12,8 @@ function DeleteModal({ setModalOpen, modalOpen }) {
   }
 
   async function clickAccept() {
-    await deleteCartItem(modalOpen);
-    await getCartList().then(cartData => {
-      dispatch(setCartData(cartData.data.results));
-    });
+    await deleteCartItem(modalOpen.cart_item_id);
+    await getCartList().then(cartData => dispatch(setCartData(cartData.data.results)));
   }
 
   return (
