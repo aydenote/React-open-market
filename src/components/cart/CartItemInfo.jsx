@@ -126,6 +126,7 @@ const ProductInfoCount = styled.section`
 `;
 
 const OrderPriceContainer = styled.section`
+  display: grid;
   margin-left: 170px;
 `;
 
