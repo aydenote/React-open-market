@@ -3,6 +3,7 @@ import MainPage from './views/MainPage';
 import LoginPage from './views/LoginPage';
 import CartPage from './views/CartPage';
 import SignUpPage from './views/SignUpPage';
+import BuyPage from './views/BuyPage';
 import ProductDetailPage from './views/ProductDetailPage';
 import SellerCenterPage from './views/SellerCenterPage';
 import AddProductPage from './views/AddProductPage';
@@ -18,6 +19,7 @@ function App() {
         <Route path="/cart" element={<CartPage />} />
         <Route path="/signUp" element={<SignUpPage />} />
         <Route path="/productDetail" element={<ProductDetailPage />} />
+        <Route path="/buy" element={<BuyPage />} />
         <Route path="/sellerCenter" element={<SellerCenterPage />} />
         <Route path="/addProduct" element={<AddProductPage />} />
       </Routes>
