@@ -4,6 +4,7 @@ import { setCartData } from '../../reducers/cart';
 import CartTotalPrice from './CartTotalPrice';
 import CartNoneProduct from './CartNoneProduct';
 import CartProduct from './CartProduct';
+import BuyButton from '../button/Order';
 import { getCartList } from '../../apis/cart';
 import styled from 'styled-components';
 
@@ -18,25 +19,28 @@ function Cart() {
   }, []);
 
   return (
-    <MainContainer>
-      <Title>장바구니</Title>
-      <ItemList>
-        <li>
-          <CategoryCircle />
-        </li>
-        <li>상품정보</li>
-        <li>수량</li>
-        <li>상품금액</li>
-      </ItemList>
-      {cartList.length ? (
-        <>
-          <CartProduct />
-          <CartTotalPrice />
-        </>
-      ) : (
-        <CartNoneProduct />
-      )}
-    </MainContainer>
+    <>
+      <MainContainer>
+        <Title>장바구니</Title>
+        <ItemList>
+          <li>
+            <CategoryCircle />
+          </li>
+          <li>상품정보</li>
+          <li>수량</li>
+          <li>상품금액</li>
+        </ItemList>
+        {cartList.length ? (
+          <>
+            <CartProduct />
+            <CartTotalPrice />
+          </>
+        ) : (
+          <CartNoneProduct />
+        )}
+      </MainContainer>
+      <BuyButton />
+    </>
   );
 }
 

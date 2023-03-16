@@ -1,8 +1,24 @@
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { getProductDetail } from '../../apis/products';
 import styled from 'styled-components';
 
-function Order() {
-  return <OrderButton to="/buy">주문하기</OrderButton>;
+function Order({ product }) {
+  const cartList = useSelector(state => state.cart);
+
+  function getProductData() {
+    const productList = [];
+    for (const cart of cartList) {
+      getProductDetail(cart.product_id).then(product => productList.push(product.data));
+    }
+    return productList;
+  }
+
+  return (
+    <OrderButton to="/buy" state={{ itemList: product ? [product] : getProductData(), cartList: cartList }}>
+      주문하기
+    </OrderButton>
+  );
 }
 
 export default Order;
