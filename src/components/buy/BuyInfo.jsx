@@ -2,8 +2,29 @@ import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 function BuyInfo() {
-  const productData = useLocation().state.productData;
+  const itemList = useLocation().state.itemList;
+  const cartList = useLocation().state.cartList;
   const count = useLocation().state.count;
+
+  function getProductCount(productData) {
+    for (const cart of cartList) {
+      if (cart.product_id === productData.product_id) {
+        return cart.quantity;
+      }
+    }
+  }
+
+  function getTotalPrice() {
+    let totalPrice = 0;
+    for (const item of itemList) {
+      cartList.map(cart => {
+        if (cart.product_id === item.product_id) {
+          totalPrice += cart.quantity * item.price + item.shipping_fee;
+        }
+      });
+    }
+    return totalPrice;
+  }
 
   return (
     <>
@@ -15,21 +36,31 @@ function BuyInfo() {
           <li>배송비</li>
           <li>주문금액</li>
         </ItemList>
-        <ItemContainer>
-          <ItemInfo>
-            <ItemImage src={productData.image}></ItemImage>
-            <ItemStore>{productData.store_name}</ItemStore>
-            <ItemName>{productData.product_name}</ItemName>
-            <ItemCount>{`수량: ${count}개`}</ItemCount>
-          </ItemInfo>
-          <ItemDiscount>-</ItemDiscount>
-          <ItemShipping>
-            {productData.shipping_fee > 0 ? `${productData.shipping_fee.toLocaleString()}원` : '무료배송'}
-          </ItemShipping>
-          <ItemPrice>{`${(count * productData.price).toLocaleString()}원`}</ItemPrice>
-        </ItemContainer>
+        {itemList.map(productData => (
+          <ItemContainer key={productData.product_id}>
+            <ItemInfo>
+              <ItemImage src={productData.image}></ItemImage>
+              <ItemStore>{productData.store_name}</ItemStore>
+              <ItemName>{productData.product_name}</ItemName>
+              <ItemCount>{count ? `수량: ${count}개` : `수량: ${getProductCount(productData)}개`}</ItemCount>
+            </ItemInfo>
+            <ItemDiscount>-</ItemDiscount>
+            <ItemShipping>
+              {productData.shipping_fee > 0 ? `${productData.shipping_fee.toLocaleString()}원` : '무료배송'}
+            </ItemShipping>
+            <ItemPrice>
+              {count
+                ? `${(count * productData.price).toLocaleString()}원`
+                : `${(getProductCount(productData) * productData.price).toLocaleString()}원`}
+            </ItemPrice>
+          </ItemContainer>
+        ))}
       </ProductContainer>
-      <TotalPrice>{`${(count * productData.price + productData.shipping_fee).toLocaleString()}원`}</TotalPrice>
+      <TotalPrice>
+        {count
+          ? (itemList[0].shipping_fee + itemList[0].price * count).toLocaleString()
+          : `${getTotalPrice().toLocaleString()}원`}
+      </TotalPrice>
     </>
   );
 }

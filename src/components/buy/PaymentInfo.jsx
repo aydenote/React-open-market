@@ -2,8 +2,41 @@ import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 function PaymentInfo() {
-  const productData = useLocation().state.productData;
+  const itemList = useLocation().state.itemList;
+  const cartList = useLocation().state.cartList;
   const count = useLocation().state.count;
+
+  function getProductCount() {
+    let totalPrice = 0;
+    for (const item of itemList) {
+      cartList.map(cart => {
+        if (cart.product_id === item.product_id) {
+          totalPrice += cart.quantity * item.price + item.shipping_fee;
+        }
+      });
+    }
+    return totalPrice;
+  }
+
+  function getTotalPrice() {
+    let totalPrice = 0;
+    for (const item of itemList) {
+      cartList.map(cart => {
+        if (cart.product_id === item.product_id) {
+          totalPrice += cart.quantity * item.price + item.shipping_fee;
+        }
+      });
+    }
+    return totalPrice;
+  }
+
+  function getShippingFee() {
+    let totalShipping = 0;
+    for (const item of itemList) {
+      totalShipping += item.shipping_fee;
+    }
+    return totalShipping;
+  }
 
   return (
     <Payment>
@@ -11,7 +44,7 @@ function PaymentInfo() {
       <InfoContainer>
         <PriceBox>
           <p>-상품금액</p>
-          <p>{(productData.price * count).toLocaleString()}</p>
+          <p>{count ? (itemList[0].price * count).toLocaleString() : getProductCount().toLocaleString()}</p>
         </PriceBox>
         <DiscountBox>
           <p>-할인금액</p>
@@ -19,11 +52,15 @@ function PaymentInfo() {
         </DiscountBox>
         <ShippingBox>
           <p>-배송비</p>
-          <p>{productData.shipping_fee.toLocaleString()}</p>
+          <p>{count ? itemList[0].shipping_fee.toLocaleString() : getShippingFee().toLocaleString()}</p>
         </ShippingBox>
         <PaymentBox>
           <p>-결제금액</p>
-          <p>{(productData.price * count + productData.shipping_fee).toLocaleString()}</p>
+          <p>
+            {count
+              ? (itemList[0].price * count + itemList[0].shipping_fee).toLocaleString()
+              : getTotalPrice().toLocaleString()}
+          </p>
         </PaymentBox>
         <PaymentProcess>
           <InfoProvideCheck type="checkbox" />
