@@ -3,8 +3,9 @@ import styled from 'styled-components';
 
 function Buy({ count }) {
   const data = useLocation().state.data;
+
   return (
-    <BuyBtn to="/buy" state={{ productData: data, count: count }}>
+    <BuyBtn to="/buy" state={{ itemList: [data], count: count }}>
       바로 구매
     </BuyBtn>
   );
