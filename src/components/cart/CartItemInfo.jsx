@@ -38,7 +38,7 @@ function CartItemInfo({ cartItem }) {
         </ProductInfoCount>
         <OrderPriceContainer>
           <SumProductPrice>{(cartItem.quantity * product.price).toLocaleString()}</SumProductPrice>
-          <OrderButton cart={cartItem} />
+          <OrderButton product={product} />
         </OrderPriceContainer>
         <DeleteButton cartItem={cartItem} />
       </CartItemContainer>
