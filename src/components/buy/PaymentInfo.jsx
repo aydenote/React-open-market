@@ -38,6 +38,12 @@ function PaymentInfo() {
     return totalShipping;
   }
 
+  function clickInfoProvied(event) {
+    const PaymentButton = document.querySelector('.payment');
+    if (event.target.checked) PaymentButton.disabled = false;
+    else PaymentButton.disabled = true;
+  }
+
   return (
     <Payment>
       <Title>최종결제 정보</Title>
@@ -63,9 +69,11 @@ function PaymentInfo() {
           </p>
         </PaymentBox>
         <PaymentProcess>
-          <InfoProvideCheck type="checkbox" />
+          <InfoProvideCheck onClick={clickInfoProvied} type="checkbox" />
           <InfoProvideText htmlFor="">주문 내용을 확인하였으며, 정보 제공 등에 동의합니다.</InfoProvideText>
-          <PaymentButton>결제하기</PaymentButton>
+          <PaymentButton className="payment" disabled>
+            결제하기
+          </PaymentButton>
         </PaymentProcess>
       </InfoContainer>
     </Payment>
@@ -213,6 +221,11 @@ const PaymentButton = styled.button`
   font-size: 24px;
   line-height: 30px;
   color: #ffffff;
-  background: #c4c4c4;
   cursor: pointer;
+  :disabled {
+    background: #c4c4c4;
+  }
+  :enabled {
+    background: #21bf48;
+  }
 `;
