@@ -39,7 +39,9 @@ function Cart() {
           <CartNoneProduct />
         )}
       </MainContainer>
-      <BuyButton />
+      <ButtonContainer>
+        <BuyButton />
+      </ButtonContainer>
     </>
   );
 }
@@ -78,4 +80,9 @@ const CategoryCircle = styled.div`
   height: 20px;
   border-radius: 50%;
   border: 2px solid #21bf48;
+`;
+
+const ButtonContainer = styled.div`
+  text-align: center;
+  margin: 40px 0;
 `;
