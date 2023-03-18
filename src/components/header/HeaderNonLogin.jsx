@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
-import CartImg from "../asset/shopping-cart.svg";
-import UserImg from "../asset/user.svg";
-import styles from "./styles/HeaderNonLogin.module.css";
+import { Link } from 'react-router-dom';
+import CartImg from '../../asset/shopping-cart.svg';
+import UserImg from '../../asset/user.svg';
+import styles from '../styles/HeaderNonLogin.module.css';
 
 function HeaderNonLogin() {
   return (
