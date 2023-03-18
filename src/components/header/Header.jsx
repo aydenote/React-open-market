@@ -1,16 +1,13 @@
 import { Link } from 'react-router-dom';
 import { getCookie } from '../../util/cookie';
-import HeaderUser from '../HeaderUser';
-import HeaderNonLogin from '../HeaderNonLogin';
+import HeaderUser from './HeaderUser';
+import SearchButton from '../button/Search';
+import HeaderNonLogin from './HeaderNonLogin';
 import LogoSrc from '../../asset/Logo-hodu.svg';
 import SearchSrc from '../../asset/search.svg';
 import styled from 'styled-components';
 
 function Header() {
-  function clickSearch() {
-    console.log('찾기!');
-  }
-
   return (
     <HeaderContainer>
       <HeaderLeftSide>
@@ -19,7 +16,7 @@ function Header() {
         </Link>
         <SearchConatiner>
           <SearchInput type="text" placeholder="상품을 검색해보세요!" />
-          <SearchImg onClick={clickSearch} src={SearchSrc} alt="검색" />
+          <SearchButton />
         </SearchConatiner>
       </HeaderLeftSide>
       <HeaderRightSide>
