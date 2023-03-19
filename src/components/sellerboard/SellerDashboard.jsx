@@ -1,27 +1,30 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import UploadBar from './UploadBar';
-import SellerDashboardMenu from './SellerDashboardMenu';
 import SaleInfo from '../SaleInfo';
-import GetSellerProduct from './GetSellerProduct';
+import SellerDashboardMenu from './SellerDashboardMenu';
+import { setSaleState } from '../../reducers/seller';
+import { getSaleProduct } from '../../apis/seller';
 import styled from 'styled-components';
 
 function SellerDashboard() {
-  let [sellerData, setSellerData] = useState(false);
+  const saleItem = useSelector(state => state.seller);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    getSaleProduct().then(saleItemRes => dispatch(setSaleState(saleItemRes.data.results)));
+  }, []);
 
   return (
-    <>
-      {sellerData ? (
-        <Container>
-          <UploadBar sellerData={sellerData} />
-          <MenuDetailBox>
-            <SellerDashboardMenu sellerData={sellerData} />
-            <SaleInfo sellerData={sellerData} />
-          </MenuDetailBox>
-        </Container>
-      ) : (
-        <GetSellerProduct setSellerData={setSellerData} />
-      )}
-    </>
+    saleItem && (
+      <Container>
+        <UploadBar />
+        <MenuDetailBox>
+          <SellerDashboardMenu />
+          <SaleInfo />
+        </MenuDetailBox>
+      </Container>
+    )
   );
 }
 export default SellerDashboard;
