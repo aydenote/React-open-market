@@ -1,23 +1,83 @@
-import styles from '../styles/SellerDashboardMenu.module.css';
+import { useSelector } from 'react-redux';
+import styled from 'styled-components';
 
-function SellerDashboardMenu({ sellerData }) {
-  function clickMenu(event) {
-    event.target.parentNode.childNodes.forEach(menu => menu.classList.remove(`${styles.clicked}`));
-    event.target.classList.add(`${styles.clicked}`);
-  }
+function SellerDashboardMenu() {
+  const saleItem = useSelector(state => state.seller);
 
   return (
-    <ul className={styles.itemList} onClick={clickMenu}>
-      <li className={`${styles.saleProduct} ${styles.clicked}`}>
+    <ItemList>
+      <SaleProduct className="clicked">
         판매중인 상품
-        <p className={styles.saleItemCount}>{sellerData.length}</p>
-      </li>
-      <li className={styles.orderProduct}>주문/배송</li>
-      <li className={styles.reviewProduct}>문의/리뷰</li>
-      <li className={styles.analysis}>통계</li>
-      <li className={styles.storeSetting}>스토어 설정</li>
-    </ul>
+        <SaleItemCount>{saleItem.length}</SaleItemCount>
+      </SaleProduct>
+      <OrderProduct>주문/배송</OrderProduct>
+      <ReviewProduct>문의/리뷰</ReviewProduct>
+      <Analysis>통계</Analysis>
+      <StoreSetting>스토어 설정</StoreSetting>
+    </ItemList>
   );
 }
 
 export default SellerDashboardMenu;
+
+const ItemList = styled.ul`
+  display: inline-block;
+  width: 250px;
+  margin-left: 100px;
+`;
+
+const SaleItemCount = styled.p`
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  text-align: center;
+  color: #ffffff;
+  background: #eb5757;
+`;
+
+const SaleProduct = styled.li`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 250px;
+  padding: 15px;
+  border-radius: 5px;
+  background: #21bf48;
+`;
+
+const OrderProduct = styled.li`
+  width: 250px;
+  padding: 15px;
+  border-radius: 5px;
+  :hover {
+    background-color: #effff3;
+  }
+`;
+
+const ReviewProduct = styled.li`
+  width: 250px;
+  padding: 15px;
+  border-radius: 5px;
+  :hover {
+    background-color: #effff3;
+  }
+`;
+
+const Analysis = styled.li`
+  width: 250px;
+  padding: 15px;
+  border-radius: 5px;
+  :hover {
+    background-color: #effff3;
+  }
+`;
+
+const StoreSetting = styled.li`
+  width: 250px;
+  padding: 15px;
+  border-radius: 5px;
+  :hover {
+    background-color: #effff3;
+  }
+`;
