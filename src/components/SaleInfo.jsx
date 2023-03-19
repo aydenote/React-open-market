@@ -1,33 +1,110 @@
-import SaleDeleteButton from "./SaleDeleteButton";
-import styles from "./styles/SaleInfo.module.css";
+import { useSelector } from 'react-redux';
+import SaleUpdateButton from './button/ItemUpdate';
+import SaleDeleteButton from './button/SaleDeleteButton';
+import styled from 'styled-components';
 
-function SaleInfo({ sellerData }) {
+function SaleInfo() {
+  const saleItem = useSelector(state => state.seller);
+
   return (
-    <section className={styles.container}>
+    <Container>
       <header>
-        <ul className={styles.sailHeader}>
+        <HeaderList>
           <li>상품 정보</li>
           <li>판매 가격</li>
           <li>수정</li>
           <li>삭제</li>
-        </ul>
+        </HeaderList>
       </header>
-      {sellerData.map((item) => (
-        <article className={styles.itemContainer} key={item.product_id} data-id={item.product_id}>
-          <div className={styles.itemInfo}>
-            <img className={styles.itemImg} src={item.image} alt="상품" />
-            <div className={styles.itemInfoText}>
-              <p className={styles.itemName}>{item.product_name}</p>
-              <p className={styles.itemStock}>재고 : {item.stock}개</p>
-            </div>
+      {saleItem.map(item => (
+        <ItemContainer key={item.product_id} data-id={item.product_id}>
+          <div>
+            <ItemImg src={item.image} alt="상품" />
+            <ItemInfoText>
+              <ItemName>{item.product_name}</ItemName>
+              <ItemStock>재고 : {item.stock}개</ItemStock>
+            </ItemInfoText>
           </div>
-          <p className={styles.itemPrice}>{item.price.toLocaleString()}원</p>
-          <button className={styles.itemUpdate}>수정</button>
+          <ItemPrice>{item.price.toLocaleString()}원</ItemPrice>
+          <SaleUpdateButton />
           <SaleDeleteButton />
-        </article>
+        </ItemContainer>
       ))}
-    </section>
+    </Container>
   );
 }
 
 export default SaleInfo;
+
+const Container = styled.section`
+  width: 1440px;
+  height: 884px;
+  margin: 0 100px 96px 30px;
+  background: #f2f2f2;
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+  overflow: hidden;
+`;
+
+const HeaderList = styled.ul`
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  line-height: 60px;
+  text-align: center;
+  font-family: 'Spoqa Han Sans Neo';
+  font-style: normal;
+  border-bottom: 1px solid #c4c4c4;
+  background: #ffffff;
+`;
+
+const ItemContainer = styled.article`
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  padding: 16px 0px;
+  align-items: center;
+  background: #ffffff;
+  border-bottom: 1px solid #c4c4c4;
+`;
+
+const ItemImg = styled.img`
+  float: left;
+  width: 70px;
+  height: 70px;
+  margin-left: 30px;
+  border-radius: 50%;
+`;
+
+const ItemInfoText = styled.div`
+  display: flex;
+  margin-top: 12px;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+const ItemName = styled.p`
+  display: inline-block;
+  margin-left: 30px;
+  font-family: 'Spoqa Han Sans Neo';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+`;
+
+const ItemStock = styled.p`
+  display: inline-block;
+  margin-left: 30px;
+  margin-top: 10px;
+  font-family: 'Spoqa Han Sans Neo';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: #767676;
+`;
+
+const ItemPrice = styled.p`
+  text-align: center;
+  font-family: 'Spoqa Han Sans Neo';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+`;
