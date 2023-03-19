@@ -1,6 +1,6 @@
-import { useState } from "react";
-import styles from "./styles/SaleDeleteButton.module.css";
-import ModalSaleItemDelete from "./ModalSaleItemDelete";
+import { useState } from 'react';
+import ModalSaleItemDelete from '../ModalSaleItemDelete';
+import styles from '../styles/SaleDeleteButton.module.css';
 
 function SaleDeleteButton() {
   let [modalOpen, setModalOpen] = useState(false);
