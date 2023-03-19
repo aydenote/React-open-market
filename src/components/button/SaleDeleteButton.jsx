@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import ModalSaleItemDelete from '../ModalSaleItemDelete';
-import styles from '../styles/SaleDeleteButton.module.css';
+import styled from 'styled-components';
+import ModalSaleItemDelete from '../modal/ModalSaleItemDelete';
 
 function SaleDeleteButton() {
   let [modalOpen, setModalOpen] = useState(false);
@@ -11,11 +11,19 @@ function SaleDeleteButton() {
 
   return (
     <>
-      <button className={styles.itemDelete} onClick={clickDeleteBtn}>
-        삭제
-      </button>
+      <ItemDelete onClick={clickDeleteBtn}>삭제</ItemDelete>
       {modalOpen && <ModalSaleItemDelete setModalOpen={setModalOpen} />}
     </>
   );
 }
 export default SaleDeleteButton;
+
+const ItemDelete = styled.button`
+  width: 80px;
+  height: 40px;
+  margin: auto;
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+  background: #ffffff;
+  cursor: pointer;
+`;
