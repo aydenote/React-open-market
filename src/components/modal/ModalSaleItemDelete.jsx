@@ -1,25 +1,16 @@
-import axios from 'axios';
-import styles from '../styles/ModalSaleItemDelete.module.css';
+import { deleteSaleProduct } from '../../apis/seller';
 import deleteImg from '../../asset/icon-delete.svg';
-import { getCookie } from '../../util/cookie';
+import styles from '../styles/ModalSaleItemDelete.module.css';
 
 function ModalSaleItemDelete({ setModalOpen }) {
   function closeModal() {
     setModalOpen(false);
   }
 
-  function saleProductDeleteAxios(productId) {
-    axios.delete(`https://openmarket.weniv.co.kr/products/${productId}`, {
-      headers: {
-        Authorization: `JWT ${getCookie('Token')}`,
-      },
-    });
-  }
-
   async function clickAccept(event) {
     const cancelNode = event.target.closest('article').parentNode;
     cancelNode.parentNode.removeChild(cancelNode);
-    saleProductDeleteAxios(cancelNode.dataset.id);
+    deleteSaleProduct(cancelNode.dataset.id);
   }
 
   return (
