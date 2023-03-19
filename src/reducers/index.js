@@ -6,6 +6,7 @@ import loginFail from './loginFail';
 import signupType from './signupType';
 import signupFail from './signupFail';
 import cart from './cart';
+import seller from './seller';
 
 const rootReducer = combineReducers({
   mainProduct,
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   signupType,
   signupFail,
   cart,
+  seller,
 });
 
 export default rootReducer;
