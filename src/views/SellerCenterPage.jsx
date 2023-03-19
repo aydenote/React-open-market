@@ -1,5 +1,5 @@
-import SellerHeader from "../components/header/SellerHeader.jsx";
-import SellerDashboard from "../components/SellerDashboard.jsx";
+import SellerHeader from '../components/header/SellerHeader.jsx';
+import SellerDashboard from '../components/sellerboard/SellerDashboard.jsx';
 
 function SellerCenterPage() {
   return (

@@ -1,8 +1,8 @@
-import styles from "./styles/SellerDashboardMenu.module.css";
+import styles from '../styles/SellerDashboardMenu.module.css';
 
 function SellerDashboardMenu({ sellerData }) {
   function clickMenu(event) {
-    event.target.parentNode.childNodes.forEach((menu) => menu.classList.remove(`${styles.clicked}`));
+    event.target.parentNode.childNodes.forEach(menu => menu.classList.remove(`${styles.clicked}`));
     event.target.classList.add(`${styles.clicked}`);
   }
 

@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
-import uploadImg from "../asset/icon-plus.svg";
-import styles from "./styles/UploadBar.module.css";
+import { Link } from 'react-router-dom';
+import uploadImg from '../../asset/icon-plus.svg';
+import styles from '../styles/UploadBar.module.css';
 
 function UploadBar({ sellerData }) {
   return (
