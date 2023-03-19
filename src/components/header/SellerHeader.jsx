@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
-import LogoImg from "../asset/Logo-hodu.svg";
-import styles from "./styles/SellerHeader.module.css";
+import { Link } from 'react-router-dom';
+import LogoImg from '../../asset/Logo-hodu.svg';
+import styles from '../styles/SellerHeader.module.css';
 
 function SellerHeader() {
   return (

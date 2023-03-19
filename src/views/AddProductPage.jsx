@@ -1,5 +1,5 @@
-import SellerHeader from "../components/SellerHeader.jsx";
-import AddProduct from "../components/AddProduct.jsx";
+import SellerHeader from '../components/header/SellerHeader.jsx';
+import AddProduct from '../components/AddProduct.jsx';
 
 function AddProductPage() {
   return (
