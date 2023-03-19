@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
-import CartImg from "../asset/shopping-cart.svg";
-import styles from "./styles/HeaderBuyer.module.css";
-import MyPage from "./MyPage";
+import { Link } from 'react-router-dom';
+import CartImg from '../../asset/shopping-cart.svg';
+import styles from '../styles/HeaderBuyer.module.css';
+import MyPage from '../MyPage';
 
 function HeaderBuyer() {
   return (
