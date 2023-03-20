@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import DirectShipping from './button/DirectShipping';
-import ParcelShipping from './button/ParcelShipping';
+import DirectShipping from '../button/DirectShipping';
+import ParcelShipping from '../button/ParcelShipping';
 import styled from 'styled-components';
 
 function AddProductInfoDetail() {

@@ -1,5 +1,5 @@
-import AddProductCancel from './button/AddProductCancel';
-import SaveButton from './button/Save';
+import AddProductCancel from '../button/AddProductCancel';
+import SaveButton from '../button/Save';
 import styled from 'styled-components';
 
 function AddProductBtn({ imgFile }) {

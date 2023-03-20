@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import uploadSrc from '../asset/icon-imgUpload.svg';
+import uploadSrc from '../../asset/icon-imgUpload.svg';
 import styled from 'styled-components';
 
 function AddProductInfo({ setImgFile }) {
