@@ -1,11 +1,14 @@
+import { useDispatch } from 'react-redux';
 import { deleteSaleProduct } from '../../apis/seller';
+import { deleteSaleState } from '../../reducers/seller';
 import styled from 'styled-components';
 
 function Accept() {
+  const dispatch = useDispatch();
   function clickAccept(event) {
     const cancelNode = event.target.closest('article').parentNode;
-    cancelNode.parentNode.removeChild(cancelNode);
     deleteSaleProduct(cancelNode.dataset.id);
+    dispatch(deleteSaleState(parseInt(cancelNode.dataset.id)));
   }
 
   return <AcceptButton onClick={clickAccept}>확인</AcceptButton>;
