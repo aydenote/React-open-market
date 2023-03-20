@@ -1,15 +1,15 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import UploadBar from './UploadBar';
-import SaleInfo from '../SaleInfo';
+import SaleInfo from './SaleInfo';
 import SellerDashboardMenu from './SellerDashboardMenu';
 import { setSaleState } from '../../reducers/seller';
 import { getSaleProduct } from '../../apis/seller';
 import styled from 'styled-components';
 
 function SellerDashboard() {
-  const saleItem = useSelector(state => state.seller);
   const dispatch = useDispatch();
+  const saleItem = useSelector(state => state.seller);
 
   useEffect(() => {
     getSaleProduct().then(saleItemRes => dispatch(setSaleState(saleItemRes.data.results)));
