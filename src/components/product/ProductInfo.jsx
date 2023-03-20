@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import BuyButton from './button/Buy';
-import CartButton from './button/Cart';
-import Decrease from './button/DetailDecrease';
-import Increase from './button/DetailIncrease';
+import BuyButton from '../button/Buy';
+import CartButton from '../button/Cart';
+import Decrease from '../button/DetailDecrease';
+import Increase from '../button/DetailIncrease';
 import styled from 'styled-components';
 
 function ProductInfo() {
