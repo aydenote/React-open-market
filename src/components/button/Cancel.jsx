@@ -1,4 +1,3 @@
-import cancelSrc from '../../asset/icon-delete.svg';
 import styled from 'styled-components';
 
 function Cancel({ setModalOpen }) {
