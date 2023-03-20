@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { getProducts } from '../apis/products';
-import { setProductState } from '../reducers/mainProduct';
+import { getProducts } from '../../apis/products';
+import { setProductState } from '../../reducers/mainProduct';
 import styled from 'styled-components';
 
 function MainProduct() {
