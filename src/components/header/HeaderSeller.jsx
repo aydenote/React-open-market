@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import MyPage from '../MyPage';
+import MyPage from '../modal/MyPage';
 import BagImg from '../../asset/icon-shopping-bag.svg';
 import styled from 'styled-components';
 
