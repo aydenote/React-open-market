@@ -28,8 +28,9 @@ const ItemList = styled.ul`
 
 const SaleItemCount = styled.p`
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
+  line-height: 28px;
   border-radius: 50%;
   text-align: center;
   color: #ffffff;
