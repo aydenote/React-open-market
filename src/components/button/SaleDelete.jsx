@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import styled from 'styled-components';
 import ModalSaleItemDelete from '../modal/ModalSaleItemDelete';
+import styled from 'styled-components';
 
-function SaleDeleteButton() {
+function SaleDelete() {
   let [modalOpen, setModalOpen] = useState(false);
 
   function clickDeleteBtn() {
@@ -16,7 +16,7 @@ function SaleDeleteButton() {
     </>
   );
 }
-export default SaleDeleteButton;
+export default SaleDelete;
 
 const ItemDelete = styled.button`
   width: 80px;
