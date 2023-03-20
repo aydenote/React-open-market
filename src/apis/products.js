@@ -17,3 +17,14 @@ export function getProductDetail(productId) {
     },
   });
 }
+
+export function addProduct(formData) {
+  return axios({
+    url: `https://openmarket.weniv.co.kr/products/`,
+    method: 'post',
+    headers: {
+      Authorization: `JWT ${getCookie('Token')}`,
+    },
+    data: formData,
+  });
+}
