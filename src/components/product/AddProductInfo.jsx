@@ -1,14 +1,17 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setImage } from '../../reducers/image';
 import uploadSrc from '../../asset/icon-imgUpload.svg';
 import styled from 'styled-components';
 
-function AddProductInfo({ setImgFile }) {
+function AddProductInfo() {
+  const dispatch = useDispatch();
   const [imageSrc, setImageSrc] = useState('');
 
   function encodeFileToBase64(fileBlob) {
     const reader = new FileReader();
     reader.readAsDataURL(fileBlob);
-    setImgFile(fileBlob);
+    dispatch(setImage(fileBlob));
     return new Promise(resolve => {
       reader.onload = () => {
         setImageSrc(reader.result);

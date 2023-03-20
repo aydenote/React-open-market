@@ -7,6 +7,7 @@ import signupType from './signupType';
 import signupFail from './signupFail';
 import cart from './cart';
 import seller from './seller';
+import image from './image';
 
 const rootReducer = combineReducers({
   mainProduct,
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   signupFail,
   cart,
   seller,
+  image,
 });
 
 export default rootReducer;
