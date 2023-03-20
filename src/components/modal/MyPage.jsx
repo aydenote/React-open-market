@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import UserImg from '../../asset/user.svg';
 import MyPageDropDown from '../MyPageDropDown';
-import styles from '../styles/MyPage.module.css';
+import userSrc from '../../asset/user.svg';
+import styled from 'styled-components';
 
 function MyPage() {
   let [modalOpen, setModalOpen] = useState(false);
@@ -15,10 +15,31 @@ function MyPage() {
   }
 
   return (
-    <div className={styles.myPageContainer} onClick={clickMyPageDropDown}>
-      <img className={styles.myPage} src={UserImg} alt="마이페이지" />
+    <MyPageContainer onClick={clickMyPageDropDown}>
+      <MyPageImage src={userSrc} alt="마이페이지" />
       {modalOpen && <MyPageDropDown />}
-    </div>
+    </MyPageContainer>
   );
 }
 export default MyPage;
+
+const MyPageContainer = styled.div`
+  position: relative;
+  margin-left: 30px;
+  cursor: pointer;
+  ::after {
+    content: '마이페이지';
+    display: block;
+    font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #767676;
+  }
+`;
+
+const MyPageImage = styled.img`
+  display: block;
+  margin: auto;
+`;
