@@ -1,11 +1,7 @@
-import { useSelector } from 'react-redux';
-import SaleUpdateButton from './button/ItemUpdate';
-import SaleDeleteButton from './button/SaleDeleteButton';
+import SaleItem from './SaleItem';
 import styled from 'styled-components';
 
 function SaleInfo() {
-  const saleItem = useSelector(state => state.seller);
-
   return (
     <Container>
       <header>
@@ -16,20 +12,7 @@ function SaleInfo() {
           <li>삭제</li>
         </HeaderList>
       </header>
-      {saleItem.map(item => (
-        <ItemContainer key={item.product_id} data-id={item.product_id}>
-          <div>
-            <ItemImg src={item.image} alt="상품" />
-            <ItemInfoText>
-              <ItemName>{item.product_name}</ItemName>
-              <ItemStock>재고 : {item.stock}개</ItemStock>
-            </ItemInfoText>
-          </div>
-          <ItemPrice>{item.price.toLocaleString()}원</ItemPrice>
-          <SaleUpdateButton />
-          <SaleDeleteButton />
-        </ItemContainer>
-      ))}
+      <SaleItem />
     </Container>
   );
 }
