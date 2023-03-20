@@ -1,14 +1,15 @@
-import { useState } from "react";
-import styles from "./styles/AddProductInfo.module.css";
+import { useState } from 'react';
+import uploadSrc from '../asset/icon-imgUpload.svg';
+import styled from 'styled-components';
 
 function AddProductInfo({ setImgFile }) {
-  const [imageSrc, setImageSrc] = useState("");
+  const [imageSrc, setImageSrc] = useState('');
 
   function encodeFileToBase64(fileBlob) {
     const reader = new FileReader();
     reader.readAsDataURL(fileBlob);
     setImgFile(fileBlob);
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       reader.onload = () => {
         setImageSrc(reader.result);
         resolve();
@@ -16,22 +17,50 @@ function AddProductInfo({ setImgFile }) {
     });
   }
 
+  function changeImage(event) {
+    if (event.target.files[0]) encodeFileToBase64(event.target.files[0]);
+  }
+
   return (
-    <main className={styles.container}>
-      <p className={styles.infoTitle}>상품 이미지</p>
-      <input
-        className={styles.imgInput}
-        type="file"
-        id="imgFile"
-        accept="image/*"
-        onChange={(event) => {
-          if (event.target.files[0]) {
-            encodeFileToBase64(event.target.files[0]);
-          }
-        }}
-      ></input>
-      <label htmlFor="imgFile">{imageSrc ? <img className={styles.previewImg} src={imageSrc} alt="" /> : <div className={styles.nonImg} />}</label>
-    </main>
+    <Container>
+      <InfoTitle>상품 이미지</InfoTitle>
+      <ImgInput type="file" id="imgFile" accept="image/*" onChange={changeImage}></ImgInput>
+      <label htmlFor="imgFile">{imageSrc ? <PreviewImage src={imageSrc} alt="" /> : <NonImageBox />}</label>
+    </Container>
   );
 }
 export default AddProductInfo;
+
+const Container = styled.main`
+  display: inline-block;
+  margin-left: 80px;
+`;
+
+const InfoTitle = styled.p`
+  margin-bottom: 10px;
+  font-family: 'Spoqa Han Sans Neo';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #767676;
+`;
+
+const ImgInput = styled.input`
+  display: none;
+`;
+
+const PreviewImage = styled.img`
+  width: 454px;
+  height: 454px;
+  object-fit: fill;
+  cursor: pointer;
+`;
+
+const NonImageBox = styled.div`
+  display: inline-block;
+  padding: 227px;
+  background: url(${uploadSrc}) no-repeat center;
+  background-color: #c4c4c4;
+  cursor: pointer;
+`;
