@@ -1,5 +1,5 @@
-import MyPage from './button/MyPage';
-import Logout from './button/Logout';
+import MyPage from '../button/MyPage';
+import Logout from '../button/Logout';
 import styled from 'styled-components';
 
 function MyPageDropDown() {

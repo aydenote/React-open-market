@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import MyPageDropDown from '../MyPageDropDown';
+import MyPageDropDown from './MyPageDropDown';
 import userSrc from '../../asset/user.svg';
 import styled from 'styled-components';
 
