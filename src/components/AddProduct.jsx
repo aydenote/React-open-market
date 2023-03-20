@@ -1,24 +1,41 @@
+import { useState } from 'react';
 import Caution from './Caution';
 import AddProductInfo from './AddProductInfo';
 import AddProductInfoDetail from './AddProductInfoDetail';
 import ProductDetailText from './ProductDetailText';
 import AddProductBtn from './AddProductBtn';
-import styles from './styles/AddProduct.module.css';
-import { useState } from 'react';
+import styled from 'styled-components';
 
 function AddProduct() {
   let [imgFile, setImgFile] = useState('');
+
   return (
     <>
-      <h1 className={styles.pageTitle}>상품 등록</h1>
-      <section className={styles.mainContentBox}>
+      <PageTitle>상품 등록</PageTitle>
+      <MainContentBox>
         <Caution />
         <AddProductInfo setImgFile={setImgFile} />
         <AddProductInfoDetail />
         <ProductDetailText />
         <AddProductBtn imgFile={imgFile} />
-      </section>
+      </MainContentBox>
     </>
   );
 }
+
 export default AddProduct;
+
+const PageTitle = styled.h1`
+  margin: 44px 0px 42px 100px;
+  font-family: 'Spoqa Han Sans Neo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 44px;
+`;
+
+const MainContentBox = styled.section`
+  display: grid;
+  grid-template-columns: 420px 534px 866px;
+  grid-template-rows: 484px 1fr 220px;
+`;
