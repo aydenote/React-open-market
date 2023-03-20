@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Caution from './Caution';
 import AddProductInfo from './AddProductInfo';
 import AddProductInfoDetail from './AddProductInfoDetail';
@@ -7,17 +6,15 @@ import AddProductBtn from './AddProductBtn';
 import styled from 'styled-components';
 
 function AddProduct() {
-  let [imgFile, setImgFile] = useState('');
-
   return (
     <>
       <PageTitle>상품 등록</PageTitle>
       <MainContentBox>
         <Caution />
-        <AddProductInfo setImgFile={setImgFile} />
+        <AddProductInfo />
         <AddProductInfoDetail />
         <ProductDetailText />
-        <AddProductBtn imgFile={imgFile} />
+        <AddProductBtn />
       </MainContentBox>
     </>
   );

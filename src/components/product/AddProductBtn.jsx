@@ -2,11 +2,11 @@ import AddProductCancel from '../button/AddProductCancel';
 import SaveButton from '../button/Save';
 import styled from 'styled-components';
 
-function AddProductBtn({ imgFile }) {
+function AddProductBtn() {
   return (
     <ButtonContainer>
       <AddProductCancel />
-      <SaveButton imgFile={imgFile} />
+      <SaveButton />
     </ButtonContainer>
   );
 }
