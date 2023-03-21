@@ -106,11 +106,16 @@
 
 </div>
 
+<div align='center'>
+  
 # 🌱 Folder Tree
+  
+</div>
+<details>
+    <summary>⏱ React Open Market</summary>
+    <div>
 
-```
-⏱ React Open Market
-┃
+ ```
 ┣ 📝 README.md
 ┣ 📝 .gitignore
 ┣ 📄 package.json
@@ -166,3 +171,5 @@
   ┣ 🧾 index.js
   ┗ 🧾 App.js
 ```
+
+</details>
