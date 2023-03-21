@@ -5,11 +5,15 @@
 </div>
 
 ### 💳  **서비스 이용을 위한 계정**
-
-- 📧 **ID** : buyer1
+구매자
+- 📧 **ID** : buyer1
 - 🔐 **PW** : hodu0910
 
-### ⏲ 프로젝트 기간 : 10월 8일 ~ 진행 중
+판매자
+- 📧 **ID** : seller1
+- 🔐 **PW** : hodu0910
+
+### ⏲ 프로젝트 기간 : 10월 8일 ~ 3월 20일
 
 <br>
 <br>
@@ -39,8 +43,8 @@
 </div>
 
 ```
-🔷 Front : React, CSS
-🔶 Back : 제공된 API 사용
+🔷 Front : React, Styled-Components, Redux, React-Router-dom, React-cookie, Slick-carousel, Axios
+🔶 Back  : 제공된 API 사용
 ```
 
 <br>
@@ -111,18 +115,54 @@
 ┣ 📝 .gitignore
 ┣ 📄 package.json
 ┣ 📄 package.lock.json
-┃
 ┣ 📂 public
 ┃ ┣ 📝 index.html
 ┃ ┗ 🎨 reset.css
-┃
 ┣ 📂 src
-┃ ┣ 📂 asset
-┃ ┃ ┗ 🧾 이미지 파일들
+┃ ┣ 📂 apis
+┃ ┃ ┣ 📝 cart.js
+┃ ┃ ┣ 📝 login.js
+┃ ┃ ┣ 📝 products.js
+┃ ┃ ┣ 📝 seller.js
+┃ ┃ ┗ 📝 signup.js
+┃ ┣ 📂 asset
+┃ ┃ ┗ 🎨 이미지 파일들
 ┃ ┣ 📂 components
-┃ ┃ ┗ 🧾 componets jsx 파일들
-┃ ┣ 📂 views
-┃ ┃ ┗ 🧾 페이지 구성 jsx 파일들
-┃ ┃ 🟡 index.js
-┃ ┃ 🟡 App.js
+┃ ┃ ┣ 📂 button
+┃ ┃ ┣ 📂 buy
+┃ ┃ ┣ 📂 cart
+┃ ┃ ┣ 📂 footer
+┃ ┃ ┣ 📂 form
+┃ ┃ ┣ 📂 header
+┃ ┃ ┣ 📂 login
+┃ ┃ ┣ 📂 modal
+┃ ┃ ┣ 📂 product
+┃ ┃ ┣ 📂 sellerboard
+┃ ┃ ┣ 📂 signup
+┃ ┃ ┗ 📂 slide
+┃ ┣ 📂 views
+┃ ┃ ┣ 🧾 AddProductPage.jsx
+┃ ┃ ┣ 🧾 BuyPage.jsx
+┃ ┃ ┣ 🧾 CartPage.jsx
+┃ ┃ ┣ 🧾 LoginPage.jsx
+┃ ┃ ┣ 🧾 MainPage.jsx
+┃ ┃ ┣ 🧾 ProductDetailPage.jsx
+┃ ┃ ┣ 🧾 AddProductPage.jsx
+┃ ┃ ┣ 🧾 SellerCenterPage.jsx
+┃ ┃ ┗ 🧾 SignUpPage.jsx
+┃ ┣ 📂 reducers
+┃ ┃ ┣ 🧾 cart.js
+┃ ┃ ┣ 🧾 counter.js
+┃ ┃ ┣ 🧾 image.js
+┃ ┃ ┣ 🧾 index.js
+┃ ┃ ┣ 🧾 loginFail.js
+┃ ┃ ┣ 🧾 loginType.js
+┃ ┃ ┣ 🧾 mainProduct.js
+┃ ┃ ┣ 🧾 seller.js 
+┃ ┃ ┣ 🧾 signupFail.js 
+┃ ┃ ┗ 🧾 signupType.js 
+┗ ┣ 📂 util
+  ┃ ┗ 🧾 cookie.js
+  ┣ 🧾 index.js
+  ┗ 🧾 App.js
 ```
