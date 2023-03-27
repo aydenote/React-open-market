@@ -1,20 +1,14 @@
 import { Link } from 'react-router-dom';
-import CartImg from '../../asset/shopping-cart.svg';
 import UserImg from '../../asset/user.svg';
 import styled from 'styled-components';
 
 function HeaderNonLogin() {
   return (
-    <>
-      <CartContainer>
-        <CartImage src={CartImg} alt="장바구니" />
-      </CartContainer>
-      <Link to="/login">
-        <LoginContainer>
-          <LoginImage src={UserImg} alt="로그인" />
-        </LoginContainer>
-      </Link>
-    </>
+    <Link to="/login">
+      <LoginContainer>
+        <LoginImage src={UserImg} alt="로그인" />
+      </LoginContainer>
+    </Link>
   );
 }
 export default HeaderNonLogin;
