@@ -13,6 +13,9 @@
 - 📧 **ID** : seller1
 - 🔐 **PW** : hodu0910
 
+
+### 🔗 배포 링크 : https://steady-croissant-b686de.netlify.app/
+
 ### ⏲ 프로젝트 기간 : 10월 8일 ~ 3월 20일
 
 <br>
@@ -102,7 +105,9 @@
 
 # 🐛 Fix : 개발 이슈
 
-[![Velog's GitHub stats](https://velog-readme-stats.vercel.app/api?name=aydenote&tag=React)](https://velog.io/@aydenote)
+<a href='https://velog.io/@aydenote/%EC%B2%98%EC%9D%8C%EB%B6%80%ED%84%B0-%EB%8B%A4%EC%8B%9C-%EB%B3%B5%EC%8A%B5%ED%95%98%EB%8A%94-Re-React' target='_blank'>
+프로젝트 블로그
+</a>
 
 </div>
 
